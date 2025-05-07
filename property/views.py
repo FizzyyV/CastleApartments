@@ -3,9 +3,9 @@ from django.shortcuts import render
 
 # Create your views here.
 
-property = [
+properties = [
     {
-        'id': 1,
+        'id': 0,
         'street_name': 'Faxabraut',
         'house_num': '130',
         'city': 'Keflavík',
@@ -26,7 +26,12 @@ property = [
 
 def index(request):
     return render(request, template_name="property/properties.html", context={
-        "porperties"
+        "properties": properties
     })
-def get_apartment_by_id(request, id):
-    return HttpResponse(f"Response from {request.path} with id {id}")
+
+def get_property_by_id(request, id):
+    property = [x for x in properties if x.id == id][0]
+
+    return render(request, template_name="property/property_detail.html", context={
+        "property": property
+    })
