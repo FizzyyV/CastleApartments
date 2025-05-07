@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="adding different URLS">
-      <change afterPath="$PROJECT_DIR$/templates/apartments/apartments.html" afterDir="false" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="start of creating address and property classes">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CastleApartments.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CastleApartments.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apartments/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apartments/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,26 +30,26 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Soley-Branch" />
+        <entry key="$PROJECT_DIR$" value="Tomas-Branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "FizzyyV"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FizzyyV&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FizzyyV/CastleApartments.git",
-    "accountId": "031e2f66-9d0f-460d-9965-ff1cd71ec549"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FizzyyV/CastleApartments.git&quot;,
+    &quot;accountId&quot;: &quot;031e2f66-9d0f-460d-9965-ff1cd71ec549&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2wiuipq9bEhOttK28hXhnACjfbo" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -61,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "TEST",
+    "git-widget-placeholder": "Soley-Branch",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -139,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746541737751</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="start of creating address and property classes">
+      <option name="closed" value="true" />
+      <created>1746627207225</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1746627207225</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +171,7 @@
     <MESSAGE value="first push" />
     <MESSAGE value="getting rid of manudacturer" />
     <MESSAGE value="adding different URLS" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding different URLS" />
+    <MESSAGE value="start of creating address and property classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="start of creating address and property classes" />
   </component>
 </project>

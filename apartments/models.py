@@ -18,5 +18,11 @@ class Property(models.Model):
     propListingDate = models.DateField()
     propThumbnail = models.ImageField()
     propImages = models.ImageField()
+    propIsSold = models.BooleanField()
+    propBedrooms = models.IntegerField()
+    propBathrooms = models.IntegerField()
+    propSquareMeters = models.FloatField()
+    sellerId = models.IntegerField()
+
 
 
