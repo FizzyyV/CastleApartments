@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
-    'property.apps.ApartmentsConfig'
-
     'property.apps.PropertyConfig',
 ]
 
