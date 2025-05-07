@@ -25,5 +25,5 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey(Seller.user) #TODO: add seller id as foreign key
+    sellerId = models.ForeignKey(Seller.user, on_delete=models.CASCADE) #TODO: add seller id as foreign key
 
