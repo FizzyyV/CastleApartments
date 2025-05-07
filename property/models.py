@@ -1,5 +1,8 @@
 from django.db import models
 
+from user.models import Seller
+
+
 # Create your models here.
 class Address(models.Model):
     street_name = models.CharField(max_length=100)
@@ -22,5 +25,5 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    #sellerId = models.ForeignKey() #TODO: add seller id as foreign key
+    sellerId = models.ForeignKey(Seller.user) #TODO: add seller id as foreign key
 
