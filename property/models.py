@@ -22,7 +22,5 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.IntegerField()
-
-
+    sellerId = models.ForeignKey() #TODO: add seller id as foreign key
 
