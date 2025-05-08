@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Property, Address
+from django.http import Http404
 # Create your views here.
 
 properties = [
@@ -36,7 +37,18 @@ def index(request):
 def get_property_by_id(request, prop_id):
     property_to_get = [x for x in properties if x.id == prop_id][0]
 
-    return render(request, template_name="property/property_detail.html", context={
-        "property": property_to_get
-    })
+    return render(request,
+                  template_name="property/property_detail.html",
+                  context={"property": property_to_get}
+                  )
 
+### error codes ###
+def property_detail(request, property_id):
+    try:
+        property_to_get = Property.objects.get(id=property_id)
+    except Property.DoesNotExist:
+        raise Http404("Property not found")
+    return render(request,
+                  template_name="property/property_detail.html",
+                  context={"property": property_to_get}
+                  )
