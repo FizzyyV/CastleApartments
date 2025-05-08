@@ -16,20 +16,19 @@ class Address(models.Model):
         return f"{self.street_name} {self.house_number} {self.city} {self.postal_code}"
 
 class Property(models.Model):
-    propertyId = models.AutoField(primary_key=True)
     propertyName = models.CharField(max_length=100)
     propAddress = models.ForeignKey(Address, on_delete=models.CASCADE)
     propDescription = models.TextField()
     propertyType = models.CharField(max_length=100)
     propListingPrice = models.FloatField()
     propListingDate = models.DateField()
-    propThumbnail = models.ImageField()
-    propImages = models.ImageField()
+    propThumbnail = models.ImageField(upload_to="property/thumbnail", null=True, blank=True)
+    propImages = models.ImageField(upload_to="property/images", null=True, blank=True)
     propIsSold = models.BooleanField()
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey(Seller, on_delete=models.CASCADE)
+    sellerId = models.ForeignKey(Seller, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return f"{self.propertyId} {self.propertyName}"
+        return f"{self.propertyName}"
