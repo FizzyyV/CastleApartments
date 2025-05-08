@@ -1,6 +1,6 @@
 from django.db import models
 
-import account.models
+#import account.models
 from account.models import Seller
 
 

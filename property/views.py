@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-
+from .models import Property, Address
 # Create your views here.
 
 properties = [
@@ -25,13 +25,18 @@ properties = [
 ]
 
 def index(request):
+    # latest_property_list = Property.objects.all().order_by('-listing_date')
+    # output = {'latest_property_list': latest_property_list}
+    # return HttpResponse(output)
+
     return render(request, template_name="property/properties.html", context={
         "properties": properties
     })
 
-def get_property_by_id(request, id):
-    property = [x for x in properties if x.id == id][0]
+def get_property_by_id(request, prop_id):
+    property_to_get = [x for x in properties if x.id == prop_id][0]
 
     return render(request, template_name="property/property_detail.html", context={
-        "property": property
+        "property": property_to_get
     })
+
