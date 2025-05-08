@@ -26,7 +26,7 @@ from .models import Property #, Address
 # ]
 
 def index(request):
-    '''get all properties'''
+    """get all properties"""
     all_properties = Property.objects.all()
     return  render(request,
                    "property/properties.html",
@@ -41,7 +41,7 @@ def index(request):
     # })
 
 def get_property_by_id(request, prop_id):
-    '''return property with some id'''
+    """return property with some id"""
     property_to_get = get_object_or_404(Property, pk=prop_id)
     return render(request,
                   "property/property_detail.html",
