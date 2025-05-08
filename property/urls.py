@@ -4,8 +4,8 @@ from . import views
 urlpatterns = [
 
     # http://localhost:9000 (root)
-    path('', views.index, name='apartments-index'),
+    path('', views.index, name='property-index'),
 
     # http://localhost:9000/123 (id NUM)
-    path('<int:id>', views.get_apartment_by_id, name='apartments-by-id'),
+    path('<int:id>', views.get_property_by_id, name='property-by-id'),
 ]

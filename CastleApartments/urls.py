@@ -21,7 +21,7 @@ from django.urls import path, include
 urlpatterns = [
 
     # http://localhost:5000/
-    path('', include('apartments.urls')),
+    path('', include('property.urls')),
 
     # http://localhost:5000/admin
     path('admin/', admin.site.urls),
