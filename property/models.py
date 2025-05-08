@@ -20,7 +20,6 @@ class Address(models.Model):
 class Property(models.Model):
     class Meta:
         verbose_name_plural = "Properties"
-    property_id = models.IntegerField()
     propertyName = models.CharField(max_length=100)
     propAddress = models.ForeignKey(Address, on_delete=models.CASCADE)
     propDescription = models.TextField()
