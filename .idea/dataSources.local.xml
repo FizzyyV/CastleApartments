@@ -5,5 +5,9 @@
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
       <schema-mapping />
     </data-source>
+    <data-source name="db" uuid="c158d544-ea93-4d46-a1c9-b7b3fa0de415">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
