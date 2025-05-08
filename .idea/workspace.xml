@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "Soley-Branch",
+    "git-widget-placeholder": "Eyrun-Branch",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
