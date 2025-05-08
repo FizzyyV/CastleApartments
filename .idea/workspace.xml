@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="completed migration with out issus, finaly :(.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +164,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746629431017</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="conected property to user by giving seller an address using the address class in property">
+      <option name="closed" value="true" />
+      <created>1746701071464</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746701071464</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changed the name of user to account and tryed to migrate, it didint work">
+      <option name="closed" value="true" />
+      <created>1746702645299</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746702645299</updated>
+    </task>
+    <task id="LOCAL-00009" summary="completed migration with out issus, finaly :(.">
+      <option name="closed" value="true" />
+      <created>1746704421171</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746704421171</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +224,9 @@
     <MESSAGE value="added user to settings.py and added information to the modles.py folder in the user and migrated to create a sql" />
     <MESSAGE value="address and property class&#10;property class needs sellerId as foreign key" />
     <MESSAGE value="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key" />
-    <option name="LAST_COMMIT_MESSAGE" value="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key" />
+    <MESSAGE value="conected property to user by giving seller an address using the address class in property" />
+    <MESSAGE value="changed the name of user to account and tryed to migrate, it didint work" />
+    <MESSAGE value="completed migration with out issus, finaly :(." />
+    <option name="LAST_COMMIT_MESSAGE" value="completed migration with out issus, finaly :(." />
   </component>
 </project>
