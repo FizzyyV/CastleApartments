@@ -1,5 +1,6 @@
 from django.db import models
 
+import user.models
 from user.models import Seller
 
 
@@ -12,7 +13,7 @@ class Address(models.Model):
     country = models.CharField(max_length=100)
 
 class Property(models.Model):
-    propertyId = models.IntegerField()
+    propertyId = models.AutoField(primary_key=True)
     propertyName = models.CharField(max_length=100)
     propAddress = models.ForeignKey(Address, on_delete=models.CASCADE)
     propDescription = models.TextField()
@@ -25,5 +26,5 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey(Seller.user, on_delete=models.CASCADE) #TODO: add seller id as foreign key
+    sellerId = models.ForeignKey(Seller.user.id)
 
