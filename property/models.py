@@ -1,7 +1,7 @@
 from django.db import models
 
-import user.models
-from user.models import Seller
+import account.models
+from account.models import Seller
 
 
 # Create your models here.
