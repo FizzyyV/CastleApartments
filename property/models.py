@@ -26,5 +26,4 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey(Seller.user.id)
-
+    sellerId = models.ForeignKey(Seller.user.id, on_delete=models.CASCADE)
