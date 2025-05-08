@@ -25,4 +25,6 @@ urlpatterns = [
 
     # http://localhost:5000/admin
     path('admin/', admin.site.urls),
+
+    path('account/', include('account.urls')),
 ]
