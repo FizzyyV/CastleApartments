@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="changed the name of user to account and tryed to migrate, it didint work">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="completed migration with out issus, finaly :(.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CastleApartments/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CastleApartments/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746702645299</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="completed migration with out issus, finaly :(.">
+      <option name="closed" value="true" />
+      <created>1746704421171</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746704421171</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +226,7 @@
     <MESSAGE value="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key" />
     <MESSAGE value="conected property to user by giving seller an address using the address class in property" />
     <MESSAGE value="changed the name of user to account and tryed to migrate, it didint work" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the name of user to account and tryed to migrate, it didint work" />
+    <MESSAGE value="completed migration with out issus, finaly :(." />
+    <option name="LAST_COMMIT_MESSAGE" value="completed migration with out issus, finaly :(." />
   </component>
 </project>
