@@ -12,6 +12,9 @@ class Address(models.Model):
     postal_code = models.IntegerField()
     country = models.CharField(max_length=100)
 
+    def __str__(self):
+        return f"{self.street_name} {self.house_number} {self.city} {self.postal_code}"
+
 class Property(models.Model):
     propertyId = models.AutoField(primary_key=True)
     propertyName = models.CharField(max_length=100)
@@ -26,4 +29,7 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey(Seller.user.id, on_delete=models.CASCADE)
+    sellerId = models.ForeignKey(Seller, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.propertyId} {self.propertyName}"
