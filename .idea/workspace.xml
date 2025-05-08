@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="testing admin" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="testing admin&#10;fix migration" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746719944635</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="testing admin&#10;fix migration">
+      <option name="closed" value="true" />
+      <created>1746720971801</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746720971801</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,6 +300,7 @@
     <MESSAGE value="comment" />
     <MESSAGE value="migrations" />
     <MESSAGE value="testing admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing admin" />
+    <MESSAGE value="testing admin&#10;fix migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing admin&#10;fix migration" />
   </component>
 </project>
