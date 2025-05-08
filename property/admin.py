@@ -1,5 +1,12 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Property
+from .models import Property, Address
 admin.site.register(Property)
+admin.site.register(Address)
+
+
+'''admin account: 
+username: admin
+email: admin@email.com
+password: admin123'''

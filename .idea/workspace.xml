@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="created property detail view with 404 error handling&#10;created path '&lt;int:property_id&gt;/submit_offer' name: 'property-submit-offer'" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="migrations" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +12,9 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="EndpointsView">
+    <option name="showSidePanel" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -24,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Soley-Branch" />
+        <entry key="$PROJECT_DIR$" value="TEST" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,6 +44,9 @@
     &quot;accountId&quot;: &quot;031e2f66-9d0f-460d-9965-ff1cd71ec549&quot;
   }
 }</component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;463e6bda1f27691c63f191bb0aa963b58d5af856&quot; value=&quot;###&amp;#10;GET http://localhost:8000/{{property_id}}/&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -59,7 +65,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "TEST",
+    "git-widget-placeholder": "Soley-Branch",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -193,7 +199,47 @@
       <option name="project" value="LOCAL" />
       <updated>1746709507786</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixed docstrings">
+      <option name="closed" value="true" />
+      <created>1746714017287</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746714017287</updated>
+    </task>
+    <task id="LOCAL-00012" summary="property models.py update">
+      <option name="closed" value="true" />
+      <created>1746714691783</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1746714691783</updated>
+    </task>
+    <task id="LOCAL-00013" summary="property models.py update">
+      <option name="closed" value="true" />
+      <created>1746714972462</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1746714972462</updated>
+    </task>
+    <task id="LOCAL-00014" summary="comment">
+      <option name="closed" value="true" />
+      <created>1746715062254</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1746715062254</updated>
+    </task>
+    <task id="LOCAL-00015" summary="migrations">
+      <option name="closed" value="true" />
+      <created>1746715295212</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1746715295212</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +279,10 @@
     <MESSAGE value="changed the name of user to account and tryed to migrate, it didint work" />
     <MESSAGE value="completed migration with out issus, finaly :(." />
     <MESSAGE value="created property detail view with 404 error handling&#10;created path '&lt;int:property_id&gt;/submit_offer' name: 'property-submit-offer'" />
-    <option name="LAST_COMMIT_MESSAGE" value="created property detail view with 404 error handling&#10;created path '&lt;int:property_id&gt;/submit_offer' name: 'property-submit-offer'" />
+    <MESSAGE value="fixed docstrings" />
+    <MESSAGE value="property models.py update" />
+    <MESSAGE value="comment" />
+    <MESSAGE value="migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="migrations" />
   </component>
 </project>

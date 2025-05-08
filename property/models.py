@@ -6,6 +6,8 @@ from django.db import models
 
 # Create your models here.
 class Address(models.Model):
+    class Meta:
+        verbose_name_plural = "Addresses"
     street_name = models.CharField(max_length=100)
     house_number = models.IntegerField()
     city = models.CharField(max_length=100)
@@ -16,6 +18,9 @@ class Address(models.Model):
         return f"{self.street_name} {self.house_number} {self.city} {self.postal_code}"
 
 class Property(models.Model):
+    class Meta:
+        verbose_name_plural = "Properties"
+    property_id = models.IntegerField()
     propertyName = models.CharField(max_length=100)
     propAddress = models.ForeignKey(Address, on_delete=models.CASCADE)
     propDescription = models.TextField()
