@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+pip-wheel-metadata/
+
+# Django migrations
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# SQLite database
+*.sqlite3
+
+# VS Code or PyCharm config
+.vscode/
+.idea/
+
+# macOS/Linux/Windows system files
+.DS_Store
+Thumbs.db
+
+# Python egg
+*.egg-info/
+*.egg
+
+# Logs
+*.log
