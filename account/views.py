@@ -1,7 +1,25 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+
+import account
 from .models import User
 # Create your views here.
+
+def index(request):
+    return render(request, "account/accounts.html", context={
+        "accounts": accounts
+    })
+
+def get_account_by_id(request, id):
+    account= [x for x in accounts if x.id == id][0]
+    return render(request, "account/accounts.detail.html", context={
+        "account": account
+    })
+
+
+
+
+
 
 def login_view(request):
     """handles login view"""
@@ -23,3 +41,5 @@ def signup_view(request):
 def profile_view(request):
     user = request.user
     return redirect(request, 'user.profile' ) #TODO: template name
+
+
