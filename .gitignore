@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# PyCharm project files
+.idea/
+
+# Django/Static/Media
+*.log
+db.sqlite3
+media/
+static/
+
+# Misc
+.env
+.DS_Store
+Thumbs.db
+
+.idea/workspace.xml
