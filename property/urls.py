@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:property_id>/', views.get_property_by_id, name='property-by-id'),
 
     #path('<int:property_id>/submit_offer', views.submit_offer, name='property-submit-offer'),
+
 ]
