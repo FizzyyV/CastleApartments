@@ -1,9 +1,0 @@
-GET http://localhost:8000
-User-Agent: IntelliJ HTTP Client/PyCharm 2025.1
-Accept-Encoding: br, deflate, gzip, x-gzip
-Accept: */*
-
-<> 2025-05-08T150940.200.html
-
-###
-
