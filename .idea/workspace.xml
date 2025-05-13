@@ -122,7 +122,7 @@
       <workItem from="1747005648901" duration="95000" />
       <workItem from="1747005808273" duration="95000" />
       <workItem from="1747005919169" duration="76000" />
-      <workItem from="1747133981377" duration="1240000" />
+      <workItem from="1747133981377" duration="3868000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <option name="closed" value="true" />
@@ -260,7 +260,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746720971801</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fixing untracked">
+      <option name="closed" value="true" />
+      <created>1747135393788</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747135393788</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +300,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="origin/TEST" />
                       </list>
                     </value>
                   </entry>
@@ -321,6 +329,7 @@
     <MESSAGE value="migrations" />
     <MESSAGE value="testing admin" />
     <MESSAGE value="testing admin&#10;fix migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing admin&#10;fix migration" />
+    <MESSAGE value="fixing untracked" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing untracked" />
   </component>
 </project>
