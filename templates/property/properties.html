@@ -1,14 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CastleApartments</title>
+  <meta charset="UTF-8">
+  <title>CastleApartments</title>
+  <style>
+
+    body {
+      font-family: sans-serif;
+      background-color: #fce4ec;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: white;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .login-button {
+      background-color: #d1ecf9;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    }
+
+    .login-button:hover {
+        background-color: #37768E;
+        box-shadow: 0 0 0 rgba(0,0,0,0.1);
+    }
+
+    .search-box {
+      background-color: white;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #eee;
+    }
+
+    .search-button {
+      display: block;
+      margin: 20px auto 0;
+      background-color: #d1ecf9;
+      padding: 15px 40px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .search-button:hover {
+        background-color: #37768E;
+        box-shadow: 0 0 0 rgba(0,0,0,0.1);
+    }
+
+
+        .property-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .property-item{
+            background-color: #FFFFFF;
+            padding: 50px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-item h3 {
+
+        }
+
+        .property-item .property-image {
+            height: 525px;
+            width: 680px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+
 </head>
 <body>
-    {% for property in properties %}
 
-        <div>{{property.id}}</div>
+    <header>
+        <div>CastleApartments</div>
+        <button class="login-button">Log In</button>
+    </header>
 
-    {% endfor %}
+    <div class="search-box">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Postal Code</label>
+        <input type="text" placeholder="Filter Postal Code...">
+      </div>
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" placeholder="Filter Street Name...">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type</label>
+        <input type="text" placeholder="Filter Type...">
+      </div>
+      <div class="form-group">
+        <label>Price range</label>
+        <input type="text" placeholder="Filter Price range...">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group" style="flex: 1;">
+        <label>Ordered by</label>
+        <input type="text" placeholder="Filter By Order...">
+      </div>
+    </div>
+    <button class="search-button">SEARCH</button>
+  </div>
+
+
+    <div class="property-container">
+        {% for property in properties %}
+
+            <div class="property-item">
+                <h3>{{property.street_name}}{{" "}}{{property.house_num}}</h3>
+                <div class="property-image" style="background-image: url({{ property.image }})"></div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
 </body>
 </html>
