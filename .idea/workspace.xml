@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="fixing untracked">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="change db in settings.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747135393788</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="change db in settings.py">
+      <option name="closed" value="true" />
+      <created>1747143100018</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747143100018</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +338,7 @@
     <MESSAGE value="testing admin" />
     <MESSAGE value="testing admin&#10;fix migration" />
     <MESSAGE value="fixing untracked" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing untracked" />
+    <MESSAGE value="change db in settings.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="change db in settings.py" />
   </component>
 </project>

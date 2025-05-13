@@ -1,3 +1,5 @@
+from winreg import EnumKey
+
 from django.db import models
 
 #import account.models
@@ -36,3 +38,32 @@ class Property(models.Model):
 
     def __str__(self):
         return f"{self.propertyName}"
+
+### OFFER CLASSES ###
+
+class PurchaseOffer(models.Model):
+    buyerId = models.OneToOneField("account.Buyer", on_delete=models.SET_NULL, null=True)
+    propertyId = models.OneToOneField("Property", on_delete=models.SET_NULL, null=True)
+    sellerId = models.OneToOneField("account.Seller", on_delete=models.SET_NULL, null=True)
+    dateSubmitted = models.DateField(auto_now_add=True)
+    dateExpires = models.DateField()
+    offerPrice = models.FloatField()
+    OFFER_STATUS = (
+        ('Pending', 'Pending'),
+        ('Accepted', 'Accepted'),
+        ('Rejected', 'Rejected'),
+        ('Contingent', 'Contingent')
+    )
+    offerStatus = enumerate(OFFER_STATUS)
+
+class FinalizedOffer(models.Model):
+    offerId = models.OneToOneField("PurchaseOffer", on_delete=models.SET_NULL, null=True)
+    contactInfo = models.TextField(null=True, blank=True)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+    nationalId = models.IntegerField()
+    PAYMENT_METHOD = (
+        ('Credit Card', 'Credit Card'),
+        ('Bank Transfer', 'Bank Transfer'),
+        ('Mortgage', 'Mortgage')
+    )
+    paymentMethod = enumerate(PAYMENT_METHOD)
