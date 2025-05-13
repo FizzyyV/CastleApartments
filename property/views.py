@@ -23,6 +23,80 @@ properties = [
         'listing_date': '30.04.2024',
         'type': 'Town House',
         'description': 'Fancy house'
+    },
+
+    {
+        'id': 1,
+        'street_name': 'Faxabraut',
+        'house_num': '30',
+        'city': 'Keflavík',
+        'postal_code': '230',
+        'listing_price': '70.000.000 kr.',
+        'is_sold': True,
+        'seller_id': 1,
+        'image': "https://i.pinimg.com/736x/ae/0f/f8/ae0ff820b7d2738b668f2d7150b180cd.jpg",
+        'bed': '2',
+        'bathroom': '1',
+        'size': '749.196m2',
+        'built': '2018',
+        'listing_date': '30.04.2024',
+        'type': 'Detached House',
+        'description': 'Pretty House'
+    },
+
+    {
+        'id': 2,
+        'street_name': 'Birkihlíð',
+        'house_num': '45',
+        'city': 'Reykjavík',
+        'postal_code': '101',
+        'listing_price': '95.500.000 kr.',
+        'is_sold': False,
+        'seller_id': 0,
+        'image': 'https://i.pinimg.com/736x/8f/6f/07/8f6f07b1e4254eed9f4dac2080b9057a.jpg',
+        'bed': '3',
+        'bathroom': '2',
+        'size': '920.453m2',
+        'built': '2021',
+        'listing_date': '05.05.2024',
+        'type': 'Modern Villa',
+        'description': 'Spacious modern villa with a garden view.'
+    },
+    {
+        'id': 3,
+        'street_name': 'Lindargata',
+        'house_num': '78',
+        'city': 'Akureyri',
+        'postal_code': '600',
+        'listing_price': '65.000.000 kr.',
+        'is_sold': False,
+        'seller_id': 0,
+        'image': 'https://i.pinimg.com/736x/f6/65/48/f66548110843eda678d70692dd528dda.jpg',
+        'bed': '2',
+        'bathroom': '1',
+        'size': '688.120m2',
+        'built': '2016',
+        'listing_date': '03.05.2024',
+        'type': 'Cottage',
+        'description': 'Cozy cottage nestled in a quiet neighborhood.'
+    },
+    {
+        'id': 4,
+        'street_name': 'Sólheimar',
+        'house_num': '12B',
+        'city': 'Hafnarfjörður',
+        'postal_code': '220',
+        'listing_price': '78.000.000 kr.',
+        'is_sold': True,
+        'seller_id': 1,
+        'image': 'https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg',  # replace with real image
+        'bed': '3',
+        'bathroom': '2',
+        'size': '810.000m2',
+        'built': '2019',
+        'listing_date': '28.04.2024',
+        'type': 'Semi-Detached',
+        'description': 'Elegant semi-detached house with upgraded interiors.'
     }
 ]
 
