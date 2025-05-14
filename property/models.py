@@ -42,9 +42,9 @@ class Property(models.Model):
 ### OFFER CLASSES ###
 
 class PurchaseOffer(models.Model):
-    buyerId = models.OneToOneField("account.Buyer", on_delete=models.SET_NULL, null=True)
-    propertyId = models.OneToOneField("Property", on_delete=models.SET_NULL, null=True)
-    sellerId = models.OneToOneField("account.Seller", on_delete=models.SET_NULL, null=True)
+    buyerId = models.ForeignKey("account.Buyer", on_delete=models.SET_NULL, null=True)
+    propertyId = models.ForeignKey("Property", on_delete=models.SET_NULL, null=True)
+    sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
     dateSubmitted = models.DateField(auto_now_add=True)
     dateExpires = models.DateField()
     offerPrice = models.FloatField()
@@ -67,3 +67,4 @@ class FinalizedOffer(models.Model):
         ('Mortgage', 'Mortgage')
     )
     paymentMethod = enumerate(PAYMENT_METHOD)
+    paymentDetails = models.TextField(null=True, blank=True)

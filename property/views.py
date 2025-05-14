@@ -1,7 +1,8 @@
+from os.path import exists
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Property #, Address
+from .models import Property, PurchaseOffer, FinalizedOffer
 
 # Create your views here.
 
@@ -105,13 +106,21 @@ def index(request):
          "properties": properties
      })
 
-def get_property_by_id(request, property_id):
-    property = next((x for x in properties if x ['id'] == property_id), None)
-    if property is None:
+def get_property_by_id(request, property_id_param):
+    property_to_get = next((x for x in properties if x ['id'] == property_id_param), None)
+    if property_to_get is None:
         return HttpResponse("Property not found", status=404)
 
+    #TODO: implement displaying logged in user's submitted purchase offer for property
+    user_offer = None
+    #if user is logged in, check if there is submitted offer to display, else None
+    if request.user.is_authenticated and hasattr(request.user, 'buyer'):
+        user_offer = PurchaseOffer.objects.filter(
+            user=request.user.buyer,
+            property_id=property_to_get).order_by('-dateSubmitted').first()
+
     return render(request, template_name="property/property_detail.html", context={
-        "property": property
+        "property": property_to_get , "user_offer": user_offer
     })
 
 # someone changed my code so idk what this is below
@@ -139,10 +148,109 @@ def get_property_by_id(request, property_id):
                   #{"property": property_to_get
                    #})
 
+### OFFER VIEWS ###
 
-# def submit_offer(request, property_id):
-#     try:
-#         property_to_get = Property.objects.get(id=property_id)
-#     except Property.DoesNotExist:
-#         raise Http404("Property not found")
-#     #TODO: implement offer
+def submit_offer(request, property_id_param):
+    """submit a purchase offer for available property
+        calls helper function offer_exists to check for previous offers"""
+    user = request.user
+    if not user.is_authenticated or not hasattr(user, 'buyer'):
+        return HttpResponse("User does not have permission to submit offers", status=403)
+
+    try:
+        property_to_get = Property.objects.get(id=property_id_param)
+    except Property.DoesNotExist:
+        raise HttpResponse("Property not found", status=404)
+
+    # if the property is sold, user cant make offer
+    if property_to_get.propIsSold:
+        return HttpResponse("Property is already sold", status=400)
+        #TODO: make submit button grayed out if prop unavailable
+
+    # if the user has submitted an offer previously, we ask if user wants to resubmit
+    # call offer_exists() to check if offer exists for user id and property id
+    prev_offer = offer_exists(user.id, property_id_param)
+    # if offer_exists() true, ask to resubmit
+    if prev_offer:
+        pass #find the previous offer to display its info
+        #TODO: implement how to display previous offer
+
+    if request.method == "POST":
+        offer_price = float(request.POST.get('offer_price'))
+        expiration_date = request.POST.get('expiration_date')
+
+        new_offer = PurchaseOffer.objects.create(
+            buyer_id = user.buyer,
+            seller_id = property_to_get.sellerId,
+            propertyId = property_to_get,
+            offerPrice = offer_price,
+            dateExpires = expiration_date,
+            offerStatus = 'Pending'
+        )
+        return redirect('property-by-id', property_id= property_id_param)
+
+    return render(request, template_name="property/property_detail.html",
+                  context={'property': property_to_get,
+                           'previous_offer': prev_offer
+                })
+    #TODO: create template for purchase offer
+
+def offer_exists(user_id, property_id)->int:
+    """check if user has previously submitted offer for some property
+        returns offer id if previous offer is found
+        else returns None"""
+    #check if offer(s) with user_id exists and has property_id
+    prev_offer = PurchaseOffer.objects.filter(
+        buyer_id=user_id,
+        offer_property_id=property_id
+    ).order_by('-dateSubmitted').first()
+    #if offer exists, return offer id
+    return prev_offer if prev_offer else None
+
+
+def finalize_purchase_offer(request, property_id_param, offer_id_param):
+    """finalize an accepted purchase offer"""
+    try: #check if offer exists
+        offer = PurchaseOffer.objects.get(id=offer_id_param)
+    except PurchaseOffer.DoesNotExist:
+        return HttpResponse("Offer not found", status=404)
+
+    if offer.offerStatus != 'Accepted': #if offer is not accepted it cannot be finalized
+        return #TODO: implement
+
+    if request.method == "POST":
+        pass
+
+#call a helper function to make sure the offer has been accepted
+    #if offer is accepted and valid:
+        #create FinalizedOffer instance to store info
+        #call get_contact_info_finalize() to store buyers contact info
+
+
+def get_contact_info_finalize(finalized_offer_obj):
+    """helper function for finalizing offer
+        stores contact info for buyer"""
+    pass
+    #address is saved as an Address class instance
+    national_id = input("Your National ID...")
+    phone_number = input("Your Phone Number...")
+
+    #create variables to store each field,
+
+
+def get_payment_method_finalize(finalized_offer_obj):
+    """helper function for finalizing offer
+    stores payment method info for buyer"""
+    pass
+    match FinalizedOffer.paymentMethod:
+        case 'Credit Card':
+            cardholder_name = input("Cardholder name")
+            card_number = input("Card number")
+            card_expiration_date = input("E.X. date")
+            card_cvc = input("CVC")
+            finalized_offer_obj
+
+        case 'Bank Transfer':
+            pass
+
+    #
