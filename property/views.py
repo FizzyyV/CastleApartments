@@ -2,6 +2,9 @@ from os.path import exists
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
+from property.models import PurchaseOffer
+from .forms.submit_offer_form import SubmitOfferForm
 from .models import Property, PurchaseOffer, FinalizedOffer
 
 # Create your views here.
@@ -159,8 +162,8 @@ def submit_offer(request, property_id_param):
 
     try:
         property_to_get = Property.objects.get(id=property_id_param)
-    except Property.DoesNotExist:
-        raise HttpResponse("Property not found", status=404)
+    except Property.DoesNotExist as e:
+        return HttpResponse("Property not found", status=404)
 
     # if the property is sold, user cant make offer
     if property_to_get.propIsSold:
@@ -170,39 +173,34 @@ def submit_offer(request, property_id_param):
     # if the user has submitted an offer previously, we ask if user wants to resubmit
     # call offer_exists() to check if offer exists for user id and property id
     prev_offer = offer_exists(user.id, property_id_param)
-    # if offer_exists() true, ask to resubmit
-    if prev_offer:
-        pass #find the previous offer to display its info
         #TODO: implement how to display previous offer
 
     if request.method == "POST":
-        offer_price = float(request.POST.get('offer_price'))
-        expiration_date = request.POST.get('expiration_date')
-
-        new_offer = PurchaseOffer.objects.create(
-            buyer_id = user.buyer,
-            seller_id = property_to_get.sellerId,
-            propertyId = property_to_get,
-            offerPrice = offer_price,
-            dateExpires = expiration_date,
-            offerStatus = 'Pending'
-        )
-        return redirect('property-by-id', property_id= property_id_param)
+        form = SubmitOfferForm(request.POST)
+        if form.is_valid(): #if required fields are valid then create an instance of PurchaseOffer class
+            offer = form.save(commit=False)
+            offer.buyerId = user.buyer
+            offer.sellerId = property_to_get.sellerId
+            offer.propertyId = property_to_get
+            offer.offerStatus = 'Pending'
+            #offer.save()
+            return redirect('property-by-id', property_id= property_id_param)
+    else:
+        form = SubmitOfferForm()
 
     return render(request, template_name="property/property_detail.html",
                   context={'property': property_to_get,
-                           'previous_offer': prev_offer
+                           'previous_offer': prev_offer,
+                           'form': form
                 })
     #TODO: create template for purchase offer
 
-def offer_exists(user_id, property_id)->int:
-    """check if user has previously submitted offer for some property
-        returns offer id if previous offer is found
-        else returns None"""
+def offer_exists(user_id, property_id)-> PurchaseOffer | None:
+    """finds previously submitted offer by user for some property"""
     #check if offer(s) with user_id exists and has property_id
     prev_offer = PurchaseOffer.objects.filter(
-        buyer_id=user_id,
-        offer_property_id=property_id
+        buyerId__user__id = user_id,
+        propertyId__id = property_id
     ).order_by('-dateSubmitted').first()
     #if offer exists, return offer id
     return prev_offer if prev_offer else None
@@ -252,5 +250,3 @@ def get_payment_method_finalize(finalized_offer_obj):
 
         case 'Bank Transfer':
             pass
-
-    #
