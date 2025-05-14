@@ -1,22 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>signup</title>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>signup</title>#}
+{##}
+{#</head>#}
+{#<body>#}
+{#    {% extends "base.html" %}#}
+{##}
+{#    {% block title %}Sign Up{% endblock %}#}
+{##}
+{#    {% block content %}#}
+{#    <h2>Sign up</h2>#}
+{#    <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form }}#}
+{#    <button type="submit">Sign Up</button>#}
+{#    </form>#}
+{#    {% endblock %}#}
+{#</body>#}
+{#</html>#}
+{% extends "base.html" %}
 
-</head>
-<body>
-    {% extends "base.html" %}
 
-    {% block title %}Sign Up{% endblock %}
+{% block title %}Sign Up{% endblock %}
+{% load static %}
 
-    {% block content %}
-    <h2>Sign up</h2>
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+<div class="signup-container">
+    <div class="signup-header">
+        <div class="avatar"></div>
+        <h2>Sign up</h2>
+    </div>
     <form method="post">
         {% csrf_token %}
-        {{ form }}
-    <button type="submit">Sign Up</button>
+        {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="field-error">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit">Sign Up</button>
     </form>
-    {% endblock %}
-</body>
-</html>
+</div>
+{% endblock %}
