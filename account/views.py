@@ -1,22 +1,34 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
 import account
 from .models import User
 # Create your views here.
 
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
-
-
-
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views import View
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+
+
+@method_decorator(login_required, name='dispatch')
+class ProfileView(View):
+    def get(self, request, username):
+        profile_user = get_object_or_404(User, username=username)
+        return render(request, "registration/profile.html", {
+            "profile_user": profile_user
+        })
+
 
 
 
