@@ -17,7 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView  # new
+#from django.views.generic.base import TemplateView  # new
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -29,12 +30,15 @@ urlpatterns = [
     # http://localhost:5000/admin
     path('admin/', admin.site.urls),
 
+    #MAKE THIS WORK
+    #path('login/', SOMETHING)
+
+    path('login/', auth_views.LoginView.as_view(template_name='account/login_pretty.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+
+    #maybe dont need
     path('accounts/', include('account.urls')),
 
-    path('accounts/', include('django.contrib.auth.urls')),
-
-
-    path("", TemplateView.as_view(template_name="home.html"), name="home"),
-
+    #path('accounts/', include('django.contrib.auth.urls')),
 
 ]

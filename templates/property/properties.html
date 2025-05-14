@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {% load static %}
-
 <html lang="en">
 <head>
 
@@ -19,7 +18,11 @@
 
     <header>
         <div>CastleApartments</div>
-        <button class="login-button">Log In</button>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}"><button class="login-button">Sign Out</button></a>
+        {% else %}
+            <a href="{% url 'login' %}"><button class="login-button">Log In</button></a>
+        {% endif %}
     </header>
 
 
