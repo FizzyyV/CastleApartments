@@ -16,6 +16,7 @@ class User(AbstractUser):
     )
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
     profile_image = models.ImageField(upload_to='profiles/', blank=True, null=True)
+    REQUIRED_FIELDS = []
 
 # ====================
 # Buyer Profile
