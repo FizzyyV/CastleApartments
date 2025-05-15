@@ -9,11 +9,13 @@
 </head>
 <body>
     <header>
-        <div>CastleApartments</div>
-        <form action="{% url 'logout' %}" method="post" class="profile-link">
-            {% csrf_token %}
-            <button type="submit" class="logout-button">Log Out</button>
-        </form>
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+            <form action="{% url 'logout' %}" method="post" class="profile-link">
+                {% csrf_token %}
+                <button type="submit" class="logout-button">Log Out</button>
+            </form>
     </header>
 
     <main class="profile-container">
