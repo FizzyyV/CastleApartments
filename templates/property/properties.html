@@ -1,6 +1,5 @@
-{% load static %}
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 
@@ -19,7 +18,17 @@
 
     <header>
         <div>CastleApartments</div>
-        <button class="login-button">Log In</button>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-link">
+                <button class="login-button">Log In</button>
+            </a>
+        {% endif %}
     </header>
 
 
@@ -63,28 +72,29 @@
         <h2 class="property-heading">RECENTLY ADDED PROPERTIES</h2>
         <div class="property-container">
             {% for property in properties %}
-
-                <div class="property-item">
-                    <div class="property-image-container">
-                        <div class="property-image" style="background-image: url({{ property.image }})"></div>
-                    </div>
-                    <div class="property-info">
-                        <h3>{{property.street_name}} {{property.house_num}}</h3>
-                        <p>{{property.city}} {{property.postal_code}}</p>
-
-                        <div class="price-size">
-                            <div class="price">{{property.listing_price}}</div>
-                            <div class="size">{{property.size}}</div>
+                <a href="{% url 'property-by-id' property.id %}" class="property-link">
+                    <div class="property-item">
+                        <div class="property-image-container">
+                            <div class="property-image" style="background-image: url({{ property.image }})"></div>
                         </div>
+                        <div class="property-info">
+                            <h3>{{property.street_name}} {{property.house_num}}</h3>
+                            <p>{{property.city}} {{property.postal_code}}</p>
 
-                        <div class="details">
-                            <span>{{property.bed}} Bedrooms</span>
-                            <span>{{property.bathroom}} Bathroom</span>
+                            <div class="price-size">
+                                <div class="price">{{property.listing_price}}</div>
+                                <div class="size">{{property.size}}</div>
+                            </div>
+
+                            <div class="details">
+                                <span>{{property.bed}} Bedrooms</span>
+                                <span>{{property.bathroom}} Bathroom</span>
+                            </div>
+
+                            <div class="built-year">Built {{property.built}}</div>
                         </div>
-
-                        <div class="built-year">Built {{property.built}}</div>
                     </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
     </div>

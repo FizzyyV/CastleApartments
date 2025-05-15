@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+</head>
+<body>
+    <header>
+        <div>CastleApartments</div>
+        <form action="{% url 'logout' %}" method="post" class="profile-link">
+            {% csrf_token %}
+            <button type="submit" class="logout-button">Log Out</button>
+        </form>
+    </header>
+
+    <main class="profile-container">
+        <div class="profile-header">
+            <h1>{{ user.get_full_name|default:"User Profile" }}</h1>
+            <div class="user-role">{{ user.role|title }}</div>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-item">
+                <label>Email:</label>
+                <p>{{ user.email }}</p>
+            </div>
+
+            <div class="offers-section">
+                <h2>Submitted Offers</h2>
+                <div class="offers-list">
+                    <!-- Add dynamic offers here later -->
+                    <div class="offer-placeholder">No offers submitted yet</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

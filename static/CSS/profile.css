@@ -1,0 +1,71 @@
+.profile-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.user-role {
+    color: #37768E;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.profile-info {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item label {
+    display: block;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.offers-section {
+    margin-top: 40px;
+}
+
+.offers-section h2 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.offer-placeholder {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.logout-button {
+    background: #d1ecf9;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+    background: #37768E;
+    color: white;
+}

@@ -14,3 +14,57 @@
       font-weight: bold;
       font-size: 24px;
     }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      margin-left: auto; /* Pushes to far right */
+      padding: 5px; /* Adds clickable area */
+    }
+
+    .profile-icon {
+      width: 40px;
+      height: 35px;
+      object-fit: cover; /* Ensures image fills circle */
+      border-radius: 40%; /* Makes it circular */
+      transition: transform 0.2s ease; /* Smooth hover effect */
+      cursor: pointer;
+    }
+
+    .profile-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds depth on hover */
+    }
+
+
+
+    .profile-link form {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-link button {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .auth-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .icon-button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .login-link {
+        text-decoration: none;
+    }

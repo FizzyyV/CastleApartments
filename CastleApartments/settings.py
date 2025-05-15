@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-hty#x!ykj4ygwb30h=8xj9+*mq6md-0mi+9yqf9&k_5!+nl$+m
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+#DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -78,15 +78,11 @@ WSGI_APPLICATION = 'CastleApartments.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'verklegt_namskeid_db',
-        'USER': 'verklegt_db_user',
-        'PASSWORD': 'xGZifxJKoquybZjxbA2n6fve',
-        'HOST': 'db-verklegt-namskeid-ii-eu-lh8pql.postgres.database.azure.com',
-        'PORT': '5432'
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
+     }
+ }
 
 
 # Password validation
