@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
+#AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
 
 # Application definition
 
@@ -156,4 +156,4 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/account/profile"  # new
 LOGOUT_REDIRECT_URL = "/"
-
+SIGNUP_REDIRECT_URL = "/account/profile"
