@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from property.models import PurchaseOffer
+from .forms import submit_offer_form
 from .forms.submit_offer_form import SubmitOfferForm
 from .models import Property, PurchaseOffer, FinalizedOffer
 
@@ -117,8 +118,8 @@ def index(request):
          "properties": properties
      })
 
-def get_property_by_id(request, property_id_param):
-    property_to_get = next((x for x in properties if x ['id'] == property_id_param), None)
+def get_property_by_id(request, property_id):
+    property_to_get = next((x for x in properties if x ['id'] == property_id), None)
     if property_to_get is None:
         return HttpResponse("Property not found", status=404)
 
@@ -129,9 +130,12 @@ def get_property_by_id(request, property_id_param):
         user_offer = PurchaseOffer.objects.filter(
             user=request.user.buyer,
             property_id=property_to_get).order_by('-dateSubmitted').first()
+    form = SubmitOfferForm()
 
-    return render(request, template_name="property/property_detail.html", context={
-        "property": property_to_get , "user_offer": user_offer
+    return render(request, template_name="property/property_detail.html",
+                  context={"property": property_to_get ,
+                           "user_offer": user_offer,
+                           "form": form
     })
 
 def auth_test(request):
@@ -167,7 +171,7 @@ def auth_test(request):
 
 ### OFFER VIEWS ###
 
-def submit_offer(request, property_id_param):
+def submit_offer(request, property_id):
     """submit a purchase offer for available property
         calls helper function offer_exists to check for previous offers"""
     user = request.user
@@ -175,7 +179,7 @@ def submit_offer(request, property_id_param):
         return HttpResponse("User does not have permission to submit offers", status=403)
 
     try:
-        property_to_get = Property.objects.get(id=property_id_param)
+        property_to_get = Property.objects.get(id=property_id)
     except Property.DoesNotExist as e:
         return HttpResponse("Property not found", status=404)
 
@@ -186,7 +190,7 @@ def submit_offer(request, property_id_param):
 
     # if the user has submitted an offer previously, we ask if user wants to resubmit
     # call offer_exists() to check if offer exists for user id and property id
-    prev_offer = offer_exists(user.id, property_id_param)
+    prev_offer = offer_exists(user.id, property_id)
         #TODO: implement how to display previous offer
 
     if request.method == "POST":
@@ -198,7 +202,7 @@ def submit_offer(request, property_id_param):
             offer.propertyId = property_to_get
             offer.offerStatus = 'Pending'
             #offer= form.save(commit=True)
-            return redirect('property-by-id', property_id= property_id_param)
+            return redirect('property-by-id', property_id= property_id)
     else:
         form = SubmitOfferForm()
 
@@ -220,10 +224,10 @@ def offer_exists(user_id, property_id)-> PurchaseOffer | None:
     return prev_offer if prev_offer else None
 
 
-def finalize_purchase_offer(request, property_id_param, offer_id_param):
+def finalize_purchase_offer(request, property_id, offer_id):
     """finalize an accepted purchase offer"""
     try: #check if offer exists
-        offer = PurchaseOffer.objects.get(id=offer_id_param)
+        offer = PurchaseOffer.objects.get(id=offer_id)
     except PurchaseOffer.DoesNotExist:
         return HttpResponse("Offer not found", status=404)
 

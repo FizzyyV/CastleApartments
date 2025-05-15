@@ -9,5 +9,5 @@ class SubmitOfferForm(ModelForm):
         exclude = ['id', 'buyerId', 'propertyId', 'sellerId', 'dateSubmitted', 'offerStatus' ]
         widgets = {
             'offerPrice': forms.NumberInput(attrs={'class': 'form-control'}),
-            'dateExpires': forms.DateInput(attrs={'class': 'form-control'}),
+            'dateExpires': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }

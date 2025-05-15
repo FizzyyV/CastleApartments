@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="update views.py">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="started testing offer views... tried creating submit button in property_detail.html">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/forms/submit_offer_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/forms/submit_offer_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/property_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/property_detail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/property/property_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/property_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -294,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747311945213</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="started testing offer views... tried creating submit button in property_detail.html">
+      <option name="closed" value="true" />
+      <created>1747313907235</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1747313907235</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +369,7 @@
     <MESSAGE value="change db in settings.py" />
     <MESSAGE value="work on property views.py&#10;created: &#10;submit_offer, &#10;offer_exists, &#10;finalize_purchase_offer, &#10;get_contact_info_finalize,&#10;get_payment_method_finalize&#10;&#10;NOT FINISHED!" />
     <MESSAGE value="update views.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="update views.py" />
+    <MESSAGE value="started testing offer views... tried creating submit button in property_detail.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="started testing offer views... tried creating submit button in property_detail.html" />
   </component>
 </project>

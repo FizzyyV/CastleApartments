@@ -76,14 +76,41 @@
                     <li>Status: {{ previous_offer.offerStatus }}</li>
                     <li>Expires: {{ previous_offer.dateExpires }}</li>
                 </ul>
-            {% end if %}
-
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Resubmit Offer</button>
-            </form>
+                <button id="openOfferModal">Resubmit Offer</button>
+            {% else %}
+                <button id="openOfferModal">Submit Offer</button>
+            {% endif %}
         </div>
     </main>
+
+    <div id="offerModal" class="modal" style="display: none">
+            <div class="content">
+                <span class="close-button" id="closeModal">&times;</span>
+                <h2>Submit your offer</h2>
+                <form method="post" action="{% url 'property-submit-offer' property.id %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+    </div>
+    <script>
+        document.getElementById("openOfferModal").onclick = function () {
+            document.getElementById("offerModal").style.display = "block";
+        };
+
+        document.getElementById("closeModal").onclick = function () {
+            document.getElementById("offerModal").style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            const modal = document.getElementById("offerModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
 </body>
 </html>
