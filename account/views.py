@@ -15,13 +15,19 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render
 from django.contrib.auth import login
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile_view(request):
+    return render(request, 'account/profile.html')
+
 def custom_login(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  # After login, redirect to the home page
+            return redirect('property-index')  # After login, redirect to the home page
     else:
         form = AuthenticationForm()
 

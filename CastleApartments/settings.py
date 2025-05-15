@@ -116,6 +116,23 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Session will expire after browser close
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Cookie age 1 hour (optional)
+SESSION_COOKIE_AGE = 3600
+
+# Add these to settings.py
+SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Default but let's confirm
+SESSION_COOKIE_NAME = "castle_session"  # Unique cookie name
+SESSION_COOKIE_AGE = 86400  # 24h (standard)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'login'  # This should match your URL name
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -125,6 +142,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

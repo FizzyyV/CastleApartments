@@ -3,6 +3,14 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Property #, Address
 
+
+from django.contrib.sessions.models import Session
+
+def session_debug(request):
+    sessions = Session.objects.all()
+    return render(request, 'session_debug.html', {'sessions': sessions})
+
+
 # Create your views here.
 
 properties = [
@@ -18,7 +26,7 @@ properties = [
         'image': "https://i.pinimg.com/736x/02/13/7e/02137ec7e0a9be8227b5ef2a43837652.jpg",
         'bed': '2',
         'bathroom': '1',
-        'size': '848.708m2',
+        'size': '848.708m²',
         'built': '2020',
         'listing_date': '30.04.2024',
         'type': 'Town House',
@@ -37,7 +45,7 @@ properties = [
         'image': "https://i.pinimg.com/736x/ae/0f/f8/ae0ff820b7d2738b668f2d7150b180cd.jpg",
         'bed': '2',
         'bathroom': '1',
-        'size': '749.196m2',
+        'size': '749.196m²',
         'built': '2018',
         'listing_date': '30.04.2024',
         'type': 'Detached House',
@@ -56,7 +64,7 @@ properties = [
         'image': 'https://i.pinimg.com/736x/8f/6f/07/8f6f07b1e4254eed9f4dac2080b9057a.jpg',
         'bed': '3',
         'bathroom': '2',
-        'size': '920.453m2',
+        'size': '920.453m²',
         'built': '2021',
         'listing_date': '05.05.2024',
         'type': 'Modern Villa',
@@ -74,7 +82,7 @@ properties = [
         'image': 'https://i.pinimg.com/736x/f6/65/48/f66548110843eda678d70692dd528dda.jpg',
         'bed': '2',
         'bathroom': '1',
-        'size': '688.120m2',
+        'size': '688.120m²',
         'built': '2016',
         'listing_date': '03.05.2024',
         'type': 'Cottage',
@@ -92,7 +100,7 @@ properties = [
         'image': 'https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg',  # replace with real image
         'bed': '3',
         'bathroom': '2',
-        'size': '810.000m2',
+        'size': '810.000m²',
         'built': '2019',
         'listing_date': '28.04.2024',
         'type': 'Semi-Detached',
@@ -112,6 +120,12 @@ def get_property_by_id(request, property_id):
 
     return render(request, template_name="property/property_detail.html", context={
         "property": property
+    })
+
+def auth_test(request):
+    return render(request, 'property/auth_test.html', {
+        'user': request.user,
+        'authenticated': request.user.is_authenticated
     })
 
 # someone changed my code so idk what this is below

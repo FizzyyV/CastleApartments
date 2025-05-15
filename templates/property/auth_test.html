@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Auth Test</h1>
+    <p>User: {{ user }}</p>
+    <p>Authenticated: {{ authenticated|yesno:"Yes,No" }}</p>
+    <p>Session ID: {{ request.session.session_key }}</p>
+</body>
+</html>
