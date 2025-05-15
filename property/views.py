@@ -210,7 +210,6 @@ def submit_offer(request, property_id):
     # if the user has submitted an offer previously, we ask if user wants to resubmit
     # call offer_exists() to check if offer exists for user id and property id
     prev_offer = offer_exists(user.id, property_id)
-        #TODO: implement how to display previous offer
 
     if request.method == "POST":
         form = SubmitOfferForm(request.POST)
@@ -220,7 +219,7 @@ def submit_offer(request, property_id):
             offer.sellerId = property_to_get.sellerId
             offer.propertyId = property_to_get
             offer.offerStatus = 'Pending'
-            #offer= form.save(commit=True)
+            offer.save()
             return redirect('property-by-id', property_id= property_id)
     else:
         form = SubmitOfferForm()
@@ -259,7 +258,7 @@ def finalize_purchase_offer(request, property_id, offer_id):
             finalize_offer = form.save(commit=False)
             finalize_offer.offerId = offer
             finalize_offer.propertyId = property_id
-            #finalized_offer.save()
+            finalize_offer.save()
             return redirect('property-by-id', property_id=property_id)
     else:
         form = FinalizeOfferForm()
@@ -269,29 +268,3 @@ def finalize_purchase_offer(request, property_id, offer_id):
                             'form': form,
                             'offer': offer
                          })
-
-def get_contact_info_finalize(finalized_offer_obj):
-    """helper function for finalizing offer
-        stores contact info for buyer"""
-    pass
-    #address is saved as an Address class instance
-    national_id = input("Your National ID...")
-    phone_number = input("Your Phone Number...")
-
-    #create variables to store each field,
-
-
-def get_payment_method_finalize(finalized_offer_obj):
-    """helper function for finalizing offer
-    stores payment method info for buyer"""
-    pass
-    match FinalizedOffer.paymentMethod:
-        case 'Credit Card':
-            cardholder_name = input("Cardholder name")
-            card_number = input("Card number")
-            card_expiration_date = input("E.X. date")
-            card_cvc = input("CVC")
-            finalized_offer_obj
-
-        case 'Bank Transfer':
-            pass
