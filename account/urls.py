@@ -8,6 +8,7 @@ from .views import SignUpView
 urlpatterns = [
     path('login/', views.custom_login, name='login'),
     path("signup/", SignUpView.as_view(), name="signup"),
+    path("profile/", views.profile_view, name='profile'),
 ]
 
 
