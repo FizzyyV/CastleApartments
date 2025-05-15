@@ -97,22 +97,7 @@
 
             </div>
     </div>
-    <script>
-        document.getElementById("openOfferModal").onclick = function () {
-            document.getElementById("offerModal").style.display = "block";
-        };
-
-        document.getElementById("closeModal").onclick = function () {
-            document.getElementById("offerModal").style.display = "none";
-        };
-
-        window.onclick = function (event) {
-            const modal = document.getElementById("offerModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-    </script>
+    <script src="{% static 'JS/submit_offer.js' %}"></script>
 
 </body>
 </html>

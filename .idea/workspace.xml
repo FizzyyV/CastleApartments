@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="started testing offer views... tried creating submit button in property_detail.html">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="created working (ugly) submit button and script for pop up, need to move that into js folder in static">
+      <change afterPath="$PROJECT_DIR$/static/js/submit_offer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/forms/submit_offer_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/forms/submit_offer_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/property_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/property_detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/property/property_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/property_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/forms/finalize_offer_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/forms/finalize_offer_form.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
       <list>
         <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -58,28 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.CastleApartments.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "Soley-Branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/soley/PycharmProjects/CastleApartments",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.CastleApartments.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Soley-Branch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/soley/PycharmProjects/CastleApartments&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CastleApartments" type="Python.DjangoServer" factoryName="Django server">
       <module name="CastleApartments" />
@@ -304,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747313907235</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="created working (ugly) submit button and script for pop up, need to move that into js folder in static">
+      <option name="closed" value="true" />
+      <created>1747317920033</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747317920033</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +377,7 @@
     <MESSAGE value="work on property views.py&#10;created: &#10;submit_offer, &#10;offer_exists, &#10;finalize_purchase_offer, &#10;get_contact_info_finalize,&#10;get_payment_method_finalize&#10;&#10;NOT FINISHED!" />
     <MESSAGE value="update views.py" />
     <MESSAGE value="started testing offer views... tried creating submit button in property_detail.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="started testing offer views... tried creating submit button in property_detail.html" />
+    <MESSAGE value="created working (ugly) submit button and script for pop up, need to move that into js folder in static" />
+    <option name="LAST_COMMIT_MESSAGE" value="created working (ugly) submit button and script for pop up, need to move that into js folder in static" />
   </component>
 </project>
