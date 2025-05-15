@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User, Buyer, Seller
-
+'''
 @admin.register(User)
 class CustomUserAdmin(BaseUserAdmin):
     list_display = ('username', 'email', 'role', 'is_staff')
@@ -26,3 +26,4 @@ class SellerAdmin(admin.ModelAdmin):
             return f"{obj.seller_Address.street_name}, {obj.seller_Address.city}"
         return "—"
     get_address.short_description = 'Address'
+    '''
