@@ -38,9 +38,15 @@ properties = [
         'listing_date': '30.04.2024',
         'type': 'Town House',
         'description': 'Fancy house',
+        'seller_name': 'John Smithy',
         'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
         'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
+        'images': [
+            "https://i.pinimg.com/736x/02/13/7e/02137ec7e0a9be8227b5ef2a43837652.jpg",
+            "https://i.pinimg.com/474x/41/ce/b1/41ceb16c038f914ddad1a165f5da4868.jpg",
+            "https://i.pinimg.com/474x/cd/58/08/cd58082240cdca4c89e284a6bf782a37.jpg"
+        ],
     },
     {
         'id': 1,
@@ -59,9 +65,15 @@ properties = [
         'listing_date': '30.04.2024',
         'type': 'Detached House',
         'description': 'Pretty House',
+        'seller_name': 'John Smithy',
         'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
         'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
+        'images': [
+            "https://i.pinimg.com/736x/ae/0f/f8/ae0ff820b7d2738b668f2d7150b180cd.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ],
     },
 
     {
@@ -81,9 +93,15 @@ properties = [
         'listing_date': '05.05.2024',
         'type': 'Modern Villa',
         'description': 'Spacious modern villa with a garden view.',
+        'seller_name': 'John Smithy',
         'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
         'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
+        'images': [
+            "https://i.pinimg.com/736x/8f/6f/07/8f6f07b1e4254eed9f4dac2080b9057a.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ],
     },
 
     {
@@ -103,9 +121,15 @@ properties = [
         'listing_date': '03.05.2024',
         'type': 'Cottage',
         'description': 'Cozy cottage nestled in a quiet neighborhood.',
+        'seller_name': 'John Smithy',
         'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
         'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
+        'images': [
+            "https://i.pinimg.com/736x/f6/65/48/f66548110843eda678d70692dd528dda.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ],
     },
     {
         'id': 4,
@@ -116,7 +140,7 @@ properties = [
         'listing_price': '78.000.000 kr.',
         'is_sold': True,
         'seller_id': 1,
-        'image': 'https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg',  # replace with real image
+        'image': 'https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg',
         'bed': '3',
         'bathroom': '2',
         'size': '810.000m²',
@@ -124,9 +148,15 @@ properties = [
         'listing_date': '28.04.2024',
         'type': 'Semi-Detached',
         'description': 'Elegant semi-detached house with upgraded interiors.',
+        'seller_name': 'John Smithy',
         'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
         'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
+        'images': [
+            "https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ],
     }
 ]
 
