@@ -66,6 +66,24 @@
             <h2>Description</h2>
             <p>{{ property.description }}</p>
         </div>
+
+        <div class="submit-offer">
+            <h2>Submit a purchase offer</h2>
+            {% if previous_offer %}
+                <p>your previous offer</p>
+                <ul>
+                    <li>Price: {{  previous_offer.offerPrice }}</li>
+                    <li>Status: {{ previous_offer.offerStatus }}</li>
+                    <li>Expires: {{ previous_offer.dateExpires }}</li>
+                </ul>
+            {% end if %}
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Resubmit Offer</button>
+            </form>
+        </div>
     </main>
 </body>
 </html>
