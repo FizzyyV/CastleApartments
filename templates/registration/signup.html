@@ -27,15 +27,18 @@
 {% load static %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/signup.css' %}">
 
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
 <div class="signup-container">
     <div class="signup-header">
         <div class="avatar"></div>
         <h2>Sign up</h2>
     </div>
-    <form method="post">
+    <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
+        {{ from }}
+{#        <input type="submit" class ="btn btn-primary" value="signup"/>#}
         {% for field in form %}
             <div class="form-field">
                 {{ field.label_tag }}

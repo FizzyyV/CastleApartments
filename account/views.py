@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth.forms import UserCreationForm
 
 import account
 from .models import User
@@ -12,8 +12,8 @@ from django.views.generic import CreateView
 
 # account/views.py
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render
 from django.contrib.auth import login
+
 
 def custom_login(request):
     if request.method == "POST":
@@ -33,6 +33,38 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    else:
+        return render(request, 'registration/signup.html', {
+            'form': UserCreationForm()
+        })
+
+
+
+
+#this code is from chat and is difrent from vidio but it dose not have errors
+# def register(request):
+#     if request.method == "POST":
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
+#     else:
+#         form = UserCreationForm()
+#
+#     return render(request, 'registration/signup.html', {'form': form})
+
+
+
+
 
 
 
