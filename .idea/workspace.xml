@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="change db in settings.py">
-      <change afterPath="$PROJECT_DIR$/property/forms/finalize_offer_form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/property/forms/submit_offer_form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

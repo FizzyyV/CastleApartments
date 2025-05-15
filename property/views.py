@@ -183,7 +183,7 @@ def submit_offer(request, property_id_param):
             offer.sellerId = property_to_get.sellerId
             offer.propertyId = property_to_get
             offer.offerStatus = 'Pending'
-            #offer.save()
+            #offer= form.save(commit=True)
             return redirect('property-by-id', property_id= property_id_param)
     else:
         form = SubmitOfferForm()
