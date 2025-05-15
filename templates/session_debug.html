@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Active Sessions ({{ sessions|length }})</h1>
+    {% for session in sessions %}
+    <div>
+        <strong>Key:</strong> {{ session.session_key }}<br>
+        <strong>Expire Date:</strong> {{ session.expire_date }}<br>
+        <hr>
+    </div>
+    {% endfor %}
+</body>
+</html>

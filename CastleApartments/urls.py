@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.urls import path, include
 #from django.views.generic.base import TemplateView  # new
 from django.contrib.auth import views as auth_views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -30,12 +31,11 @@ urlpatterns = [
     # http://localhost:5000/admin
     path('admin/', admin.site.urls),
 
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='account/login_pretty.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='account/../templates/registration/login_pretty.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='property-index'), name='logout'),
 
     #maybe dont need
     path('accounts/', include('account.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 
-    #path('accounts/', include('django.contrib.auth.urls')),
-
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

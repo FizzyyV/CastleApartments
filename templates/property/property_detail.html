@@ -1,10 +1,71 @@
+<!-- templates/property/property_detail.html -->
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ property.street_name }} Details</title>
+    <link rel="stylesheet" href="{% static 'CSS/property_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
 </head>
 <body>
+    <header>
+        <div>CastleApartments</div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}"><button class="login-button">Log In</button></a>
+        {% endif %}
+    </header>
 
+    <main class="property-detail-container">
+        <div class="property-header">
+            <h1>{{ property.street_name }} {{ property.house_num }}</h1>
+            <div class="location">{{ property.city }} {{ property.postal_code }}</div>
+
+            <div class="property-meta">
+                <div class="agent">John Smithy</div>
+                <div class="type-size">
+                    <span>{{ property.type }}</span>
+                    <span>{{ property.size }}</span>
+                </div>
+                <div class="listing-info">
+                    <span>Listing Date: {{ property.listing_date }}</span>
+                    <span class="status-badge {% if property.is_sold %}sold{% else %}available{% endif %}">
+                        {% if property.is_sold %}SOLD{% else %}AVAILABLE{% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="property-image" style="background-image: url({{ property.image }})"></div>
+
+        <div class="details-section">
+            <h2>Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <span class="checkmark {% if property.bed %}has-bed{% endif %}"></span>
+                    {{ property.bed }} Bedrooms
+                </div>
+                <div class="detail-item">
+                    <span class="checkmark {% if property.bathroom %}has-bath{% endif %}"></span>
+                    {{ property.bathroom }} Bathroom
+                </div>
+                <div class="detail-item">
+                    <span class="checkmark"></span>
+                    Built {{ property.built }}
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2>Description</h2>
+            <p>{{ property.description }}</p>
+        </div>
+    </main>
 </body>
 </html>

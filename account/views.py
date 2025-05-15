@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+
 
 import account
 from .models import User
@@ -12,8 +12,14 @@ from django.views.generic import CreateView
 
 # account/views.py
 from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render
 from django.contrib.auth import login
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile_view(request):
+    return render(request, 'account/profile.html')
 
 def custom_login(request):
     if request.method == "POST":
@@ -21,7 +27,7 @@ def custom_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')  # After login, redirect to the home page
+            return redirect('property-index')  # After login, redirect to the home page
     else:
         form = AuthenticationForm()
 
@@ -33,38 +39,6 @@ class SignUpView(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
-
-
-def register(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-
-    else:
-        return render(request, 'registration/signup.html', {
-            'form': UserCreationForm()
-        })
-
-
-
-
-#this code is from chat and is difrent from vidio but it dose not have errors
-# def register(request):
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')
-#     else:
-#         form = UserCreationForm()
-#
-#     return render(request, 'registration/signup.html', {'form': form})
-
-
-
-
 
 
 
