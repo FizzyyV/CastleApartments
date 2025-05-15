@@ -1,12 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Property, Address
+from .models import Property, Address, PurchaseOffer
+
 admin.site.register(Property)
 admin.site.register(Address)
-
-
-'''admin account: 
-username: admin
-email: admin@email.com
-password: admin123'''
+admin.site.register(PurchaseOffer)

@@ -1,14 +1,23 @@
+.login-button {
+    background-color: #d1ecf9;
+    padding: 12px 30px; /* Optimal padding for size */
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    /*font-weight: bold;*/
+    letter-spacing: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 18px; /* Slightly reduced for better fit */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    transform: scale(1); /* Base scale */
+}
 
-    .login-button {
-      background-color: #d1ecf9;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 3px 3px rgba(0,0,0,0.1);
-    }
-    .login-button:hover {
-        background-color: #37768E;
-        box-shadow: 0 0 0 rgba(0,0,0,0.1);
-    }
+.login-button:hover {
+    background-color: #37768E;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: scale(1.05); /* Scale instead of translate */
+}

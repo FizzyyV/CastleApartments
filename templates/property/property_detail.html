@@ -10,16 +10,18 @@
 </head>
 <body>
     <header>
-        <div>CastleApartments</div>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}" class="profile-link">
-                <img src="{% static 'image/profile_icon.png' %}"
-                     alt="Profile Icon"
-                     class="profile-icon">
-            </a>
-        {% else %}
-            <a href="{% url 'login' %}"><button class="login-button">Log In</button></a>
-        {% endif %}
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="profile-link">
+                    <img src="{% static 'image/profile_icon.png' %}"
+                         alt="Profile Icon"
+                         class="profile-icon">
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}"><button class="login-button">Log In</button></a>
+            {% endif %}
     </header>
 
     <main class="property-detail-container">
@@ -66,6 +68,36 @@
             <h2>Description</h2>
             <p>{{ property.description }}</p>
         </div>
+
+        <div class="submit-offer">
+            <h2>Submit a purchase offer</h2>
+            {% if previous_offer %}
+                <p>your previous offer</p>
+                <ul>
+                    <li>Price: {{  previous_offer.offerPrice }}</li>
+                    <li>Status: {{ previous_offer.offerStatus }}</li>
+                    <li>Expires: {{ previous_offer.dateExpires }}</li>
+                </ul>
+                <button id="openOfferModal">Resubmit Offer</button>
+            {% else %}
+                <button id="openOfferModal">Submit Offer</button>
+            {% endif %}
+        </div>
     </main>
+
+    <div id="offerModal" class="modal" style="display: none">
+            <div class="content">
+                <span class="close-button" id="closeModal">&times;</span>
+                <h2>Submit your offer</h2>
+                <form method="post" action="{% url 'property-submit-offer' property.id %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+    </div>
+    <script src="{% static 'JS/submit_offer.js' %}"></script>
+
 </body>
 </html>

@@ -10,60 +10,66 @@
     <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/login_button.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/filter.css' %}">
-
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
 </head>
 
 
 <body>
-
     <header>
-        <div>CastleApartments</div>
-        {% if user.is_authenticated %}
-            <a href="{% url 'profile' %}" class="profile-link">
-                <img src="{% static 'image/profile_icon.png' %}"
-                     alt="Profile Icon"
-                     class="profile-icon">
-            </a>
-        {% else %}
-            <a href="{% url 'login' %}" class="login-link">
-                <button class="login-button">Log In</button>
-            </a>
-        {% endif %}
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="profile-link">
+                    <img src="{% static 'image/profile_icon.png' %}"
+                         alt="Profile Icon"
+                         class="profile-icon">
+                </a>
+            {% else %}
+                <a href="{% url 'login' %}" class="login-link">
+                    <button class="login-button">Log In</button>
+                </a>
+            {% endif %}
+
     </header>
 
 
     <div class="search-box">
+        <!-- First Row -->
         <div class="form-row">
+            <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" placeholder="Filter Postal Code...">
+            </div>
+            <div class="form-group">
+                <label>Street</label>
+                <input type="text" placeholder="Filter Street Name...">
+            </div>
+        </div>
 
-        <div class="form-group">
-            <label>Postal Code</label>
-            <input type="text" placeholder="Filter Postal Code...">
-        </div>
-        <div class="form-group">
-            <label>Street</label>
-            <input type="text" placeholder="Filter Street Name...">
-        </div>
-
-        </div>
+        <!-- Second Row -->
         <div class="form-row">
             <div class="form-group">
                 <label>Type</label>
                 <input type="text" placeholder="Filter Type...">
             </div>
-        <div class="form-group">
-            <label>Price range</label>
-            <input type="text" placeholder="Filter Price range...">
-         </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group" style="flex: 1;">
-                <label>Ordered by</label>
-                <input type="text" placeholder="Filter By Order...">
+            <div class="form-group">
+                <label>Price range</label>
+                <input type="text" placeholder="Filter Price range...">
             </div>
         </div>
 
-        <button class="search-button">SEARCH</button>
+        <!-- Third Row -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>Order by</label>
+                <input type="text" placeholder="Filter By Order...">
+            </div>
+            <div class="form-group search-button-container">
+                <button class="search-button">SEARCH</button>
+            </div>
+        </div>
     </div>
 
 
@@ -78,20 +84,33 @@
                             <div class="property-image" style="background-image: url({{ property.image }})"></div>
                         </div>
                         <div class="property-info">
-                            <h3>{{property.street_name}} {{property.house_num}}</h3>
-                            <p>{{property.city}} {{property.postal_code}}</p>
-
-                            <div class="price-size">
-                                <div class="price">{{property.listing_price}}</div>
-                                <div class="size">{{property.size}}</div>
+                            <!-- Top Line -->
+                            <div class="info-line">
+                                <div class="address-section">
+                                    <h3>{{property.street_name}} {{property.house_num}}</h3>
+                                    <p class="location">{{property.city}} {{property.postal_code}}</p>
+                                </div>
+                                <div class="price-section">
+                                    <h3>{{property.listing_price}}</h3>
+                                    <p class="size">{{property.size}}</p>
+                                </div>
                             </div>
 
+                            <!-- Icons Line -->
                             <div class="details">
-                                <span>{{property.bed}} Bedrooms</span>
-                                <span>{{property.bathroom}} Bathroom</span>
+                                <div class="detail-item">
+                                    <img src="{{ property.bed_icon }}" class="icon" alt="Bedrooms">
+                                    <span>{{ property.bed }} Bedrooms</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ property.bath_icon }}" class="icon" alt="Bathrooms">
+                                    <span>{{ property.bathroom }} Bathroom</span>
+                                </div>
+                                <div class="detail-item">
+                                    <img src="{{ property.built_icon }}" class="icon" alt="Construction Year">
+                                    <span>Built {{ property.built }}</span>
+                                </div>
                             </div>
-
-                            <div class="built-year">Built {{property.built}}</div>
                         </div>
                     </div>
                 </a>
@@ -99,5 +118,29 @@
         </div>
     </div>
 
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact us</a>
+                    <a href="{% url 'property-index' %}">Properties</a>
+                    <a href="/agencies">Agencies</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

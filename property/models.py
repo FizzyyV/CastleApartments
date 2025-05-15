@@ -1,3 +1,5 @@
+from winreg import EnumKey
+
 from django.db import models
 
 #import account.models
@@ -6,8 +8,6 @@ from django.db import models
 
 # Create your models here.
 class Address(models.Model):
-    class Meta:
-        verbose_name_plural = "Addresses"
     street_name = models.CharField(max_length=100)
     house_number = models.IntegerField()
     city = models.CharField(max_length=100)
@@ -36,3 +36,33 @@ class Property(models.Model):
 
     def __str__(self):
         return f"{self.propertyName}"
+
+### OFFER CLASSES ###
+
+class PurchaseOffer(models.Model):
+    buyerId = models.ForeignKey("account.Buyer", on_delete=models.SET_NULL, null=True)
+    propertyId = models.ForeignKey("Property", on_delete=models.SET_NULL, null=True)
+    sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
+    dateSubmitted = models.DateField(auto_now_add=True)
+    dateExpires = models.DateField()
+    offerPrice = models.FloatField()
+    OFFER_STATUS = (
+        ('Pending', 'Pending'),
+        ('Accepted', 'Accepted'),
+        ('Rejected', 'Rejected'),
+        ('Contingent', 'Contingent')
+    )
+    offerStatus = models.CharField(max_length=20, choices=OFFER_STATUS, default='Pending')
+
+class FinalizedOffer(models.Model):
+    offerId = models.OneToOneField("PurchaseOffer", on_delete=models.SET_NULL, null=True)
+    phoneNumber = models.CharField(null=True, blank=True)
+    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+    nationalId = models.IntegerField()
+    PAYMENT_METHOD = (
+        ('Credit Card', 'Credit Card'),
+        ('Bank Transfer', 'Bank Transfer'),
+        ('Mortgage', 'Mortgage')
+    )
+    paymentMethod = models.CharField(max_length=20, choices=PAYMENT_METHOD)
+    paymentDetails = models.TextField(null=True, blank=True)
