@@ -10,6 +10,8 @@
         gap: 20px;
         font-weight: bold;
         font-size: 24px;
+        flex: 1;
+        margin-top: -20px;
     }
     .property-heading {
       font-size: 28px;
@@ -27,15 +29,16 @@
 
     .property-container {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 15px;
+        padding: 0 20px;
     }
 
     .property-item:hover {
         transform: scale(1.01);
         transition: all 0.2s ease;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        background-color: #f3f9fc;
+        background-color: #FFF3F7;
     }
 
     .property-item{
@@ -49,7 +52,8 @@
     }
     .property-image-container {
         height: 350px;
-        width: 680px;
+        width: 100%; /* Changed from fixed 680px */
+        max-width: 680px; /* Optional max width */
         margin: 0 auto;
         overflow: hidden;
     }
@@ -60,6 +64,31 @@
       background-position: center; /* keeps the focus center */
     }
 
+    @media (max-width: 900px) {
+        .property-container {
+            grid-template-columns: 1fr;
+            padding: 0 10px;
+        }
+
+        .property-box {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        .property-image-container {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .property-image-container {
+            height: 250px;
+        }
+
+        .property-info h3 {
+            font-size: 24px;
+        }
+    }
 
     .property-info {
         padding: 20px;
