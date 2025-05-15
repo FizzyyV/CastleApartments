@@ -52,7 +52,7 @@ class PurchaseOffer(models.Model):
         ('Rejected', 'Rejected'),
         ('Contingent', 'Contingent')
     )
-    offerStatus = enumerate(OFFER_STATUS)
+    offerStatus = models.CharField(max_length=20, choices=OFFER_STATUS, default='Pending')
 
 class FinalizedOffer(models.Model):
     offerId = models.OneToOneField("PurchaseOffer", on_delete=models.SET_NULL, null=True)
@@ -64,5 +64,5 @@ class FinalizedOffer(models.Model):
         ('Bank Transfer', 'Bank Transfer'),
         ('Mortgage', 'Mortgage')
     )
-    paymentMethod = enumerate(PAYMENT_METHOD)
+    paymentMethod = models.CharField(max_length=20, choices=PAYMENT_METHOD)
     paymentDetails = models.TextField(null=True, blank=True)

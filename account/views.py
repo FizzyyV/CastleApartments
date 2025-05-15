@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 
 
 import account
+from property.forms.finalize_offer_form import FinalizeOfferForm
+from property.models import PurchaseOffer
 from .models import User
 # Create your views here.
 
@@ -19,7 +21,13 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def profile_view(request):
-    return render(request, 'account/profile.html')
+    buyer_offers = PurchaseOffer.objects.filter(buyerId__user=request.user)
+    form = FinalizeOfferForm()
+    return render(request, 'account/profile.html',
+                  context={'user': request.user,
+                           'offers': buyer_offers,
+                           'finalize_form': form
+                           })
 
 def custom_login(request):
     if request.method == "POST":

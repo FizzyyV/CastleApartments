@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 from property.models import PurchaseOffer
 from .forms import submit_offer_form
+from .forms.finalize_offer_form import FinalizeOfferForm
 from .forms.submit_offer_form import SubmitOfferForm
 from .models import Property, PurchaseOffer, FinalizedOffer
 
@@ -123,7 +124,6 @@ def get_property_by_id(request, property_id):
     if property_to_get is None:
         return HttpResponse("Property not found", status=404)
 
-    #TODO: implement displaying logged in user's submitted purchase offer for property
     user_offer = None
     #if user is logged in, check if there is submitted offer to display, else None
     if request.user.is_authenticated and hasattr(request.user, 'buyer'):
@@ -227,21 +227,29 @@ def offer_exists(user_id, property_id)-> PurchaseOffer | None:
 def finalize_purchase_offer(request, property_id, offer_id):
     """finalize an accepted purchase offer"""
     try: #check if offer exists
-        offer = PurchaseOffer.objects.get(id=offer_id)
+        offer = PurchaseOffer.objects.get(id=offer_id, propertyId__id=property_id)
     except PurchaseOffer.DoesNotExist:
         return HttpResponse("Offer not found", status=404)
 
     if offer.offerStatus != 'Accepted': #if offer is not accepted it cannot be finalized
-        return #TODO: implement
+        return HttpResponse("Offer must be accepted to finalize", status=400)
 
     if request.method == "POST":
-        pass
+        form = FinalizeOfferForm(request.POST)
+        if form.is_valid():
+            finalize_offer = form.save(commit=False)
+            finalize_offer.offerId = offer
+            finalize_offer.propertyId = property_id
+            #finalized_offer.save()
+            return redirect('property-by-id', property_id=property_id)
+    else:
+        form = FinalizeOfferForm()
 
-#call a helper function to make sure the offer has been accepted
-    #if offer is accepted and valid:
-        #create FinalizedOffer instance to store info
-        #call get_contact_info_finalize() to store buyers contact info
-
+    return render(request, template_name="property/property_detail.html",
+                  context={'property': property_id,
+                            'form': form,
+                            'offer': offer
+                         })
 
 def get_contact_info_finalize(finalized_offer_obj):
     """helper function for finalizing offer
