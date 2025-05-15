@@ -5,14 +5,15 @@ from property.models import FinalizedOffer
 
 class FinalizeOfferForm(ModelForm):
     #extra input fields for payment
+    # credit card
     cardholder = forms.CharField(required=False)
     card_number = forms.CharField(required=False)
     card_expiry = forms.CharField(required=False)
     card_cvc = forms.CharField(required=False)
-
+    #bank transfer
     bank_name = forms.CharField(required=False)
     account_number = forms.CharField(required=False)
-
+    #mortgage
     mortgage_lender = forms.CharField(required=False)
     agreement_ref = forms.CharField(required=False)
 
@@ -36,9 +37,9 @@ class FinalizeOfferForm(ModelForm):
 
         if method == 'Credit Card':
             details = (
-                f"Cardholder: {self.cleaned_data['cardholder']}\n"
-                f"Card Number: {self.cleaned_data['card_number']}\n"
-                f"Expiry: {self.cleaned_data['card_expiry']}\n"
+                f"Cardholder name: {self.cleaned_data['cardholder']}\n"
+                f"Card number: {self.cleaned_data['card_number']}\n"
+                f"Expiry date: {self.cleaned_data['card_expiry']}\n"
                 f"CVC: {self.cleaned_data['card_cvc']}"
             )
         elif method == 'Bank Transfer':
