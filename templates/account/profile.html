@@ -52,41 +52,74 @@
 
                     <!-- Add dynamic offers here later -->
                         <div class="offer-placeholder">No offers submitted yet</div>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </main>
 
-    <div id="finalizeModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-button" id="closeModal">&times;</span>
-            <form method="POST" id="finalizeForm">
-                {% csrf_token %}
-                <!-- Tabs -->
-                <div class="form-step" id="step1">
-                    <h2>Step 1: Contact Info</h2>
-                    {{ finalize_form.contactInfo.label_tag }} {{ finalize_form.contactInfo }}
-                    {{ finalize_form.nationalId.label_tag }} {{ finalize_form.nationalId }}
-                    <button type="button" onclick="nextStep(2)">Next</button>
-                </div>
-                <div class="form-step" id="step2" style="display:none;">
-                    <h2>Step 2: Address</h2>
-                    {{ finalize_form.address.label_tag }} {{ finalize_form.address }}
-                    <button type="button" onclick="nextStep(1)">Back</button>
-                    <button type="button" onclick="nextStep(3)">Next</button>
-                </div>
-                <div class="form-step" id="step3" style="display:none;">
-                    <h2>Step 3: Payment</h2>
-                    {{ finalize_form.paymentMethod.label_tag }} {{ finalize_form.paymentMethod }}
-                    {{ finalize_form.paymentDetails.label_tag }} {{ finalize_form.paymentDetails }}
-                    <button type="button" onclick="nextStep(2)">Back</button>
-                    <button type="submit">Submit Finalized Offer</button>
-                </div>
-            </form>
-        </div>
-    </div>
+<!-- Finalize Offer Modal -->
+<div id="finalizeModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <form method="POST" id="finalizeForm">
+            {% csrf_token %}
 
-    <script src="{% static 'JS/finalize_modal.js' %}"></script>
+            <!-- Step 1: Contact Info -->
+            <div class="form-step" id="step1">
+                <h2>Step 1: Contact Info</h2>
+                {{ finalize_form.nationalId.label_tag }} {{ finalize_form.nationalId }}
+                {{ finalize_form.phoneNumber.label_tag }} {{ finalize_form.phoneNumber }}
+                <button type="button" onclick="nextStep(2)">Next</button>
+            </div>
+
+            <!-- Step 2: Address -->
+            <div class="form-step" id="step2" style="display:none;">
+                <h2>Step 2: Address</h2>
+                {{ finalize_form.address.label_tag }} {{ finalize_form.address }}
+                <button type="button" onclick="nextStep(1)">Back</button>
+                <button type="button" onclick="nextStep(3)">Next</button>
+            </div>
+
+            <!-- Step 3: Payment -->
+            <div class="form-step" id="step3" style="display:none;">
+                <h2>Step 3: Payment</h2>
+                {{ finalize_form.paymentMethod.label_tag }} {{ finalize_form.paymentMethod }}
+
+                <!-- Payment Sections -->
+                <div id="creditCardFields" style="display:none;">
+                    <label>Cardholder Name</label>
+                    <input type="text" name="cardholder">
+                    <label>Card Number</label>
+                    <input type="text" name="card_number">
+                    <label>Expiry Date</label>
+                    <input type="text" name="card_expiry">
+                    <label>CVC</label>
+                    <input type="text" name="card_cvc">
+                </div>
+
+                <div id="bankFields" style="display:none;">
+                    <label>Bank Name</label>
+                    <input type="text" name="bank_name">
+                    <label>Account Number</label>
+                    <input type="text" name="account_number">
+                </div>
+
+                <div id="mortgageFields" style="display:none;">
+                    <label>Mortgage Lender</label>
+                    <input type="text" name="mortgage_lender">
+                    <label>Agreement Reference</label>
+                    <input type="text" name="agreement_ref">
+                </div>
+
+                <button type="button" onclick="nextStep(2)">Back</button>
+                <button type="submit">Submit Finalized Offer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="{% static 'JS/finalize_modal.js' %}"></script>
 
 </body>
 </html>

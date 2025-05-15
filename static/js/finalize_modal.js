@@ -33,3 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 });
+
+document.getElementById('id_paymentMethod').addEventListener('change', function () {
+    const method = this.value;
+    document.getElementById('creditCardFields').style.display = (method === 'Credit Card') ? 'block' : 'none';
+    document.getElementById('bankFields').style.display = (method === 'Bank Transfer') ? 'block' : 'none';
+    document.getElementById('mortgageFields').style.display = (method === 'Mortgage') ? 'block' : 'none';
+});
