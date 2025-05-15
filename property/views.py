@@ -19,6 +19,7 @@ def session_debug(request):
 
 # Create your views here.
 
+# Corrected properties list in views.py
 properties = [
     {
         'id': 0,
@@ -36,9 +37,11 @@ properties = [
         'built': '2020',
         'listing_date': '30.04.2024',
         'type': 'Town House',
-        'description': 'Fancy house'
+        'description': 'Fancy house',
+        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
+        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
     },
-
     {
         'id': 1,
         'street_name': 'Faxabraut',
@@ -55,7 +58,10 @@ properties = [
         'built': '2018',
         'listing_date': '30.04.2024',
         'type': 'Detached House',
-        'description': 'Pretty House'
+        'description': 'Pretty House',
+        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
+        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
     },
 
     {
@@ -74,8 +80,12 @@ properties = [
         'built': '2021',
         'listing_date': '05.05.2024',
         'type': 'Modern Villa',
-        'description': 'Spacious modern villa with a garden view.'
+        'description': 'Spacious modern villa with a garden view.',
+        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
+        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
     },
+
     {
         'id': 3,
         'street_name': 'Lindargata',
@@ -92,7 +102,10 @@ properties = [
         'built': '2016',
         'listing_date': '03.05.2024',
         'type': 'Cottage',
-        'description': 'Cozy cottage nestled in a quiet neighborhood.'
+        'description': 'Cozy cottage nestled in a quiet neighborhood.',
+        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
+        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
     },
     {
         'id': 4,
@@ -110,9 +123,15 @@ properties = [
         'built': '2019',
         'listing_date': '28.04.2024',
         'type': 'Semi-Detached',
-        'description': 'Elegant semi-detached house with upgraded interiors.'
+        'description': 'Elegant semi-detached house with upgraded interiors.',
+        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
+        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
+        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png'
     }
 ]
+
+
+
 
 def index(request):
      return render(request, template_name="property/properties.html", context={

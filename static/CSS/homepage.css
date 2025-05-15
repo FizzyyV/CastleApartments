@@ -1,23 +1,21 @@
 
     .property-box{
         background-color: white;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding: 0 30px 30px; /* Added bottom padding */
         border-radius: 10px 10px 0 0;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
         gap: 20px;
-        font-weight: bold;
-        font-size: 24px;
         flex: 1;
         margin-top: -20px;
-    }
+        }
     .property-heading {
       font-size: 28px;
-      font-weight: bold;
-      margin: 40px 0 20px 20px;
-      color: #333;
+        font-weight: bold;
+        margin: 40px 0 20px 0; /* Removed left margin */
+        color: #333;
+        padding-left: 20px;
     }
 
     .property-link {
@@ -29,8 +27,8 @@
 
     .property-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+        gap: 20px; /* Increased from 15px */
         padding: 0 20px;
     }
 
@@ -49,6 +47,7 @@
         display: flex;
         flex-direction: column;
         cursor: pointer;
+        transition: all 0.2s ease; /* Moved from hover state */
     }
     .property-image-container {
         height: 350px;
@@ -124,3 +123,110 @@
         margin-top: 15px;
     }
 
+
+/* Property Info Layout */
+.info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+}
+
+.address-section h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    line-height: 1.2;
+}
+
+.location {
+    color: #7f8c8d;
+    font-size: 1rem;
+    margin-top: 4px;
+}
+
+.price-section {
+    text-align: right;
+}
+
+.price {
+    font-size: 1.5rem;
+    color: #27ae60;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.size-section {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.size {
+    font-size: 1.1rem;
+    color: #34495e;
+    font-weight: 500;
+}
+
+/* Icons Section */
+.details {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid #ecf0f1;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-right: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .info-line {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .address-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .price {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-line {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .price-section,
+    .size-section {
+        text-align: left;
+    }
+
+    .details {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+
+    .detail-item {
+        flex: 1 1 45%;
+        justify-content: center;
+    }
+}
