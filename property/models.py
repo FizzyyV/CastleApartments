@@ -56,7 +56,7 @@ class PurchaseOffer(models.Model):
 
 class FinalizedOffer(models.Model):
     offerId = models.OneToOneField("PurchaseOffer", on_delete=models.SET_NULL, null=True)
-    contactInfo = models.TextField(null=True, blank=True)
+    phoneNumber = models.CharField(null=True, blank=True)
     address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
     nationalId = models.IntegerField()
     PAYMENT_METHOD = (
