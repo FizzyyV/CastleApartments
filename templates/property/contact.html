@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - CastleApartments</title>
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-link">
+                <button class="login-button">Log In</button>
+            </a>
+        {% endif %}
+    </header>
+
+    <main class="contact-container">
+        <h1>Get in Touch</h1>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-card">
+                    <h2><i class="fas fa-map-marker-alt"></i> Visit Us</h2>
+                    <p>Real Estate Street 101<br>101 Reykjavík, Iceland</p>
+                </div>
+
+                <div class="info-card">
+                    <h2><i class="fas fa-phone"></i> Call Us</h2>
+                    <p>Main Office: +354 555-1234<br>Support: +354 555-5678</p>
+                </div>
+
+                <div class="info-card">
+                    <h2><i class="fas fa-envelope"></i> Email Us</h2>
+                    <p>General Inquiries: info@castleapartments.is<br>
+                       Support: support@castleapartments.is</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="office-hours">
+            <h2>Office Hours</h2>
+            <div class="hours-grid">
+                <div class="day">Monday-Friday</div>
+                <div class="time">9:00 AM - 6:00 PM</div>
+                <div class="day">Saturday</div>
+                <div class="time">10:00 AM - 4:00 PM</div>
+                <div class="day">Sunday</div>
+                <div class="time">Closed</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'contact' %}">Contact us</a>
+                    <a href="{% url 'agencies' %}">Agencies</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

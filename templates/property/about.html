@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us - CastleApartments</title>
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/about.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-link">
+                <button class="login-button">Log In</button>
+            </a>
+        {% endif %}
+    </header>
+
+    <main class="about-container">
+        <section class="about-hero">
+            <h1>Your Trusted Partner in Icelandic Real Estate</h1>
+        </section>
+
+        <section class="our-story">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Founded in 2024, CastleApartments emerged from a simple vision: to create a seamless bridge between quality housing and discerning residents in Iceland's dynamic real estate market.</p>
+                    <p>What began as a small Reykjavík-based agency has grown into a nationwide network of property experts, connecting thousands of Icelanders with their dream homes every year.</p>
+                </div>
+                <div class="story-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2K+</div>
+                        <div class="stat-label">Properties Listed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>Meet Our Leadership</h2>
+            <div class="team-grid">
+                <div class="team-member-card">
+                    <h3>John Smith</h3>
+                    <p class="position">CEO & Founder</p>
+                    <p class="bio">With 15 years in real estate development, John leads our strategic vision.</p>
+                </div>
+                <div class="team-member-card">
+                    <h3>Sara Jónsdóttir</h3>
+                    <p class="position">COO</p>
+                    <p class="bio">Operations expert ensuring seamless service delivery across Iceland.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🏡</div>
+                    <h3>Integrity First</h3>
+                    <p>Transparent dealings and honest advice form the foundation of every interaction.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔑</div>
+                    <h3>Client-Centric</h3>
+                    <p>Your needs always come first - we listen before we advise.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'contact' %}">Contact us</a>
+                    <a href="{% url 'agencies' %}">Agencies</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

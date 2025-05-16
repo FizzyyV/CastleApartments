@@ -22,7 +22,7 @@ def signup(request):
             if user.role == 'buyer':
                 Buyer.objects.create(user=user)
             elif user.role == 'seller':
-                pass  # Optional: Create Seller.objects.create(user=user)
+                Seller.objects.create(user=user)
             Profile.objects.create(user=user, profile_image='')  # Use default image or logic
 
 
