@@ -34,7 +34,14 @@
             <div class="location">{{ address.city }} {{ address.postal_code }}</div>
 
             <div class="property-meta">
-                <div class="agent">John Smithy</div>
+                <div class="seller-info">
+                    <strong>Seller:</strong>
+                    <a href="{% url 'sellerprofile' property.sellerId.id %}">
+                        {{ property.sellerId.user.username }}
+                    </a>
+                </div>
+
+{#                <div class="agent">John Smithy</div>#}
                 <div class="type-size">
                     <span>{{ property.propertyType }}</span>
                     <span>{{ property.propSquareMeters }}</span>

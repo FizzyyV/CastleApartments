@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ seller.user.username }}'s Profile</title>
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/seller_profile.css' %}">
+</head>
+<body>
+<header>
+    <a href="{% url 'property-index' %}" class="site-title-link">CastleApartments</a>
+</header>
+
+<main class="seller-profile-container">
+    <div class="seller-header"
+         {% if seller.cover_image %}
+         style="background-image: url('{{ seller.cover_image.url }}')"
+         {% endif %}>
+        {% if seller.logo %}
+            <div class="logo" style="background-image: url('{{ seller.logo.url }}')"></div>
+        {% else %}
+            <div class="logo" style="background-image: url('{% static "image/default_logo.png" %}')"></div>
+        {% endif %}
+        <h1>{{ seller.user.username }}</h1>
+        <p class="type">{{ seller.seller_type|title }}</p>
+{#        only show address if seller is agency#}
+        {% if seller.seller_type == "Real Estate Agency" and seller.seller_Address %}
+            <p class="address">
+                {{ seller.seller_Address.street_name }},
+                {{ seller.seller_Address.city }}
+                {{ seller.seller_Address.postal_code }}
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="bio">
+        <h2>About</h2>
+        <p>{{ seller.bio|default:"No bio provided." }}</p>
+    </div>
+
+    <div class="seller-properties">
+        <h2>Properties by {{ seller.user.username }}</h2>
+        <div class="property-grid">
+            {% for property in properties %}
+                <a href="{% url 'property-by-id' property.id %}" class="property-card">
+                    <div class="thumbnail" style="background-image: url('{{ property.propThumbnail }}')"></div>
+                    <div class="address">{{ property.propertyName }} {{ property.propAddress.house_number }}</div>
+                </a>
+            {% empty %}
+                <p>No properties listed.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+</body>
+</html>

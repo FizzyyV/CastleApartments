@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 
 import property.forms.finalize_offer_form
 from account.forms.profile_form import CustomUserCreationForm, ProfileForm
-from account.models import Buyer, Profile
+from account.models import Buyer, Profile, Seller
 from django.core.exceptions import ObjectDoesNotExist
 
 from property.models import PurchaseOffer, FinalizedOffer
@@ -110,3 +110,12 @@ def finalize_purchase_offer(request, offer_id):
                   context={'form': form,
                             'offer': offer
                          })
+
+def seller_profile(request, seller_id):
+    seller = Seller.objects.get(id=seller_id)
+    properties = property.models.Property.objects.filter(sellerId=seller)
+
+    return render(request, template_name="account/seller_profile.html",context={
+        'seller': seller,
+        'properties':properties
+    })

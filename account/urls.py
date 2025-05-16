@@ -17,5 +17,6 @@ urlpatterns = [
 
     path('profile/finalize_offer/<int:offer_id>/', views.finalize_purchase_offer, name='profile_finalize_offer'),
 
+    path('seller/<int:seller_id>/', views.seller_profile, name='sellerprofile'),
 ]
 

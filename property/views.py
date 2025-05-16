@@ -180,6 +180,7 @@ def index(request):
 def get_property_by_id(request, property_id):
     property = Property.objects.get(id=property_id)
     address = Address.objects.get(id=property.propAddress_id)
+    seller = property.sellerId
     user_offer = None
     #if user is logged in, check if there is submitted offer to display, else None
     if request.user.is_authenticated and hasattr(request.user, 'buyer'):
@@ -204,6 +205,7 @@ def get_property_by_id(request, property_id):
         "address": address,
         "previous_offer": user_offer,
         "form": form,
+        "seller": seller,
     })
 
 def auth_test(request):
