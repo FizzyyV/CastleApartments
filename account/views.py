@@ -44,6 +44,8 @@ def custom_login(request):
     return render(request, 'registration/login_pretty.html', {'form': form})
 
 
+from account.forms.profile_form import UserUpdateForm  # add this if not already imported
+
 def profile(request):
     # Redirect sellers to their seller profile page
     if request.user.role == 'seller':
@@ -56,20 +58,28 @@ def profile(request):
     # Buyer logic continues here
 
     account_profile = Profile.objects.filter(user=request.user).first()
+    updated = False  # Optional: track whether any update happened
 
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=request.user.profile)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user = request.user
-            instance.save()
-            return redirect('profile')
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        user_form = UserUpdateForm(request.POST, instance=request.user)
+
+        if profile_form.is_valid():
+            profile_form.save()
+            updated = True
+
+        if user_form.is_valid():
+            user_form.save()
+            updated = True
+
+        if updated:
+            return redirect('profile')  # Reload page only if something was updated
     else:
-        form = ProfileForm(instance=account_profile)
+        profile_form = ProfileForm(instance=account_profile)
+        user_form = UserUpdateForm(instance=request.user)
 
     offers = []
     if request.user.is_authenticated and hasattr(request.user, 'buyer'):
-        #get the latest offers submitted for each property
         latest_offer_ids = (
             PurchaseOffer.objects
             .filter(buyerId=request.user.buyer)
@@ -78,16 +88,61 @@ def profile(request):
             .values_list('latest_id', flat=True)
         )
         offers = PurchaseOffer.objects.filter(id__in=latest_offer_ids).select_related('propertyId')
-    all_offers = PurchaseOffer.objects.filter(buyerId=request.user.buyer).select_related('propertyId')
-    finalized_offer_ids = set(FinalizedOffer.objects.filter(offerId__in=offers).values_list('offerId', flat=True))
-    finalized_success = request.GET.get('finalized', None)=='1'
-    return render(request, 'account/profile.html', {
-            'form':form,
-            'offers':offers,
-            'finalized_offer_ids':finalized_offer_ids,
-            'finalize_form':property.forms.finalize_offer_form.FinalizeOfferForm()
 
-        })
+    finalized_offer_ids = set(
+        FinalizedOffer.objects.filter(offerId__in=offers).values_list('offerId', flat=True)
+    )
+    finalized_success = request.GET.get('finalized', None) == '1'
+
+    return render(request, 'account/profile.html', {
+        'form': profile_form,
+        'user_form': user_form,
+        'offers': offers,
+        'finalized_offer_ids': finalized_offer_ids,
+        'finalize_form': property.forms.finalize_offer_form.FinalizeOfferForm(),
+        'finalized_success': finalized_success,
+    })
+
+
+
+
+
+
+#
+# def profile(request):
+#     account_profile = Profile.objects.filter(user=request.user).first()
+#
+#     if request.method == "POST":
+#         form = ProfileForm(request.POST, instance=request.user.profile)
+#         if form.is_valid():
+#             instance = form.save(commit=False)
+#             instance.user = request.user
+#             instance.save()
+#             return redirect('profile')
+#     else:
+#         form = ProfileForm(instance=account_profile)
+#
+#     offers = []
+#     if request.user.is_authenticated and hasattr(request.user, 'buyer'):
+#         #get the latest offers submitted for each property
+#         latest_offer_ids = (
+#             PurchaseOffer.objects
+#             .filter(buyerId=request.user.buyer)
+#             .values('propertyId')
+#             .annotate(latest_id=Max('id'))
+#             .values_list('latest_id', flat=True)
+#         )
+#         offers = PurchaseOffer.objects.filter(id__in=latest_offer_ids).select_related('propertyId')
+#     all_offers = PurchaseOffer.objects.filter(buyerId=request.user.buyer).select_related('propertyId')
+#     finalized_offer_ids = set(FinalizedOffer.objects.filter(offerId__in=offers).values_list('offerId', flat=True))
+#     finalized_success = request.GET.get('finalized', None)=='1'
+#     return render(request, 'account/profile.html', {
+#             'form':form,
+#             'offers':offers,
+#             'finalized_offer_ids':finalized_offer_ids,
+#             'finalize_form':property.forms.finalize_offer_form.FinalizeOfferForm()
+#
+#         })
 
 def finalize_purchase_offer(request, offer_id):
     """finalize an accepted purchase offer"""

@@ -1,0 +1,107 @@
+    body {
+      font-family: sans-serif;
+      background-color: #fce4ec;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: white;
+        font-weight: bold;
+        font-size: 35px;
+        position: relative;
+    }
+
+    /*web title*/
+    .site-title-link {
+        text-decoration: none;
+        color: inherit;
+        margin-right: auto;
+        transform: translateY(15px) translateX(-20px);
+        transition: transform 0.2s ease;
+    }
+    .site-title-link:hover {
+        text-decoration: none;
+        transform: translateY(15px) translateX(-20px) scale(1.02);
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 5px;
+    }
+    .profile-icon {
+      width: 40px;
+      height: 35px;
+      object-fit: cover; /* Ensures image fills circle */
+      border-radius: 40%; /* Makes it circular */
+      transition: transform 0.2s ease; /* Smooth hover effect */
+      cursor: pointer;
+    }
+
+    .avatar{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: solid .5px darkgray;
+        background-size: cover;
+        background-position:center;
+        background-repeat: no-repeat;
+    }
+    .profile-icon:hover {
+      transform: scale(1.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds depth on hover */
+    }
+    .profile-link form {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    .profile-link button {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+    .icon-button {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+    .login-link {
+        text-decoration: none;
+    }
+    .auth-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: auto;
+    }
+
+    .logout-button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    }
+
+    .logout-button:hover {
+        background-color: #fddde6;
+    }
+
+    .profile-link {
+        margin-left: auto;
+    }
