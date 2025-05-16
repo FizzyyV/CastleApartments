@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="square meters" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -317,32 +320,7 @@
       <option name="project" value="LOCAL" />
       <updated>1747422599030</updated>
     </task>
-    <task id="LOCAL-00025" summary="postal code field add">
-      <option name="closed" value="true" />
-      <created>1747426735934</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1747426735934</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Filter???">
-      <option name="closed" value="true" />
-      <created>1747428349681</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1747428349681</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
-    <task id="LOCAL-00026" summary="square meters">
-      <option name="closed" value="true" />
-      <created>1747428177711</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1747428177711</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,10 +410,6 @@
     <MESSAGE value="added footer to some pages" />
     <MESSAGE value="missing seller object fix" />
     <MESSAGE value="create PropertyImages class instead of propImages attribute" />
-    <MESSAGE value="postal code field add" />
-    <MESSAGE value="Filter???" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter???" />
-    <MESSAGE value="square meters" />
-    <option name="LAST_COMMIT_MESSAGE" value="square meters" />
+    <option name="LAST_COMMIT_MESSAGE" value="create PropertyImages class instead of propImages attribute" />
   </component>
 </project>
