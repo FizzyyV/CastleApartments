@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="bs">
-      <change beforePath="$PROJECT_DIR$/templates/property/properties.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/properties.html" afterDir="false" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="you can now change the profile imige and it will save and display">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="eyrun_acount_page_testing" />
+        <entry key="$PROJECT_DIR$" value="Marta-Branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,8 +64,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "TEST",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "EYRUN__ER__BEST",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -258,23 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746720971801</updated>
     </task>
-    <task id="LOCAL-00018" summary="migration fixed built">
+    <task id="LOCAL-00018" summary="you can now change the profile imige and it will save and display">
       <option name="closed" value="true" />
-      <created>1747393573393</created>
+      <created>1747396911443</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1747393573393</updated>
+      <updated>1747396911443</updated>
     </task>
-    <task id="LOCAL-00019" summary="migration fixed built">
-      <option name="closed" value="true" />
-      <created>1747393598243</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1747393598243</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,7 +327,7 @@
     <MESSAGE value="migrations" />
     <MESSAGE value="testing admin" />
     <MESSAGE value="testing admin&#10;fix migration" />
-    <MESSAGE value="migration fixed built" />
-    <option name="LAST_COMMIT_MESSAGE" value="migration fixed built" />
+    <MESSAGE value="you can now change the profile imige and it will save and display" />
+    <option name="LAST_COMMIT_MESSAGE" value="you can now change the profile imige and it will save and display" />
   </component>
 </project>

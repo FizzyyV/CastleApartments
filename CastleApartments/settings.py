@@ -153,3 +153,5 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = "/"
 SIGNUP_REDIRECT_URL = "/account/profile"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
