@@ -58,7 +58,7 @@ class PurchaseOffer(models.Model):
 class FinalizedOffer(models.Model):
     offerId = models.OneToOneField("PurchaseOffer", on_delete=models.SET_NULL, null=True)
     phoneNumber = models.CharField(null=True, blank=True)
-    address = models.ForeignKey(Address, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=255, null=True, blank=True)
     nationalId = models.IntegerField()
     PAYMENT_METHOD = (
         ('Credit Card', 'Credit Card'),
