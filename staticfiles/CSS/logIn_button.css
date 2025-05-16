@@ -1,0 +1,14 @@
+
+    .login-button {
+      background-color: #d1ecf9;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    }
+    .login-button:hover {
+        background-color: #37768E;
+        box-shadow: 0 0 0 rgba(0,0,0,0.1);
+    }

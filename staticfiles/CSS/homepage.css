@@ -1,0 +1,81 @@
+
+    .property-box{
+        background-color: white;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-radius: 10px 10px 0 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .property-heading {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 40px 0 20px 20px;
+      color: #333;
+    }
+
+
+    .property-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+    }
+    .property-item{
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+    }
+    .property-image-container {
+        height: 350px;
+        width: 680px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .property-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;     /* ensures image covers the whole area */
+      background-position: center; /* keeps the focus center */
+    }
+
+
+    .property-info {
+        padding: 20px;
+        font-family: sans-serif;
+        color: #333;
+    }
+    .property-info h3 {
+    font-size: 28px;
+    margin: 0 0 8px 0;
+    }
+    .property-info p {
+        font-size: 20px;
+        margin: 0 0 20px 0;
+        color: #666;
+    }
+    .price-size {
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+    .details {
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        margin: 15px 0;
+    }
+    .built-year {
+        text-align: center;
+        font-weight: bold;
+        font-size: 18px;
+        color: #444;
+        margin-top: 15px;
+    }
