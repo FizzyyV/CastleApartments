@@ -7,7 +7,7 @@ from property.models import PurchaseOffer
 from .forms import submit_offer_form
 from .forms.finalize_offer_form import FinalizeOfferForm
 from .forms.submit_offer_form import SubmitOfferForm
-from .models import Property, PurchaseOffer, FinalizedOffer
+from .models import Property, Address, PurchaseOffer, FinalizedOffer
 
 
 from django.contrib.sessions.models import Session
@@ -164,10 +164,32 @@ properties = [
 
 
 def index(request):
-     return render(request, template_name="property/properties.html", context={
-         "properties": properties
-     })
+    properties = Property.objects.all()
 
+    arprop = []
+    print(properties)
+    for property in properties:
+        print(property.built)
+        address = Address.objects.get(id=property.propAddress_id)
+        arprop.append({property,address})
+
+    print(arprop)
+
+    return render(request, template_name="property/properties.html", context={
+         "properties": arprop
+    })
+
+def get_property_by_id(request, property_id):
+    property = Property.objects.get(id=property_id)
+    address = Address.objects.get(id=property.propAddress_id)
+
+    return render(request, template_name="property/property_detail.html", context={
+        "property": property,
+        "address": address
+    })
+
+
+'''
 def get_property_by_id(request, property_id):
     property_to_get = next((x for x in properties if x ['id'] == property_id), None)
     if property_to_get is None:
@@ -186,7 +208,7 @@ def get_property_by_id(request, property_id):
                            "user_offer": user_offer,
                            "form": form
     })
-
+'''
 def auth_test(request):
     return render(request, 'property/auth_test.html', {
         'user': request.user,

@@ -26,36 +26,36 @@
 
     <main class="property-detail-container">
         <div class="property-header">
-            <h1>{{ property.street_name }} {{ property.house_num }}</h1>
-            <div class="location">{{ property.city }} {{ property.postal_code }}</div>
+            <h1>{{ property.propertyName }} {{ address.house_number }}</h1>
+            <div class="location">{{ address.city }} {{ address.postal_code }}</div>
 
             <div class="property-meta">
                 <div class="agent">John Smithy</div>
                 <div class="type-size">
-                    <span>{{ property.type }}</span>
-                    <span>{{ property.size }}</span>
+                    <span>{{ property.propertyType }}</span>
+                    <span>{{ property.propSquareMeters }}</span>
                 </div>
                 <div class="listing-info">
-                    <span>Listing Date: {{ property.listing_date }}</span>
-                    <span class="status-badge {% if property.is_sold %}sold{% else %}available{% endif %}">
-                        {% if property.is_sold %}SOLD{% else %}AVAILABLE{% endif %}
+                    <span>Listing Date: {{ property.propListingDate }}</span>
+                    <span class="status-badge {% if property.propIsSold %}sold{% else %}available{% endif %}">
+                        {% if property.propIsSold %}SOLD{% else %}AVAILABLE{% endif %}
                     </span>
                 </div>
             </div>
         </div>
 
-        <div class="property-image" style="background-image: url({{ property.image }})"></div>
+        <div class="property-image" style="background-image: url({{ property.propImages }})"></div>
 
         <div class="details-section">
             <h2>Details</h2>
             <div class="details-grid">
                 <div class="detail-item">
-                    <span class="checkmark {% if property.bed %}has-bed{% endif %}"></span>
-                    {{ property.bed }} Bedrooms
+                    <span class="checkmark {% if property.propBedrooms %}has-bed{% endif %}"></span>
+                    {{ property.propBedrooms }} Bedrooms
                 </div>
                 <div class="detail-item">
-                    <span class="checkmark {% if property.bathroom %}has-bath{% endif %}"></span>
-                    {{ property.bathroom }} Bathroom
+                    <span class="checkmark {% if property.propBathrooms %}has-bath{% endif %}"></span>
+                    {{ property.propBathrooms }} Bathroom
                 </div>
                 <div class="detail-item">
                     <span class="checkmark"></span>
@@ -66,38 +66,8 @@
 
         <div class="description-section">
             <h2>Description</h2>
-            <p>{{ property.description }}</p>
-        </div>
-
-        <div class="submit-offer">
-            <h2>Submit a purchase offer</h2>
-            {% if previous_offer %}
-                <p>your previous offer</p>
-                <ul>
-                    <li>Price: {{  previous_offer.offerPrice }}</li>
-                    <li>Status: {{ previous_offer.offerStatus }}</li>
-                    <li>Expires: {{ previous_offer.dateExpires }}</li>
-                </ul>
-                <button id="openOfferModal">Resubmit Offer</button>
-            {% else %}
-                <button id="openOfferModal">Submit Offer</button>
-            {% endif %}
+            <p>{{ property.propDescription }}</p>
         </div>
     </main>
-
-    <div id="offerModal" class="modal" style="display: none">
-            <div class="content">
-                <span class="close-button" id="closeModal">&times;</span>
-                <h2>Submit your offer</h2>
-                <form method="post" action="{% url 'property-submit-offer' property.id %}">
-                    {% csrf_token %}
-                    {{ form }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-
-            </div>
-    </div>
-    <script src="{% static 'JS/submit_offer.js' %}"></script>
-
 </body>
 </html>

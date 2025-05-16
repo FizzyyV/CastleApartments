@@ -1,4 +1,4 @@
-from winreg import EnumKey
+#from winreg import EnumKey
 
 from django.db import models
 
@@ -32,6 +32,7 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
+    built = models.IntegerField()
     #sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
