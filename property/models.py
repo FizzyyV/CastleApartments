@@ -33,6 +33,7 @@ class Property(models.Model):
     propSquareMeters = models.FloatField()
     built = models.IntegerField(null=True, blank=True)
     sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
+    postalCode = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f"{self.propertyName}"
