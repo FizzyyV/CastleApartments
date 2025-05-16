@@ -1,73 +1,141 @@
-<!-- templates/property/property_detail.html -->
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ property.street_name }} Details</title>
-    <link rel="stylesheet" href="{% static 'CSS/property_detail.css' %}">
+    <title>{{ property.street_name }} Details - CastleApartments</title>
+
+    <script src="{% static 'js/property_detail.js' %}"></script>
     <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/property_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/login_button.css' %}">
 </head>
 <body>
     <header>
         <a href="{% url 'property-index' %}" class="site-title-link">
             <div>CastleApartments</div>
         </a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="profile-link">
-                    <img src="{% static 'image/profile_icon.png' %}"
-                         alt="Profile Icon"
-                         class="profile-icon">
-                </a>
-            {% else %}
-                <a href="{% url 'login' %}"><button class="login-button">Log In</button></a>
-            {% endif %}
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-link">
+                <button class="login-button">Log In</button>
+            </a>
+        {% endif %}
     </header>
 
     <main class="property-detail-container">
-        <div class="property-header">
-            <h1>{{ property.street_name }} {{ property.house_num }}</h1>
-            <div class="location">{{ property.city }} {{ property.postal_code }}</div>
-
-            <div class="property-meta">
-                <div class="agent">John Smithy</div>
-                <div class="type-size">
-                    <span>{{ property.type }}</span>
-                    <span>{{ property.size }}</span>
+        <!-- Image Slideshow Container -->
+        <div class="image-container">
+            {% if property.images %}
+                <div class="image-slideshow">
+                    {% for image_url in property.images %}
+                        <img src="{{ image_url }}" alt="Property image" class="slide-image">
+                    {% endfor %}
                 </div>
-                <div class="listing-info">
-                    <span>Listing Date: {{ property.listing_date }}</span>
-                    <span class="status-badge {% if property.is_sold %}sold{% else %}available{% endif %}">
+                {% endif %}
+
+                <button class="slideshow-arrow left-arrow">❮</button>
+                <button class="slideshow-arrow right-arrow">❯</button>
+
+                <div class="slideshow-dots">
+                    {% for image in property.images %}
+                    <span class="dot {% if forloop.first %}active{% endif %}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Container -->
+        <div class="main-content">
+            <!-- Row 1: Seller Info, Address, Price -->
+            <div class="info-row seller-row">
+                <div class="seller-info">
+                    <img src="{% static 'image/profile_icon.png' %}"
+                         class="seller-icon"
+                         alt="Seller icon">
+                    <span class="seller-name">John Smithy</span>
+                </div>
+                <div class="address-info">
+                    <h2>{{ property.street_name }} {{ property.house_num }}</h2>
+                    <p class="location">{{ property.city }} {{ property.postal_code }}</p>
+                </div>
+                <div class="price-info">
+                    <div class="price">{{ property.listing_price }}</div>
+                </div>
+            </div>
+
+            <!-- Row 2: Type, Listing Date, Status -->
+            <div class="info-row meta-info">
+                <div class="meta-item">
+                    <h3>Type</h3>
+                    <p>{{ property.type }}<br>{{ property.size }}</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Listing Date</h3>
+                    <p>{{ property.listing_date }}</p>
+                </div>
+                <div class="meta-item">
+                    <h3>Status</h3>
+                    <p class="status {% if property.is_sold %}sold{% else %}available{% endif %}">
                         {% if property.is_sold %}SOLD{% else %}AVAILABLE{% endif %}
-                    </span>
+                    </p>
                 </div>
             </div>
-        </div>
 
-        <div class="property-image" style="background-image: url({{ property.image }})"></div>
-
-        <div class="details-section">
-            <h2>Details</h2>
-            <div class="details-grid">
-                <div class="detail-item">
-                    <span class="checkmark {% if property.bed %}has-bed{% endif %}"></span>
-                    {{ property.bed }} Bedrooms
-                </div>
-                <div class="detail-item">
-                    <span class="checkmark {% if property.bathroom %}has-bath{% endif %}"></span>
-                    {{ property.bathroom }} Bathroom
-                </div>
-                <div class="detail-item">
-                    <span class="checkmark"></span>
-                    Built {{ property.built }}
+            <!-- Details Section -->
+            <div class="details-section">
+                <h2 class="section-title">Details</h2>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <img src="{{ property.bed_icon }}" class="icon" alt="Bedrooms">
+                        <span>{{ property.bed }} Bedrooms</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ property.bath_icon }}" class="icon" alt="Bathrooms">
+                        <span>{{ property.bathroom }} Bathroom</span>
+                    </div>
+                    <div class="detail-item">
+                        <img src="{{ property.built_icon }}" class="icon" alt="Year Built">
+                        <span>Built {{ property.built }}</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="description-section">
-            <h2>Description</h2>
-            <p>{{ property.description }}</p>
+            <!-- Description Section -->
+            <div class="description-section">
+                <h2 class="section-title">Description</h2>
+                <p>{{ property.description }}</p>
+            </div>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact us</a>
+                    <a href="{% url 'property-index' %}">Properties</a>
+                    <a href="/agencies">Agencies</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
