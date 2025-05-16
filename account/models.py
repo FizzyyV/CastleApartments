@@ -264,8 +264,8 @@ class ProfileManager(models.Manager):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    #profile_image = models.TextField(max_length=9999)
-    profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
+    profile_image = models.TextField(max_length=9999)
+    #profile_image = models.ImageField(upload_to='profile_images/', blank=True, null=True)
 
     objects = ProfileManager()
 
