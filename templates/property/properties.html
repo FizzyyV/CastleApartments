@@ -64,11 +64,14 @@
 
         <div class="form-group">
             <label>Postal Code</label>
-            <input type="text" placeholder="Filter Postal Code...">
+            <label for="search-value"></label><input type="search" id="search-value" class="form-control" placeholder="Postal Code">
+
         </div>
         <div class="form-group">
-            <label>Street</label>
-            <input type="text" placeholder="Filter Street Name...">
+            <input type="text" id="search-value">
+            <button id="search-button">Search</button>
+{#            <label>Street</label>#}
+{#            <input type="text" placeholder="Filter Street Name...">#}
         </div>
 
         </div>
@@ -96,7 +99,7 @@
     <main class="property-detail-container">
        <div class="property-box">
         <h2 class="property-heading">RECENTLY ADDED PROPERTIES</h2>
-        <div class="property-container">
+        <div class="property-container" id="property-placeholder">
             {% for property,address in properties %}
                 <a href="{% url 'property-by-id' property.id %}" class="property-link">
                     <div class="property-item">
@@ -125,6 +128,8 @@
         </div>
     </div>
     </main>
+
+    <script src="{% static 'JS/proporty_filter.js' %}"></script>
 
     <footer class="site-footer">
         <div class="footer-content">
