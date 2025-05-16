@@ -16,13 +16,15 @@
 
 <main class="seller-profile-container">
     <div class="seller-header"
-         {% if seller.cover_image %}
-         style="background-image: url('{{ seller.cover_image.url }}')"
-         {% endif %}>
+{#         {% if seller.cover_image %}#}
+{#         style="background-image: url('{{ seller.cover_image.url }}"#}
+{#         {% endif %}>#}
+
+        style="background-image: url('{% if seller.cover_image %}{{ seller.cover_image.url }}{% else %}{% static 'image/defult_cover_icon.jpg' %}{% endif %}');">
         {% if seller.logo %}
             <div class="logo" style="background-image: url('{{ seller.logo.url }}')"></div>
         {% else %}
-            <div class="logo" style="background-image: url('{% static "image/default_logo.png" %}')"></div>
+            <div class="logo" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
         {% endif %}
         <h1>{{ seller.user.username }}</h1>
         <p class="type">{{ seller.seller_type|title }}</p>
