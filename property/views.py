@@ -161,8 +161,6 @@ properties = [
 ]
 
 
-
-
 def index(request):
     properties = Property.objects.all()
 
@@ -182,10 +180,30 @@ def index(request):
 def get_property_by_id(request, property_id):
     property = Property.objects.get(id=property_id)
     address = Address.objects.get(id=property.propAddress_id)
+    user_offer = None
+    #if user is logged in, check if there is submitted offer to display, else None
+    if request.user.is_authenticated and hasattr(request.user, 'buyer'):
+        user_offer = PurchaseOffer.objects.filter(
+            buyerId=request.user.buyer,
+            propertyId__id=property_id).order_by('-dateSubmitted').first()
+
+    if request.method == "POST":
+        form = SubmitOfferForm(request.POST)
+        if form.is_valid(): #if required fields are valid then create an instance of PurchaseOffer class
+            offer = form.save(commit=False)
+            offer.buyerId = request.user.buyer
+            offer.sellerId = property.sellerId
+            offer.propertyId = property_id
+            offer.save()
+            return redirect('property-by-id', property_id= property_id)
+    else:
+        form = SubmitOfferForm()
 
     return render(request, template_name="property/property_detail.html", context={
         "property": property,
-        "address": address
+        "address": address,
+        "user-offer": user_offer,
+        "form": form,
     })
 
 
@@ -215,31 +233,6 @@ def auth_test(request):
         'authenticated': request.user.is_authenticated
     })
 
-# someone changed my code so idk what this is below
-
-#def index(request):
-    #"""get all properties"""
-    #all_properties = Property.objects.all()
-    #return  render(request,
-                   #"property/properties.html",
-                   #{'properties': all_properties,
-                    #})
-    # latest_property_list = Property.objects.all().order_by('-listing_date')
-    # output = {'latest_property_list': latest_property_list}
-    # return HttpResponse(output)
-
-    # return render(request, template_name="property/properties.html", context={
-    #     "properties": properties
-    # })
-
-#def get_property_by_id(request, prop_id):
-    #"""return property with some id"""
-    #property_to_get = get_object_or_404(Property, pk=prop_id)
-    #return render(request,
-                  #"property/property_detail.html",
-                  #{"property": property_to_get
-                   #})
-
 ### OFFER VIEWS ###
 
 def submit_offer(request, property_id):
@@ -253,11 +246,6 @@ def submit_offer(request, property_id):
         property_to_get = Property.objects.get(id=property_id)
     except Property.DoesNotExist as e:
         return HttpResponse("Property not found", status=404)
-
-    # if the property is sold, user cant make offer
-    if property_to_get.propIsSold:
-        return HttpResponse("Property is already sold", status=400)
-        #TODO: make submit button grayed out if prop unavailable
 
     # if the user has submitted an offer previously, we ask if user wants to resubmit
     # call offer_exists() to check if offer exists for user id and property id
