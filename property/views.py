@@ -1,7 +1,7 @@
 from os.path import exists
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 from property.models import PurchaseOffer
 from .forms import submit_offer_form
@@ -171,16 +171,73 @@ def agencies(request):
     return render(request, 'property/agencies.html')
 
 def index(request):
+    orderT = True
+    order = request.GET.get("order_filter","")
+    if order == "":
+        order = "propertyName"
+        orderT = False
+
+    low = 0
+    high = 99999999999999999999999999999999
+    pricerange = request.GET.get("price_filter", "")
+    if pricerange != "":
+        low,high = pricerange.split("-")
+        low = int(low)
+        high = int(high)
+
+    if 'street_filter' in request.GET or "postal_filter" in request.GET or "type_filter" in request.GET or "price_filter" in request.GET:
+        return JsonResponse({
+            'data': [{
+                'id': x.id,
+                'propertyName': x.propertyName,
+                'propDescription': x.propDescription,
+                'propertyType': x.propertyType,
+                'propListingPrice': x.propListingPrice,
+                'propListingDate': x.propListingDate,
+                'propIsSold': x.propIsSold,
+                'propBedrooms': x.propBedrooms,
+                'propBathrooms': x.propBathrooms,
+                'propSquareMeters': x.propSquareMeters,
+                'propAddress_id': x.propAddress_id,
+                'built': x.built,
+                'house_number': Address.objects.get(id=x.propAddress_id).house_number,
+                'city': Address.objects.get(id=x.propAddress_id).city,
+                'postal_code': Address.objects.get(id=x.propAddress_id).postal_code,
+            } for x in Property.objects.filter(propertyName__icontains=request.GET['street_filter'],
+                                               propertyType__icontains=request.GET['type_filter'],
+                                               propListingPrice__lte=high,
+                                               propListingPrice__gte=low,
+                                               postalCode__icontains=request.GET['postal_filter'],
+                                               ).order_by(order)]
+        })
+    elif orderT:
+        return JsonResponse({
+            'data': [{
+                'id': x.id,
+                'propertyName': x.propertyName,
+                'propDescription': x.propDescription,
+                'propertyType': x.propertyType,
+                'propListingPrice': x.propListingPrice,
+                'propListingDate': x.propListingDate,
+                'propIsSold': x.propIsSold,
+                'propBedrooms': x.propBedrooms,
+                'propBathrooms': x.propBathrooms,
+                'propSquareMeters': x.propSquareMeters,
+                'propAddress_id': x.propAddress_id,
+                'built': x.built,
+                'house_number': Address.objects.get(id=x.propAddress_id).house_number,
+                'city': Address.objects.get(id=x.propAddress_id).city,
+                'postal_code': Address.objects.get(id=x.propAddress_id).postal_code,
+            } for x in Property.objects.filter().order_by(order)]
+        })
+
     properties = Property.objects.all()
 
     arprop = []
-    print(properties)
     for property in properties:
-        print(property.built)
         address = Address.objects.get(id=property.propAddress_id)
         arprop.append({property,address})
 
-    print(arprop)
 
     return render(request, template_name="property/properties.html", context={
          "properties": arprop
