@@ -18,6 +18,19 @@
             <div>CastleApartments</div>
         </a>
 
+{#        {% if user.is_authenticated %}#}
+{#            <a href="{% url 'profile' %}" class="profile-link">#}
+{#                <img src="{% static 'image/profile_icon.png' %}"#}
+{##}
+{##}
+{#                     alt="Profile Icon"#}
+{#                     class="profile-icon">#}
+{#            </a>#}
+{#            {% else %}#}
+{#            <a href="{% url 'login' %}" class="login-link">#}
+{#                <button class="login-button">Log In</button>#}
+{#            </a>#}
+{#        {% endif %}#}
         {% if user.is_authenticated %}
 
 
@@ -30,6 +43,13 @@
                     <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
                 {% endif %}
             </a>
+{#            <a href="{% url 'profile' %}" class="profile-link">#}
+{#                {% if user.profile.profile_image %}#}
+{#                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>#}
+{#                {% else %}#}
+{#                    <div class="avatar" style="background-image: url('{% static 'image/profile_icon.png' %}')"></div>#}
+{#                {% endif %}#}
+{#            </a>#}
         {% else %}
             <a href="{% url 'login' %}" class="login-link">
                 <button class="login-button">Log In</button>
@@ -39,44 +59,45 @@
 
     </header>
 
+
         <div class="search-box">
         <div class="form-row">
 
         <div class="form-group">
             <label>Postal Code</label>
-            <input type="text" placeholder="Filter Postal Code...">
+            <input type="text" id="PostalCode" placeholder="Filter Postal Code...">
         </div>
         <div class="form-group">
             <label>Street</label>
-            <input type="text" placeholder="Filter Street Name...">
+            <input type="text" id="Street" placeholder="Filter Street Name...">
         </div>
 
         </div>
         <div class="form-row">
             <div class="form-group">
                 <label>Type</label>
-                <input type="text" placeholder="Filter Type...">
+                <input type="text" id="Type" placeholder="Filter Type...">
             </div>
         <div class="form-group">
             <label>Price range</label>
-            <input type="text" placeholder="Filter Price range...">
+            <input type="text" id="PriceRange" placeholder="e.g. 1-100">
          </div>
         </div>
 
         <div class="form-row">
             <div class="form-group" style="flex: 1;">
                 <label>Ordered by</label>
-                <input type="text" placeholder="Filter By Order...">
+                <input type="text" id="OrderedBy" placeholder="Filter By Order...">
             </div>
         </div>
 
-        <button class="search-button">SEARCH</button>
+        <button id="SearchButton" class="search-button">SEARCH</button>
     </div>
 
     <main class="property-detail-container">
        <div class="property-box">
         <h2 class="property-heading">RECENTLY ADDED PROPERTIES</h2>
-        <div class="property-container">
+        <div class="property-container" id="property-displayer">
             {% for property,address in properties %}
                 <a href="{% url 'property-by-id' property.id %}" class="property-link">
                     <div class="property-item">
@@ -95,14 +116,6 @@
                             <div class="details">
                                 <span>{{property.propBedrooms}} Bedrooms</span>
                                 <span>{{property.propBathrooms}} Bathroom</span>
-                            </div>
-
-                            <div class="availability-status">
-                              {% if property.propIsSold %}
-                                <span class="sold-badge">SOLD</span>
-                              {% else %}
-                                <span class="available-badge">Available</span>
-                              {% endif %}
                             </div>
 
                             <div class="built-year">Built {{property.built|default:"n/a" }}</div>
@@ -136,5 +149,6 @@
             <p>&copy; 2024 CastleApartments. All rights reserved.</p>
         </div>
     </footer>
+<script src="{% static 'js/filter.js' %}"></script>
 </body>
 </html>
