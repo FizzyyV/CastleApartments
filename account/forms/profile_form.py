@@ -17,3 +17,8 @@ class ProfileForm(ModelForm):
         widgets = {
             'profile_image': forms.TextInput(attrs={'class': 'form-control'}),
         }
+
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username']  # Include other fields if needed
