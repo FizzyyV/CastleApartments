@@ -3,35 +3,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
     <link rel="stylesheet" href="{% static 'CSS/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/login_pretty.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
 </head>
 <body>
+    <header>
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+    </header>
+    <main>
+        <h2>Sign up</h2>
+        <div class="signup-container">
+            <form method="POST" action="{% url 'signup' %}">
+                {% csrf_token %}
 
-<div class="signup-container">
-    <div class="signup-header">
-        <div class="avatar"></div>
-        <h2>Create Account</h2>
-    </div>
+                {% for field in form %}
+                    <div class="form-field">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="field-error">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
 
-    <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
+                <button type="submit">Register</button>
+            </form>
 
-        {% for field in form %}
-            <div class="form-field">
-                {{ field.label_tag }}
-                {{ field }}
-                {% if field.errors %}
-                    <div class="field-error">{{ field.errors }}</div>
-                {% endif %}
+            <p style="margin-top: 1rem;">Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+        </div>
+    </main>
+<footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
             </div>
-        {% endfor %}
-
-        <button type="submit">Register</button>
-    </form>
-
-    <p style="margin-top: 1rem;">Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
-</div>
-
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact us</a>
+                    <a href="{% url 'property-index' %}">Properties</a>
+                    <a href="/agencies">Agencies</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
