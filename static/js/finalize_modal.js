@@ -13,10 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
         if (index === 4) {
             const review = document.getElementById('reviewContent');
             review.innerHTML = `
+                <h3>Contact Info</h3>
                 <p><strong>National ID:</strong> ${document.getElementById('id_nationalId').value}</p>
                 <p><strong>Phone Number:</strong> ${document.getElementById('id_phoneNumber').value}</p>
-                <p><strong>Address:</strong> ${document.getElementById('id_address').value}</p>
-                <p><strong>Payment Method:</strong> ${document.getElementById('id_paymentMethod').value}</p>
+
+                <h3>Address</h3>
+                <p><strong>Street Name:</strong> ${document.querySelector('input[name="street_name"]').value}</p>
+                <p><strong>City:</strong> ${document.querySelector('input[name="city"]').value}</p>
+                <p><strong>Postal Code:</strong> ${document.querySelector('input[name="postal_code"]').value}</p>
+                <p><strong>Country:</strong> ${document.getElementById('country').value}</p>
+
+                <h3>Payment</h3>
+                <p><strong>Method:</strong> ${document.getElementById('id_paymentMethod').value}</p>
                 ${getPaymentDetailsHTML()}
             `;
         }
@@ -47,18 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.nextStep = function(index) {
-        // Optional: add validation before allowing step change
-        // For example:
-        // if (index === 4) {
-        //     // validate inputs here
-        // }
         showStep(index);
     };
 
     document.querySelectorAll(".finalize-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const offerId = btn.dataset.offerId;
-            // Update form action to correct URL
             form.action = `/accounts/profile/finalize_offer/${offerId}/`;
 
             modal.style.display = "flex";
@@ -76,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Payment method change logic
     const paymentSelect = document.getElementById('id_paymentMethod');
     if (paymentSelect) {
         paymentSelect.addEventListener('change', function () {

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="update profile submitted offers" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="cleaning, deleting commented out code and trash files/folders">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/forms/finalize_offer_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/forms/finalize_offer_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profile.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,7 +345,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747429356666</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="cleaning, deleting commented out code and trash files/folders">
+      <option name="closed" value="true" />
+      <created>1747435702612</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747435702612</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +420,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first push" />
     <MESSAGE value="getting rid of manudacturer" />
     <MESSAGE value="adding different URLS" />
     <MESSAGE value="added user to settings.py and added information to the modles.py folder in the user and migrated to create a sql" />
@@ -435,6 +446,7 @@
     <MESSAGE value="Filter???" />
     <MESSAGE value="square meters" />
     <MESSAGE value="Filter link fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter link fix" />
+    <MESSAGE value="cleaning, deleting commented out code and trash files/folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaning, deleting commented out code and trash files/folders" />
   </component>
 </project>

@@ -121,7 +121,28 @@
             <!-- Step 2: Address -->
             <div class="form-step" id="step2" style="display:none;">
                 <h2>Step 2: Address</h2>
-                {{ finalize_form.address.label_tag }} {{ finalize_form.address }}
+                {{ finalize_form.address.label_tag }}
+                <div id="addressFields">
+                    <label>Street name</label>
+                    <input type="text" name="street_name">
+                    <label>City</label>
+                    <input type="text" name="city">
+                    <label>Postal code</label>
+                    <input type="text" name="postal_code">
+                </div>
+                <label for="country">Country</label>
+                <select name="country" id="country">
+                    <option value="iceland">Iceland</option>
+                    <option value="norway">Norway</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="sweden">Sweden</option>
+                    <option value="britain">Britain</option>
+                    <option value="finland">Finland</option>
+                    <option value="faroe-islands">Faroe Islands</option>
+                    <option value="ireland">Ireland</option>
+                    <option value="scotland">Scotland</option>
+
+                </select>
                 <button type="button" onclick="nextStep(1)">Back</button>
                 <button type="button" onclick="nextStep(3)">Next</button>
             </div>

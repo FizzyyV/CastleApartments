@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from django import forms
 
-from property.models import FinalizedOffer
+from property.models import FinalizedOffer, Address
+
 
 class FinalizeOfferForm(ModelForm):
     #extra input fields for payment
@@ -16,21 +17,31 @@ class FinalizeOfferForm(ModelForm):
     mortgage_lender = forms.CharField(required=False)
     agreement_ref = forms.CharField(required=False)
 
+    street_name = forms.CharField()
+    city = forms.CharField()
+    postal_code = forms.CharField()
+
     class Meta:
         model = FinalizedOffer
-        exclude = ['offerId', 'paymentDetails']
+        exclude = ['offerId', 'paymentDetails', 'address']
         widgets = {
         'phoneNumber': forms.TextInput(attrs={'class': 'form-control'}),
-        'address': forms.TextInput(attrs={'class': 'form-control'}),
         'nationalId': forms.NumberInput(attrs={'class': 'form-control'}),
         'paymentMethod': forms.Select(attrs={'class': 'form-control'}),
-        'paymentDetails': forms.Textarea(attrs={'class': 'form-control'}),
 
         }
 
     def save(self, commit=True):
         obj = super().save(commit=False)
-
+        # 1. Save address from form fields
+        address = Address.objects.create(
+            street_name=self.cleaned_data['street_name'],
+            house_number=0,  # You can add a field for this if needed
+            city=self.cleaned_data['city'],
+            postal_code=self.cleaned_data['postal_code'],
+            country=self.cleaned_data['country']
+        )
+        obj.address = address
         # build payment details string
         method = self.cleaned_data.get('paymentMethod')
 
