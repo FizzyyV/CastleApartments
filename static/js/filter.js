@@ -2,17 +2,19 @@ document.addEventListener('DOMContentLoaded', function(){
     function registerSearchButtonHandler(){
         const SearchButton = document.getElementById('SearchButton')
         SearchButton.addEventListener("click", async function(){
-            const searchValueElementS= document.getElementById("Street");
-            const searchValueElementPO = document.getElementById("PostalCode");
-            const SearchValueElementT = document.getElementById("Type");
-            const SearchValueElementPR = document.getElementById("PriceRange");
-            const SearchValueElementO = document.getElementById("OrderedBy");
+            const searchValueElementStreet= document.getElementById("Street");
+            const searchValueElementPostalCode = document.getElementById("PostalCode");
+            const SearchValueElementType = document.getElementById("Type");
+            const SearchValueElementPriceRange = document.getElementById("PriceRange");
+            const SearchValueElementOrderedBy = document.getElementById("OrderedBy");
+
             const propertyDisplayer = document.getElementById('property-displayer');
-            const StreetValue = searchValueElementS.value;
-            const TypeValue = SearchValueElementT.value;
-            const PriceRangeValue = SearchValueElementPR.value;
-            const OrderedByValue = SearchValueElementO.value;
-            const PostalCodeValue = searchValueElementPO.value;
+
+            const StreetValue = searchValueElementStreet.value;
+            const TypeValue = SearchValueElementType.value;
+            const PriceRangeValue = SearchValueElementPriceRange.value;
+            const OrderedByValue = SearchValueElementOrderedBy.value;
+            const PostalCodeValue = searchValueElementPostalCode.value;
 
 
             const responce = await fetch(`?street_filter=${StreetValue}&postal_filter=${PostalCodeValue}&type_filter=${TypeValue}&price_filter=${PriceRangeValue}&order_filter=${OrderedByValue}`);

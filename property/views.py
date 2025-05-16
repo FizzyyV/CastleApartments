@@ -19,146 +19,6 @@ def session_debug(request):
 
 # Create your views here.
 
-# Corrected properties list in views.py
-properties = [
-    {
-        'id': 0,
-        'street_name': 'Faxabraut',
-        'house_num': '120',
-        'city': 'Keflavík',
-        'postal_code': '230',
-        'listing_price': '81.000.000 kr.',
-        'is_sold': False,
-        'seller_id': 1,
-        'image': "https://i.pinimg.com/736x/02/13/7e/02137ec7e0a9be8227b5ef2a43837652.jpg",
-        'bed': '2',
-        'bathroom': '1',
-        'size': '848.708m²',
-        'built': '2020',
-        'listing_date': '30.04.2024',
-        'type': 'Town House',
-        'description': 'Fancy house',
-        'seller_name': 'John Smithy',
-        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
-        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
-        'images': [
-            "https://i.pinimg.com/736x/02/13/7e/02137ec7e0a9be8227b5ef2a43837652.jpg",
-            "https://i.pinimg.com/474x/41/ce/b1/41ceb16c038f914ddad1a165f5da4868.jpg",
-            "https://i.pinimg.com/474x/cd/58/08/cd58082240cdca4c89e284a6bf782a37.jpg"
-        ],
-    },
-    {
-        'id': 1,
-        'street_name': 'Faxabraut',
-        'house_num': '30',
-        'city': 'Keflavík',
-        'postal_code': '230',
-        'listing_price': '70.000.000 kr.',
-        'is_sold': True,
-        'seller_id': 1,
-        'image': "https://i.pinimg.com/736x/ae/0f/f8/ae0ff820b7d2738b668f2d7150b180cd.jpg",
-        'bed': '2',
-        'bathroom': '1',
-        'size': '749.196m²',
-        'built': '2018',
-        'listing_date': '30.04.2024',
-        'type': 'Detached House',
-        'description': 'Pretty House',
-        'seller_name': 'John Smithy',
-        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
-        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
-        'images': [
-            "https://i.pinimg.com/736x/ae/0f/f8/ae0ff820b7d2738b668f2d7150b180cd.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-        ],
-    },
-
-    {
-        'id': 2,
-        'street_name': 'Birkihlíð',
-        'house_num': '45',
-        'city': 'Reykjavík',
-        'postal_code': '101',
-        'listing_price': '95.500.000 kr.',
-        'is_sold': False,
-        'seller_id': 0,
-        'image': 'https://i.pinimg.com/736x/8f/6f/07/8f6f07b1e4254eed9f4dac2080b9057a.jpg',
-        'bed': '3',
-        'bathroom': '2',
-        'size': '920.453m²',
-        'built': '2021',
-        'listing_date': '05.05.2024',
-        'type': 'Modern Villa',
-        'description': 'Spacious modern villa with a garden view.',
-        'seller_name': 'John Smithy',
-        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
-        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
-        'images': [
-            "https://i.pinimg.com/736x/8f/6f/07/8f6f07b1e4254eed9f4dac2080b9057a.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-        ],
-    },
-
-    {
-        'id': 3,
-        'street_name': 'Lindargata',
-        'house_num': '78',
-        'city': 'Akureyri',
-        'postal_code': '600',
-        'listing_price': '65.000.000 kr.',
-        'is_sold': False,
-        'seller_id': 0,
-        'image': 'https://i.pinimg.com/736x/f6/65/48/f66548110843eda678d70692dd528dda.jpg',
-        'bed': '2',
-        'bathroom': '1',
-        'size': '688.120m²',
-        'built': '2016',
-        'listing_date': '03.05.2024',
-        'type': 'Cottage',
-        'description': 'Cozy cottage nestled in a quiet neighborhood.',
-        'seller_name': 'John Smithy',
-        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
-        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
-        'images': [
-            "https://i.pinimg.com/736x/f6/65/48/f66548110843eda678d70692dd528dda.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-        ],
-    },
-    {
-        'id': 4,
-        'street_name': 'Sólheimar',
-        'house_num': '12B',
-        'city': 'Hafnarfjörður',
-        'postal_code': '220',
-        'listing_price': '78.000.000 kr.',
-        'is_sold': True,
-        'seller_id': 1,
-        'image': 'https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg',
-        'bed': '3',
-        'bathroom': '2',
-        'size': '810.000m²',
-        'built': '2019',
-        'listing_date': '28.04.2024',
-        'type': 'Semi-Detached',
-        'description': 'Elegant semi-detached house with upgraded interiors.',
-        'seller_name': 'John Smithy',
-        'bed_icon': 'https://i.postimg.cc/vBj3YZW5/image-1.png',
-        'bath_icon': 'https://i.postimg.cc/SQ2gZchd/image-2.png',
-        'built_icon': 'https://i.postimg.cc/sgNB0GyP/image-3.png',
-        'images': [
-            "https://i.pinimg.com/736x/66/ab/bd/66abbdb2ab203c976da1a765761cc8f1.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-        ],
-    }
-]
 
 # property/views.py
 def about(request):
@@ -171,19 +31,26 @@ def agencies(request):
     return render(request, 'property/agencies.html')
 
 def index(request):
-    orderT = True
-    order = request.GET.get("order_filter","")
-    if order == "":
-        order = "propertyName"
-        orderT = False
-
-    low = 0
-    high = 99999999999999999999999999999999
+    order_by_has_value = True
+    order_by = request.GET.get("order_filter","")
+    
+    #If there is no specified value then we will order by name
+    if order_by == "":
+        order_by = "propertyName"
+        order_by_has_value = False
+    
+    #high base price incase no value gets sent
+    low_value = 0
+    high_value = 99999999999999999999999999999999
     pricerange = request.GET.get("price_filter", "")
     if pricerange != "":
-        low,high = pricerange.split("-")
-        low = int(low)
-        high = int(high)
+        #try is there to keep the request running incase there is a bad/incorrect value sent
+        try:
+            low_value,high_value = pricerange.split("-")
+            low_value = int(low_value)
+            high_value = int(high_value)
+        except:
+            pass
 
     if 'street_filter' in request.GET or "postal_filter" in request.GET or "type_filter" in request.GET or "price_filter" in request.GET:
         return JsonResponse({
@@ -206,12 +73,12 @@ def index(request):
                 'propThumbnail': str(x.propThumbnail)
             } for x in Property.objects.filter(propertyName__icontains=request.GET['street_filter'],
                                                propertyType__icontains=request.GET['type_filter'],
-                                               propListingPrice__lte=high,
-                                               propListingPrice__gte=low,
+                                               propListingPrice__lte=high_value,
+                                               propListingPrice__gte=low_value,
                                                postalCode__icontains=request.GET['postal_filter'],
-                                               ).order_by(order)]
+                                               ).order_by(order_by)]
         })
-    elif orderT:
+    elif order_by_has_value:
         return JsonResponse({
             'data': [{
                 'id': x.id,
@@ -229,19 +96,19 @@ def index(request):
                 'house_number': Address.objects.get(id=x.propAddress_id).house_number,
                 'city': Address.objects.get(id=x.propAddress_id).city,
                 'postal_code': Address.objects.get(id=x.propAddress_id).postal_code,
-            } for x in Property.objects.filter().order_by(order)]
+            } for x in Property.objects.filter().order_by(order_by)]
         })
 
     properties = Property.objects.all()
 
-    arprop = []
+    addprop = []
     for property in properties:
         address = Address.objects.get(id=property.propAddress_id)
-        arprop.append({property,address})
+        addprop.append({property,address})
 
 
     return render(request, template_name="property/properties.html", context={
-         "properties": arprop
+         "properties": addprop
     })
 
 def get_property_by_id(request, property_id):
