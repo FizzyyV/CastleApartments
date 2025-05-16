@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -24,11 +23,13 @@ SECRET_KEY = 'django-insecure-hty#x!ykj4ygwb30h=8xj9+*mq6md-0mi+9yqf9&k_5!+nl$+m
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
+AUTH_USER_MODEL = 'account.User'
+
+# AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
 
 # Application definition
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account.apps.UserConfig',
-    'property.apps.PropertyConfig'
+    'property.apps.PropertyConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -58,11 +60,11 @@ ROOT_URLCONF = 'CastleApartments.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -72,7 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'CastleApartments.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -86,7 +87,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -106,7 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -118,6 +117,22 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Session will expire after browser close
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Cookie age 1 hour (optional)
+SESSION_COOKIE_AGE = 3600
+
+# Add these to settings.py
+SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Default but let's confirm
+SESSION_COOKIE_NAME = "castle_session"  # Unique cookie name
+SESSION_COOKIE_AGE = 86400  # 24h (standard)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = 'login'  # This should match your URL name
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -128,10 +143,14 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = "home"  # new
-LOGOUT_REDIRECT_URL = "home"
+#LOGIN_REDIRECT_URL = "/accounts/profile"  # new
+LOGIN_REDIRECT_URL = '/accounts/profile/'
 
+LOGOUT_REDIRECT_URL = "/"
+SIGNUP_REDIRECT_URL = "/account/profile"

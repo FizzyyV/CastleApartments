@@ -37,7 +37,7 @@
     </div>
     <form method="post" action="{% url 'signup' %}">
         {% csrf_token %}
-        {{ from }}
+        {{ form }}
 {#        <input type="submit" class ="btn btn-primary" value="signup"/>#}
         {% for field in form %}
             <div class="form-field">
