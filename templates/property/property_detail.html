@@ -58,8 +58,6 @@
                         </div>
                 </div>
 
-
-{#                <div class="agent">John Smithy</div>#}
                 <div class="type-size">
                     <span>{{ property.propertyType }}</span>
                     <span>{{ property.propSquareMeters }} m2</span>
@@ -81,8 +79,6 @@
 
             </div>
         </div>
-
-{#        <div class="property-image" style="background-image: url({{ property.propImages }})"></div>#}
 
         <div class="slideshow-container">
             {% for img in property.images.all %}
@@ -106,8 +102,6 @@
             <span class="dot" onclick="setSlide({{ forloop.counter }})"></span>
         {% endfor %}
         </div>
-
-
 
         <div class="details-section">
             <h2>Details</h2>

@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/filter.js" afterDir="false" />
-    </list>
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="update profile submitted offers" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TEST" />
+        <entry key="$PROJECT_DIR$" value="sollav2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,12 +40,12 @@
     &quot;assignee&quot;: &quot;FizzyyV&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FizzyyV/CastleApartments.git",
-    "accountId": "3db4702e-cd3c-478f-8fd1-866a820a84b9"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FizzyyV/CastleApartments.git&quot;,
+    &quot;accountId&quot;: &quot;3db4702e-cd3c-478f-8fd1-866a820a84b9&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>

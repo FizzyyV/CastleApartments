@@ -9,16 +9,10 @@ urlpatterns = [
     # http://localhost:9000/123 (id NUM)
     path('<int:property_id>/', views.get_property_by_id, name='property-by-id'),
 
-    #path('<int:property_id>/submit_offer', views.submit_offer, name='property-submit-offer'),
-
     path('auth-test/', views.auth_test, name='auth-test'),
-
-
-    # path('session-debug/', views.session_debug, name='session-debug'),
 
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('agencies/', views.agencies, name='agencies'),
 
-    #path('<int:property_id>/finalize_offer', views.finalize_purchase_offer, name='property-finalize-offer'),
 ]

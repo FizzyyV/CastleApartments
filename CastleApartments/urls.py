@@ -31,8 +31,6 @@ urlpatterns = [
     # http://localhost:5000/admin
     path('admin/', admin.site.urls),
 
-    #path('login/', auth_views.LoginView.as_view(template_name='account/../templates/registration/login_pretty.html'), name='login'),
-    #path('logout/', auth_views.LogoutView.as_view(next_page='property-index'), name='logout'),
 
     #maybe dont need
     path('accounts/', include('account.urls')),

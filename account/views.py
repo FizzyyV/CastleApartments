@@ -103,47 +103,6 @@ def profile(request):
         'finalized_success': finalized_success,
     })
 
-
-
-
-
-
-#
-# def profile(request):
-#     account_profile = Profile.objects.filter(user=request.user).first()
-#
-#     if request.method == "POST":
-#         form = ProfileForm(request.POST, instance=request.user.profile)
-#         if form.is_valid():
-#             instance = form.save(commit=False)
-#             instance.user = request.user
-#             instance.save()
-#             return redirect('profile')
-#     else:
-#         form = ProfileForm(instance=account_profile)
-#
-#     offers = []
-#     if request.user.is_authenticated and hasattr(request.user, 'buyer'):
-#         #get the latest offers submitted for each property
-#         latest_offer_ids = (
-#             PurchaseOffer.objects
-#             .filter(buyerId=request.user.buyer)
-#             .values('propertyId')
-#             .annotate(latest_id=Max('id'))
-#             .values_list('latest_id', flat=True)
-#         )
-#         offers = PurchaseOffer.objects.filter(id__in=latest_offer_ids).select_related('propertyId')
-#     all_offers = PurchaseOffer.objects.filter(buyerId=request.user.buyer).select_related('propertyId')
-#     finalized_offer_ids = set(FinalizedOffer.objects.filter(offerId__in=offers).values_list('offerId', flat=True))
-#     finalized_success = request.GET.get('finalized', None)=='1'
-#     return render(request, 'account/profile.html', {
-#             'form':form,
-#             'offers':offers,
-#             'finalized_offer_ids':finalized_offer_ids,
-#             'finalize_form':property.forms.finalize_offer_form.FinalizeOfferForm()
-#
-#         })
-
 def finalize_purchase_offer(request, offer_id):
     """finalize an accepted purchase offer"""
     try: #check if offer exists
