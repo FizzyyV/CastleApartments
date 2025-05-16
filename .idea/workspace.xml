@@ -7,8 +7,6 @@
     <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="changed built to default to n/a when it is 'None'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/login_pretty.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login_pretty.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/FizzyyV/CastleApartments.git&quot;,
-    &quot;accountId&quot;: &quot;3db4702e-cd3c-478f-8fd1-866a820a84b9&quot;
+    &quot;accountId&quot;: &quot;22446d80-05fd-4549-b5ac-357d45b810f1&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -70,6 +68,7 @@
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;sollav2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -110,8 +109,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PY-251.23774.444" />
-        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.122" />
+        <option value="bundled-python-sdk-880ecab49056-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.122" />
       </set>
     </attachedChunks>
   </component>
@@ -126,6 +125,8 @@
       <workItem from="1747345842377" duration="402000" />
       <workItem from="1747346263107" duration="7890000" />
       <workItem from="1747391580040" duration="957000" />
+      <workItem from="1747417962326" duration="136000" />
+      <workItem from="1747418141672" duration="747000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <option name="closed" value="true" />
@@ -357,7 +358,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Eyrun-Branch" />
+                        <option value="origin/TEST" />
                       </list>
                     </value>
                   </entry>
