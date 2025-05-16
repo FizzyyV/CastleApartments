@@ -9,7 +9,7 @@ urlpatterns = [
     # http://localhost:9000/123 (id NUM)
     path('<int:property_id>/', views.get_property_by_id, name='property-by-id'),
 
-    path('<int:property_id>/submit_offer', views.submit_offer, name='property-submit-offer'),
+    #path('<int:property_id>/submit_offer', views.submit_offer, name='property-submit-offer'),
 
     path('auth-test/', views.auth_test, name='auth-test'),
 

@@ -202,31 +202,10 @@ def get_property_by_id(request, property_id):
     return render(request, template_name="property/property_detail.html", context={
         "property": property,
         "address": address,
-        "user-offer": user_offer,
+        "previous_offer": user_offer,
         "form": form,
     })
 
-
-'''
-def get_property_by_id(request, property_id):
-    property_to_get = next((x for x in properties if x ['id'] == property_id), None)
-    if property_to_get is None:
-        return HttpResponse("Property not found", status=404)
-
-    user_offer = None
-    #if user is logged in, check if there is submitted offer to display, else None
-    if request.user.is_authenticated and hasattr(request.user, 'buyer'):
-        user_offer = PurchaseOffer.objects.filter(
-            user=request.user.buyer,
-            property_id=property_to_get).order_by('-dateSubmitted').first()
-    form = SubmitOfferForm()
-
-    return render(request, template_name="property/property_detail.html",
-                  context={"property": property_to_get ,
-                           "user_offer": user_offer,
-                           "form": form
-    })
-'''
 def auth_test(request):
     return render(request, 'property/auth_test.html', {
         'user': request.user,
@@ -234,52 +213,55 @@ def auth_test(request):
     })
 
 ### OFFER VIEWS ###
+#
+# def submit_offer(request, property_id):
+#     """submit a purchase offer for available property
+#         calls helper function offer_exists to check for previous offers"""
+#     user = request.user
+#     if not user.is_authenticated or not hasattr(user, 'buyer'):
+#         return HttpResponse("User does not have permission to submit offers", status=403)
+#
+#     try:
+#         property_to_get = Property.objects.get(id=property_id)
+#     except Property.DoesNotExist as e:
+#         return HttpResponse("Property not found", status=404)
+#
+#     # if the user has submitted an offer previously, we ask if user wants to resubmit
+#     # call offer_exists() to check if offer exists for user id and property id
+#     #prev_offer = offer_exists(user.id, property_id)
+#
+#     user_offer = PurchaseOffer.objects.filter(
+#             buyerId=request.user.buyer,
+#             propertyId__id=property_id).order_by('-dateSubmitted').first()
+#
+#     if request.method == "POST":
+#         form = SubmitOfferForm(request.POST)
+#         if form.is_valid(): #if required fields are valid then create an instance of PurchaseOffer class
+#             offer = form.save(commit=False)
+#             offer.buyerId = user.buyer
+#             offer.sellerId = property_to_get.sellerId
+#             offer.propertyId = property_to_get
+#             offer.offerStatus = 'Pending'
+#             offer.save()
+#             return redirect('property-by-id', property_id= property_id)
+#     else:
+#         form = SubmitOfferForm()
+#
+#     return render(request, template_name="property/property_detail.html",
+#                   context={'property': property_to_get,
+#                            'previous_offer': user_offer,
+#                            'form': form
+#                 })
 
-def submit_offer(request, property_id):
-    """submit a purchase offer for available property
-        calls helper function offer_exists to check for previous offers"""
-    user = request.user
-    if not user.is_authenticated or not hasattr(user, 'buyer'):
-        return HttpResponse("User does not have permission to submit offers", status=403)
-
-    try:
-        property_to_get = Property.objects.get(id=property_id)
-    except Property.DoesNotExist as e:
-        return HttpResponse("Property not found", status=404)
-
-    # if the user has submitted an offer previously, we ask if user wants to resubmit
-    # call offer_exists() to check if offer exists for user id and property id
-    prev_offer = offer_exists(user.id, property_id)
-
-    if request.method == "POST":
-        form = SubmitOfferForm(request.POST)
-        if form.is_valid(): #if required fields are valid then create an instance of PurchaseOffer class
-            offer = form.save(commit=False)
-            offer.buyerId = user.buyer
-            offer.sellerId = property_to_get.sellerId
-            offer.propertyId = property_to_get
-            offer.offerStatus = 'Pending'
-            offer.save()
-            return redirect('property-by-id', property_id= property_id)
-    else:
-        form = SubmitOfferForm()
-
-    return render(request, template_name="property/property_detail.html",
-                  context={'property': property_to_get,
-                           'previous_offer': prev_offer,
-                           'form': form
-                })
-    #TODO: create template for purchase offer
-
-def offer_exists(user_id, property_id)-> PurchaseOffer | None:
-    """finds previously submitted offer by user for some property"""
-    #check if offer(s) with user_id exists and has property_id
-    prev_offer = PurchaseOffer.objects.filter(
-        buyerId__user__id = user_id,
-        propertyId__id = property_id
-    ).order_by('-dateSubmitted').first()
-    #if offer exists, return offer id
-    return prev_offer if prev_offer else None
+# def offer_exists(user_id, property_id)-> PurchaseOffer | None:
+#     """finds previously submitted offer by user for some property"""
+#     #check if offer(s) with user_id exists and has property_id
+#     prev_offer = PurchaseOffer.objects.filter(
+#         buyerId__user__id = user_id,
+#         propertyId__id = property_id
+#     ).order_by('-dateSubmitted').first()
+#     #if offer exists, return offer id
+#     return prev_offer if prev_offer else None
 
 
 def finalize_purchase_offer(request, property_id, offer_id):

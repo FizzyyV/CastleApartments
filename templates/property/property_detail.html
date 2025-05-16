@@ -100,7 +100,7 @@
             <div class="content">
                 <span class="close-button" id="closeModal">&times;</span>
                 <h2>Submit your offer</h2>
-                <form method="post" action="{% url 'property-submit-offer' property.id %}">
+                <form method="post" action="{% url 'property-by-id' property.id %}">
                     {% csrf_token %}
                     {{ form }}
                     <button type="submit" class="btn btn-primary">Submit</button>
