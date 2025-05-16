@@ -40,7 +40,7 @@ class Property(models.Model):
 class PropertyImages(models.Model):
     """store multiple images for detail page"""
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="property/images", null=True, blank=True)
+    image = models.ImageField(upload_to="property/images", null=True, blank=True) #for storing image files (e.g. image.png)
     image_url = models.URLField(null=True, blank=True)  # Add this if storing remote images
 
 ### OFFER CLASSES ###
