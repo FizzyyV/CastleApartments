@@ -45,6 +45,16 @@ def custom_login(request):
 
 
 def profile(request):
+    # Redirect sellers to their seller profile page
+    if request.user.role == 'seller':
+        try:
+            seller = Seller.objects.get(user=request.user)
+            return redirect('sellerprofile', seller_id=seller.id)
+        except Seller.DoesNotExist:
+            return HttpResponse("Seller profile not found", status=404)
+
+    # Buyer logic continues here
+
     account_profile = Profile.objects.filter(user=request.user).first()
 
     if request.method == "POST":
