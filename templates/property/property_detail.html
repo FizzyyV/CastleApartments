@@ -30,6 +30,15 @@
     </header>
 
     <main class="property-detail-container">
+        {% if messages %}
+             <div class="message-container">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="property-header">
             <h1>{{ property.propertyName }} {{ address.house_number }}</h1>
             <div class="location">{{ address.city }} {{ address.postal_code }}</div>
@@ -38,8 +47,10 @@
                 <div class="seller-info">
                     <strong>Seller:</strong>
                         <div class="seller-thumbnail">
-                            {% if property.sellerId.logo %}
-                            <img src="{{ property.sellerId.logo.url }}" alt="Seller logo" class="seller-logo">
+                            {% if seller.logo %}
+                                <div class="logo" style="background-image: url('{{ seller.logo.url }}')"></div>
+                            {% else %}
+                                <div class="logo" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
                             {% endif %}
                             <a href="{% url 'sellerprofile' property.sellerId.id %}">
                                 {{ property.sellerId.user.username }}

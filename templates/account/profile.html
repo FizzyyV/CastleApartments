@@ -9,25 +9,7 @@
     <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
 </head>
 <body>
-{#    <header>#}
-{#        <a href="{% url 'property-index' %}" class="site-title-link">#}
-{#            <div>CastleApartments</div>#}
-{#        </a>#}
-{#            <form action="{% url 'logout' %}" method="post" class="profile-link">#}
-{#                {% csrf_token %}#}
-{#                <button type="submit" class="logout-button">Log Out</button>#}
-{#            </form>#}
-{##}
-{#        <a href="{% url 'profile' %}" class="profile-link">#}
-{#            {% if "http" in user.profile.profile_image|stringformat:"s" %}#}
-{#                <div class="avatar" style="background-image: url('{{ user.profile.profile_image }}')"></div>#}
-{#            {% elif user.profile.profile_image %}#}
-{#                <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>#}
-{#            {% else %}#}
-{#                <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>#}
-{#            {% endif %}#}
-{#        </a>#}
-{#    </header>#}
+
     <header>
         <a href="{% url 'property-index' %}" class="site-title-link">
             <div>CastleApartments</div>
@@ -75,9 +57,6 @@
             <input type="submit" value="Update Profile">
         </form>
 
-
-
-
         <div class="profile-header">
             <h1>{{ user.username|default:"User Profile" }}</h1>
             <div class="user-role">{{ user.role|title }}</div>
@@ -95,9 +74,14 @@
                     {% if offers %}
                         {% for offer in offers %}
                             <div class="offer-card"> <!--show most recent offers for properties-->
-                                <p><strong>Property:</strong>{{ offer.propertyId.propertyName }}</p>
+
+                                <p><strong>Property:</strong>
+                                    <a href="{% url 'property-by-id' offer.propertyId.id %}">{{ offer.propertyId.propertyName }}</a> </p>
+                                <p><strong>Date submitted:</strong>{{ offer.dateSubmitted }}</p>
+                                <p><strong>Date expires:</strong>{{ offer.dateExpires }}</p>
                                 <p><strong>Price:</strong>{{ offer.offerPrice }}</p>
                                 <p><strong>Status:</strong>{{ offer.offerStatus }}</p>
+                                <p><strong>Seller:</strong>{{ offer.propertyId.sellerId.user }}</p>
 
                                 {% if offer.id in finalized_offer_ids %} <!--cant finalize twice-->
                                     <button disabled class="finalize-btn">Sold</button>
