@@ -6,9 +6,11 @@
     <title>{{ property.street_name }} Details - CastleApartments</title>
     <!-- Include all CSS files -->
     <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/homepage.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/property_detail.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'CSS/login_button.css' %}">
+    <link rel="stylesheet" href="{% static '/CSS/logIn_button.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/filter.css' %}">
 </head>
 <body>
     <header>
@@ -27,6 +29,40 @@
             </a>
         {% endif %}
     </header>
+
+        <div class="search-box">
+        <div class="form-row">
+
+        <div class="form-group">
+            <label>Postal Code</label>
+            <input type="text" placeholder="Filter Postal Code...">
+        </div>
+        <div class="form-group">
+            <label>Street</label>
+            <input type="text" placeholder="Filter Street Name...">
+        </div>
+
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Type</label>
+                <input type="text" placeholder="Filter Type...">
+            </div>
+        <div class="form-group">
+            <label>Price range</label>
+            <input type="text" placeholder="Filter Price range...">
+         </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group" style="flex: 1;">
+                <label>Ordered by</label>
+                <input type="text" placeholder="Filter By Order...">
+            </div>
+        </div>
+
+        <button class="search-button">SEARCH</button>
+    </div>
 
     <main class="property-detail-container">
        <div class="property-box">
