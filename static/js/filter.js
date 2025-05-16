@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 const json = await responce.json();
                 const properties = json.data.map(property => `
                    <div class="property-item">
+                   <a href="${property.id}" class="property-link">
                         <div class="property-image-container">
                         </div>
                         <div class="property-info">
