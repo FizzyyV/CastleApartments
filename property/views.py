@@ -193,7 +193,7 @@ def get_property_by_id(request, property_id):
             offer = form.save(commit=False)
             offer.buyerId = request.user.buyer
             offer.sellerId = property.sellerId
-            offer.propertyId = property_id
+            offer.propertyId = property
             offer.save()
             return redirect('property-by-id', property_id= property_id)
     else:
@@ -212,29 +212,4 @@ def auth_test(request):
         'authenticated': request.user.is_authenticated
     })
 
-# def finalize_purchase_offer(request, property_id, offer_id):
-#     """finalize an accepted purchase offer"""
-#     try: #check if offer exists
-#         offer = PurchaseOffer.objects.get(id=offer_id, propertyId__id=property_id)
-#     except PurchaseOffer.DoesNotExist:
-#         return HttpResponse("Offer not found", status=404)
-#
-#     if offer.offerStatus != 'Accepted': #if offer is not accepted it cannot be finalized
-#         return HttpResponse("Offer must be accepted to finalize", status=400)
-#
-#     if request.method == "POST":
-#         form = FinalizeOfferForm(request.POST)
-#         if form.is_valid():
-#             finalize_offer = form.save(commit=False)
-#             finalize_offer.offerId = offer
-#             finalize_offer.propertyId = property_id
-#             finalize_offer.save()
-#             return redirect('property-by-id', property_id=property_id)
-#     else:
-#         form = FinalizeOfferForm()
-#
-#     return render(request, template_name="property/property_detail.html",
-#                   context={'property': property_id,
-#                             'form': form,
-#                             'offer': offer
-#                          })
+

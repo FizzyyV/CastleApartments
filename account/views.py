@@ -9,7 +9,7 @@ from account.forms.profile_form import CustomUserCreationForm, ProfileForm
 from account.models import Buyer, Profile
 from django.core.exceptions import ObjectDoesNotExist
 
-from property.models import PurchaseOffer
+from property.models import PurchaseOffer, FinalizedOffer
 
 
 def signup(request):
@@ -68,10 +68,13 @@ def profile(request):
             .values_list('latest_id', flat=True)
         )
         offers = PurchaseOffer.objects.filter(id__in=latest_offer_ids).select_related('propertyId')
-
+    all_offers = PurchaseOffer.objects.filter(buyerId=request.user.buyer).select_related('propertyId')
+    finalized_offer_ids = set(FinalizedOffer.objects.filter(offerId__in=offers).values_list('offerId', flat=True))
+    finalized_success = request.GET.get('finalized', None)=='1'
     return render(request, 'account/profile.html', {
             'form':form,
             'offers':offers,
+            'finalized_offer_ids':finalized_offer_ids,
             'finalize_form':property.forms.finalize_offer_form.FinalizeOfferForm()
 
         })
@@ -86,6 +89,11 @@ def finalize_purchase_offer(request, offer_id):
     if offer.offerStatus != 'Accepted': #if offer is not accepted it cannot be finalized
         return HttpResponse("Offer must be accepted to finalize", status=400)
 
+    # Check if already finalized
+    existing_finalized = getattr(offer, 'finalizedoffer', None)  # OneToOne relation
+    if existing_finalized:
+        return HttpResponse("Offer already finalized", status=400)
+
     if request.method == "POST":
         form = property.forms.finalize_offer_form.FinalizeOfferForm(request.POST)
         if form.is_valid():
@@ -93,7 +101,8 @@ def finalize_purchase_offer(request, offer_id):
             finalize_offer.offerId = offer
             finalize_offer.propertyId = offer.propertyId
             finalize_offer.save()
-            return redirect('profile')
+            finalize_offer.propertyId.propIsSold = True
+            return redirect('/accounts/profile/?finalized=1')
     else:
         form = property.forms.finalize_offer_form.FinalizeOfferForm()
 

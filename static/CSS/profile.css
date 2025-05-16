@@ -209,3 +209,14 @@
   background-color: #88c0d0;
   color: white;
 }
+
+.success-message {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 20px;
+    margin: 10px auto 30px;
+    max-width: 600px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}

@@ -19,6 +19,17 @@
     </header>
 
     <main class="profile-container">
+        {% if finalized_success %}
+        <div class="success-message">
+            Purchase offer successfully finalized!
+        </div>
+        <script>
+          setTimeout(() => {
+            document.querySelector('.success-message').style.display = 'none';
+          }, 4000);
+        </script>
+        {% endif %}
+
         <form method="POST" action="{% url 'profile' %}">
 
             {% csrf_token %}
@@ -42,17 +53,19 @@
                 <div class="offers-list">
                     {% if offers %}
                         {% for offer in offers %}
-                            <div class="offer-card">
+                            <div class="offer-card"> <!--show most recent offers for properties-->
                                 <p><strong>Property:</strong>{{ offer.propertyId.propertyName }}</p>
                                 <p><strong>Price:</strong>{{ offer.offerPrice }}</p>
                                 <p><strong>Status:</strong>{{ offer.offerStatus }}</p>
 
-                                {% if offer.offerStatus == "Accepted" %}
+                                {% if offer.id in finalized_offer_ids %} <!--cant finalize twice-->
+                                    <button disabled class="finalize-btn">Sold</button>
+
+                                {% elif offer.offerStatus == "Accepted" %} <!--if offer is accepted we can finalize-->
                                     <button type="button" class="finalize-btn" data-offer-id="{{ offer.id }}" onclick="openFinalizeModal({{ offer.id }})">
                                         Finalize
                                     </button>
                                 {% endif %}
-
                             </div>
                         {% endfor %}
                     {% else %}
@@ -120,8 +133,18 @@
                 </div>
 
                 <button type="button" onclick="nextStep(2)">Back</button>
-                <button type="submit">Submit Finalized Offer</button>
+                <button type="button" onclick="nextStep(4)">Next</button>
             </div>
+            <!-- Step 4: Review -->
+            <div class="form-step" id="step4" style="display:none;">
+                <h2>Step 4: Review</h2>
+                <div id="reviewContent">
+                    <!-- Fill with JS -->
+                </div>
+                <button type="button" onclick="nextStep(3)">Back</button>
+                <button type="submit">Confirm & Submit</button>
+            </div>
+
         </form>
     </div>
 </div>
