@@ -1,21 +1,37 @@
-{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'CSS/signup.css' %}">
+</head>
+<body>
 
-{% block content %}
-  <h1>Sign Up</h1>
+<div class="signup-container">
+    <div class="signup-header">
+        <div class="avatar"></div>
+        <h2>Create Account</h2>
+    </div>
 
-  <form method="POST" action="{% url 'signup' %}">
-    {% csrf_token %}
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
 
-    {% for field in form %}
-      <div class="form-group">
-        {{ field.label_tag }}
-        {{ field }}
-        {% if field.errors %}
-          <div class="text-danger">{{ field.errors }}</div>
-        {% endif %}
-      </div>
-    {% endfor %}
+        {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="field-error">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
 
-    <input type="submit" value="Register" class="btn btn-primary">
-  </form>
-{% endblock %}
+        <button type="submit">Register</button>
+    </form>
+
+    <p style="margin-top: 1rem;">Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+</div>
+
+</body>
+</html>

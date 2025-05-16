@@ -1,0 +1,89 @@
+/* auth_pink.css */
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background-color: #ffe6ee;
+  color: #3d3d3d;
+}
+
+header {
+  background-color: #ffb6c1;
+  padding: 20px;
+  text-align: center;
+}
+
+.site-title-link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+main {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2 {
+  font-weight: normal;
+  margin-bottom: 30px;
+  color: #d63384;
+}
+
+/* Shared auth box styling */
+.auth-box {
+  background: white;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #a60c56;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff0f6;
+}
+
+button {
+  padding: 10px;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e05297;
+}
+
+.auth-footer {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.auth-footer a {
+  color: #d63384;
+  text-decoration: none;
+  font-weight: bold;
+}

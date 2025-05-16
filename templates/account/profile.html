@@ -6,6 +6,7 @@
     <title>User Profile</title>
     <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
 </head>
 <body>
     <header>
@@ -150,6 +151,27 @@
 </div>
 
 <script src="{% static 'JS/finalize_modal.js' %}"></script>
-
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact us</a>
+                    <a href="{% url 'property-index' %}">Properties</a>
+                    <a href="/agencies">Agencies</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
