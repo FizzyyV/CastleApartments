@@ -124,6 +124,15 @@ properties = [
     }
 ]
 
+# property/views.py
+def about(request):
+    return render(request, 'property/about.html')
+
+def contact(request):
+    return render(request, 'property/contact.html')
+
+def agencies(request):
+    return render(request, 'property/agencies.html')
 
 
 
