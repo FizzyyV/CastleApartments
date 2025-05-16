@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".finalize-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             const offerId = btn.dataset.offerId;
-            const propertyId = btn.dataset.propertyId;
 
             // Update the form action to point to the correct URL
-            form.action = `/property/${propertyId}/finalize_offer/${offerId}/`;
+            form.action = `/accounts/profile/finalize_offer/${offerId}/`;
 
-            modal.style.display = "block";
+            // Show modal with flex to center content
+            modal.style.display = "flex";
             showStep(1);
         });
     });

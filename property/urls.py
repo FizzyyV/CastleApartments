@@ -16,5 +16,5 @@ urlpatterns = [
 
     path('session-debug/', views.session_debug, name='session-debug'),
 
-    path('<int:property_id>/finalize_offer', views.finalize_purchase_offer, name='property-finalize-offer'),
+    #path('<int:property_id>/finalize_offer', views.finalize_purchase_offer, name='property-finalize-offer'),
 ]

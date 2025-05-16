@@ -27,7 +27,7 @@
 
         </form>
         <div class="profile-header">
-            <h1>{{ user.get_full_name|default:"User Profile" }}</h1>
+            <h1>{{ user.username|default:"User Profile" }}</h1>
             <div class="user-role">{{ user.role|title }}</div>
         </div>
 
@@ -41,18 +41,18 @@
                 <h2>Submitted Offers</h2>
                 <div class="offers-list">
                     {% if offers %}
-                        {% for offers in offers %}
+                        {% for offer in offers %}
                             <div class="offer-card">
                                 <p><strong>Property:</strong>{{ offer.propertyId.propertyName }}</p>
                                 <p><strong>Price:</strong>{{ offer.offerPrice }}</p>
                                 <p><strong>Status:</strong>{{ offer.offerStatus }}</p>
 
                                 {% if offer.offerStatus == "Accepted" %}
-                                    <button class="finalize-btn" data-offer-id="{{ offer.id }}"
-                                            data-property-id="{{ offer.propertyId.id }}">
+                                    <button type="button" class="finalize-btn" data-offer-id="{{ offer.id }}" onclick="openFinalizeModal({{ offer.id }})">
                                         Finalize
                                     </button>
                                 {% endif %}
+
                             </div>
                         {% endfor %}
                     {% else %}
@@ -69,7 +69,7 @@
 <div id="finalizeModal" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close-button" id="closeModal">&times;</span>
-        <form method="POST" id="finalizeForm">
+        <form method="POST" id="finalizeForm" action="">
             {% csrf_token %}
 
             <!-- Step 1: Contact Info -->
