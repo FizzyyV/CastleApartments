@@ -27,7 +27,6 @@ class Property(models.Model):
     propListingPrice = models.FloatField()
     propListingDate = models.DateField()
     propThumbnail = models.ImageField(upload_to="property/thumbnail", null=True, blank=True)
-    propImages = models.ImageField(upload_to="property/images", null=True, blank=True)
     propIsSold = models.BooleanField()
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
@@ -37,6 +36,11 @@ class Property(models.Model):
 
     def __str__(self):
         return f"{self.propertyName}"
+
+class PropertyImages(models.Model):
+    """store multiple images for detail page"""
+    property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="property/images", null=True, blank=True)
 
 ### OFFER CLASSES ###
 

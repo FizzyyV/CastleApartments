@@ -56,7 +56,17 @@
             </div>
         </div>
 
-        <div class="property-image" style="background-image: url({{ property.propImages }})"></div>
+{#        <div class="property-image" style="background-image: url({{ property.propImages }})"></div>#}
+
+        <div class="property-gallery">
+          {% for img in property.images.all %}
+            <div class="image-slide">
+              <img src="{{ img.image.url }}" alt="{{ img.caption }}">
+            </div>
+          {% empty %}
+            <p>No additional images available.</p>
+          {% endfor %}
+        </div>
 
         <div class="details-section">
             <h2>Details</h2>
