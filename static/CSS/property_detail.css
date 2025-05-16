@@ -398,3 +398,18 @@
     font-weight: bold;
     margin-top: 10px;
 }
+.seller-thumbnail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
