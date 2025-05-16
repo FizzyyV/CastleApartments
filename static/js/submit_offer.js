@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (openBtn && closeBtn && modal) {
         openBtn.onclick = () => {
+            if (openBtn.disabled) return;  // Prevent modal if button is disabled
             modal.style.display = "block";
         };
 

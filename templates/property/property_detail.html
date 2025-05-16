@@ -68,6 +68,47 @@
             <h2>Description</h2>
             <p>{{ property.propDescription }}</p>
         </div>
+
+        <div class="submit-offer">
+            <h2>Submit a purchase offer</h2>
+            {% if previous_offer %}
+                <p>Your previous offer:</p>
+                <ul>
+                    <li>Price: {{ previous_offer.offerPrice }}</li>
+                    <li>Status: {{ previous_offer.offerStatus }}</li>
+                    <li>Expires: {{ previous_offer.dateExpires }}</li>
+                </ul>
+            {% endif %}
+
+            {% if not user.is_authenticated or property.propIsSold %}
+                <button id="openOfferModal" class="offer-button" disabled>
+                    {% if property.propIsSold %}
+                        Property Sold
+                    {% else %}
+                        Log in to Submit Offer
+                    {% endif %}
+                </button>
+            {% else %}
+                <button id="openOfferModal" class="offer-button">
+                    {% if previous_offer %}Resubmit Offer{% else %}Submit Offer{% endif %}
+                </button>
+            {% endif %}
+
+        </div>
     </main>
+    <div id="offerModal" class="modal" style="display: none">
+            <div class="content">
+                <span class="close-button" id="closeModal">&times;</span>
+                <h2>Submit your offer</h2>
+                <form method="post" action="{% url 'property-by-id' property.id %}">
+                    {% csrf_token %}
+                    {{ form }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+    </div>
+    <script src="{% static 'JS/submit_offer.js' %}"></script>
+
 </body>
 </html>
