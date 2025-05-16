@@ -1,5 +1,6 @@
 from os.path import exists
 
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -245,7 +246,7 @@ def submit_offer(request, property_id):
         form = SubmitOfferForm(request.POST)
         if form.is_valid(): #if required fields are valid then create an instance of PurchaseOffer class
             offer = form.save(commit=False)
-            offer.buyerId = user.buyer
+            offer.buyer = User
             offer.sellerId = property_to_get.sellerId
             offer.propertyId = property_to_get
             offer.offerStatus = 'Pending'
@@ -265,7 +266,7 @@ def offer_exists(user_id, property_id)-> PurchaseOffer | None:
     """finds previously submitted offer by user for some property"""
     #check if offer(s) with user_id exists and has property_id
     prev_offer = PurchaseOffer.objects.filter(
-        buyerId__user__id = user_id,
+        buyer__id= user_id,
         propertyId__id = property_id
     ).order_by('-dateSubmitted').first()
     #if offer exists, return offer id

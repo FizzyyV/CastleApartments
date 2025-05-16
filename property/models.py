@@ -1,5 +1,6 @@
 from winreg import EnumKey
 
+from django.contrib.auth.models import User
 from django.db import models
 
 #import account.models
@@ -40,7 +41,7 @@ class Property(models.Model):
 ### OFFER CLASSES ###
 
 class PurchaseOffer(models.Model):
-    buyerId = models.ForeignKey("account.Buyer", on_delete=models.SET_NULL, null=True)
+    buyer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='purchase_offers')
     propertyId = models.ForeignKey("Property", on_delete=models.SET_NULL, null=True)
     sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
     dateSubmitted = models.DateField(auto_now_add=True)

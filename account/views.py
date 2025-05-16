@@ -1,33 +1,35 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-
-
-import account
-from property.forms.finalize_offer_form import FinalizeOfferForm
-from property.models import PurchaseOffer
-from .models import User
-# Create your views here.
-
-from django.contrib.auth.forms import UserCreationForm
-from django.urls import reverse_lazy
-from django.views.generic import CreateView
-
-# account/views.py
-from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render
 from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.shortcuts import render, redirect
 
-from django.contrib.auth.decorators import login_required
+from account.forms.profile_form import ProfileForm
+from account.models import Profile
 
-@login_required
-def profile_view(request):
-    buyer_offers = PurchaseOffer.objects.filter(buyerId__user=request.user)
-    form = FinalizeOfferForm()
-    return render(request, 'account/profile.html',
-                  context={'user': request.user,
-                           'offers': buyer_offers,
-                           'finalize_form': form
-                           })
+
+def signup(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('custom_login')
+    else:
+        return render(request, 'registration/signup.html',{
+            'form': UserCreationForm()
+        })
+
+def profile(request):
+    user_profile = Profile.objects.filter(user=request.user).first()
+    if request.method == "POST":
+        form = ProfileForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return redirect('profile')
+
+    return render(request, 'account/profile.html', {
+        'form': ProfileForm(instance=user_profile),
+    })
 
 def custom_login(request):
     if request.method == "POST":
@@ -40,52 +42,3 @@ def custom_login(request):
         form = AuthenticationForm()
 
     return render(request, 'registration/login_pretty.html', {'form': form})
-
-
-
-class SignUpView(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "registration/signup.html"
-
-
-
-
-# def index(request):
-#     return render(request, "account/accounts.html", context={
-#         "accounts": accounts
-#     })
-#
-# def get_account_by_id(request, id):
-#     account= [x for x in accounts if x.id == id][0]
-#     return render(request, "account/accounts.detail.html", context={
-#         "account": account
-#     })
-#
-#
-#
-#
-#
-#
-# def login_view(request):
-#     """handles login view"""
-#     user = authenticate(request, email=request.POST['username'], password=request.POST['password'])
-#     if user is not None:
-#         login(request, user)
-#         return redirect('homepage') #TODO: create homepage template
-#     else:
-#         return render(request, 'login', {'error': 'invalid credentials'})
-#     return render(request, '' ) #TODO: template name
-#
-# def logout_view(request):
-#     logout(request)
-#     return redirect('homepage')
-# def signup_view(request):
-#     user = User.objects.create_user(request.POST['username'], request.POST['email'], request.POST['password'])
-#     return render(request, '' ) #TODO: template name
-#
-# def profile_view(request):
-#     user = request.user
-#     return redirect(request, 'user.profile' ) #TODO: template name
-#
-#

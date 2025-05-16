@@ -1,4 +1,4 @@
-from django.contrib.auth import forms
+
 from django.forms import ModelForm
 from django import forms
 
@@ -10,6 +10,6 @@ class ProfileForm(ModelForm):
         model = Profile
         exclude = ['user', 'id']
         widgets = {
-            'profile_image' :forms.TextInput(attrs={'class':'form-control'}),
+            'profile_image' :forms.ImageField(),
         }
 
