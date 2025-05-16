@@ -32,7 +32,7 @@ class Property(models.Model):
     propBedrooms = models.IntegerField()
     propBathrooms = models.IntegerField()
     propSquareMeters = models.FloatField()
-    sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
+    #sellerId = models.ForeignKey("account.Seller", on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"{self.propertyName}"

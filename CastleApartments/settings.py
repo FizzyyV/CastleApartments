@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -24,11 +23,13 @@ SECRET_KEY = 'django-insecure-hty#x!ykj4ygwb30h=8xj9+*mq6md-0mi+9yqf9&k_5!+nl$+m
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-#DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-#AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
+AUTH_USER_MODEL = 'account.User'
+
+# AUTH_USER_MODEL = 'account.User'  # or 'accounts.User', depending on your app name
 
 # Application definition
 
@@ -72,9 +73,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'CastleApartments.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -88,7 +87,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -107,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
@@ -130,7 +127,6 @@ SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Default but let's conf
 SESSION_COOKIE_NAME = "castle_session"  # Unique cookie name
 SESSION_COOKIE_AGE = 86400  # 24h (standard)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
