@@ -205,6 +205,7 @@ def get_property_by_id(request, property_id):
             offer.sellerId = property.sellerId
             offer.propertyId = property
             offer.save()
+            offer.propertyId.check_and_update_sold_status()
             return redirect('property-by-id', property_id= property_id)
     else:
         form = SubmitOfferForm()

@@ -49,10 +49,15 @@
                 </div>
                 <div class="listing-info">
                     <span>Listing Date: {{ property.propListingDate }}</span>
-                    <span class="status-badge {% if property.propIsSold %}sold{% else %}available{% endif %}">
-                        {% if property.propIsSold %}SOLD{% else %}AVAILABLE{% endif %}
-                    </span>
                 </div>
+                <div class="availability-status">
+                    {% if property.propIsSold %}
+                        <span class="sold-badge">SOLD</span>
+                    {% else %}
+                        <span class="available-badge">Available</span>
+                    {% endif %}
+                </div>
+
             </div>
         </div>
 
