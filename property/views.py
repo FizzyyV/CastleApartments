@@ -2,6 +2,7 @@ from os.path import exists
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from pyexpat.errors import messages
 
 from property.models import PurchaseOffer
 from .forms import submit_offer_form
@@ -11,7 +12,7 @@ from .models import Property, Address, PurchaseOffer, FinalizedOffer
 
 
 from django.contrib.sessions.models import Session
-
+from django.contrib import messages
 def session_debug(request):
     sessions = Session.objects.all()
     return render(request, 'session_debug.html', {'sessions': sessions})
@@ -206,6 +207,7 @@ def get_property_by_id(request, property_id):
             offer.propertyId = property
             offer.save()
             offer.propertyId.check_and_update_sold_status()
+            messages.success(request, "Your Purchase offer was submitted successfully!")
             return redirect('property-by-id', property_id= property_id)
     else:
         form = SubmitOfferForm()

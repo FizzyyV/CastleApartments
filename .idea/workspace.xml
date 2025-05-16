@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="square meters">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="added seller image to property detail page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/property/property_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/property_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747428177711</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added seller image to property detail page">
+      <option name="closed" value="true" />
+      <created>1747430012768</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1747430012768</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +411,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first push" />
     <MESSAGE value="getting rid of manudacturer" />
     <MESSAGE value="adding different URLS" />
     <MESSAGE value="added user to settings.py and added information to the modles.py folder in the user and migrated to create a sql" />
@@ -428,6 +435,7 @@
     <MESSAGE value="create PropertyImages class instead of propImages attribute" />
     <MESSAGE value="postal code field add" />
     <MESSAGE value="square meters" />
-    <option name="LAST_COMMIT_MESSAGE" value="square meters" />
+    <MESSAGE value="added seller image to property detail page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added seller image to property detail page" />
   </component>
 </project>
