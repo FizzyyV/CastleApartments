@@ -110,8 +110,8 @@ def finalize_purchase_offer(request, offer_id):
             finalize_offer = form.save(commit=False)
             finalize_offer.offerId = offer
             finalize_offer.propertyId = offer.propertyId
-            finalize_offer.save()
             finalize_offer.propertyId.propIsSold = True
+            finalize_offer.save()
             return redirect('/accounts/profile/?finalized=1')
     else:
         form = property.forms.finalize_offer_form.FinalizeOfferForm()
