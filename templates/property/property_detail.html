@@ -30,6 +30,15 @@
     </header>
 
     <main class="property-detail-container">
+        {% if messages %}
+             <div class="message-container">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <div class="property-header">
             <h1>{{ property.propertyName }} {{ address.house_number }}</h1>
             <div class="location">{{ address.city }} {{ address.postal_code }}</div>
