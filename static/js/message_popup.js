@@ -1,2 +1,2 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.querySelector('.popup');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const popup = document.querySelector('.popup');

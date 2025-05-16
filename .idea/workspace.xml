@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="success message submit offer">
-      <change afterPath="$PROJECT_DIR$/static/js/message_popup.js" afterDir="false" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="success message submit offer&#10;created js file to make it a pop up but i dont feel like it...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/CSS/property_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/property_detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -362,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747431666332</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="success message submit offer&#10;created js file to make it a pop up but i dont feel like it...">
+      <option name="closed" value="true" />
+      <created>1747432602438</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747432602438</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding different URLS" />
     <MESSAGE value="added user to settings.py and added information to the modles.py folder in the user and migrated to create a sql" />
     <MESSAGE value="address and property class&#10;property class needs sellerId as foreign key" />
     <MESSAGE value="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key" />
@@ -454,6 +461,7 @@
     <MESSAGE value="square meters" />
     <MESSAGE value="added seller image to property detail page" />
     <MESSAGE value="success message submit offer" />
-    <option name="LAST_COMMIT_MESSAGE" value="success message submit offer" />
+    <MESSAGE value="success message submit offer&#10;created js file to make it a pop up but i dont feel like it..." />
+    <option name="LAST_COMMIT_MESSAGE" value="success message submit offer&#10;created js file to make it a pop up but i dont feel like it..." />
   </component>
 </project>
