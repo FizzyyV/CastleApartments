@@ -4,29 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <title>User Profile</title>
-    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/profile_heder.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/profile.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
 </head>
 <body>
+{#    <header>#}
+{#        <a href="{% url 'property-index' %}" class="site-title-link">#}
+{#            <div>CastleApartments</div>#}
+{#        </a>#}
+{#            <form action="{% url 'logout' %}" method="post" class="profile-link">#}
+{#                {% csrf_token %}#}
+{#                <button type="submit" class="logout-button">Log Out</button>#}
+{#            </form>#}
+{##}
+{#        <a href="{% url 'profile' %}" class="profile-link">#}
+{#            {% if "http" in user.profile.profile_image|stringformat:"s" %}#}
+{#                <div class="avatar" style="background-image: url('{{ user.profile.profile_image }}')"></div>#}
+{#            {% elif user.profile.profile_image %}#}
+{#                <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>#}
+{#            {% else %}#}
+{#                <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>#}
+{#            {% endif %}#}
+{#        </a>#}
+{#    </header>#}
     <header>
         <a href="{% url 'property-index' %}" class="site-title-link">
             <div>CastleApartments</div>
         </a>
-            <form action="{% url 'logout' %}" method="post" class="profile-link">
+
+        <div class="auth-section">
+            <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit" class="logout-button">Log Out</button>
             </form>
 
-        <a href="{% url 'profile' %}" class="profile-link">
-            {% if "http" in user.profile.profile_image|stringformat:"s" %}
-                <div class="avatar" style="background-image: url('{{ user.profile.profile_image }}')"></div>
-            {% elif user.profile.profile_image %}
-                <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>
-            {% else %}
-                <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
-            {% endif %}
-        </a>
+            <a href="{% url 'profile' %}" class="profile-link">
+                {% if "http" in user.profile.profile_image|stringformat:"s" %}
+                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image }}')"></div>
+                {% elif user.profile.profile_image %}
+                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>
+                {% else %}
+                    <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
+                {% endif %}
+            </a>
+        </div>
     </header>
 
     <main class="profile-container">
