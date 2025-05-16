@@ -183,8 +183,10 @@ from django.contrib.auth.models import User
 
 
 from django.shortcuts import render, redirect
-from account.forms.profile_form import CustomUserCreationForm
-from account.models import Buyer
+from account.forms.profile_form import CustomUserCreationForm, ProfileForm
+from account.models import Buyer, Profile
+from django.core.exceptions import ObjectDoesNotExist
+
 
 def signup(request):
     if request.method == "POST":
@@ -197,9 +199,37 @@ def signup(request):
                 Buyer.objects.create(user=user)
             elif user.role == 'seller':
                 pass  # Optional: Create Seller.objects.create(user=user)
+            Profile.objects.create(user=user, profile_image='')  # Use default image or logic
+
 
             return redirect('login')
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'account/signup.html', {'form': form})
+
+def profile(request):
+    try:
+        account_profile = Profile.objects.get(user=request.user)
+    except Profile.DoesNotExist:
+        # Create one if it doesn’t exist, or redirect to a profile creation form
+        account_profile = Profile.objects.create(user=request.user,profile_image='')  # adjust default image logic as needed
+    #account_profile = Profile.objects.get(user=request.user).first()
+    if request.method == "POST":
+        form = ProfileForm(request.POST, instance=account_profile)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=account_profile)
+
+    return render(request, 'account/profile.html', {
+        'form': ProfileForm(instance=account_profile),
+    })
+
+
+
+
+
