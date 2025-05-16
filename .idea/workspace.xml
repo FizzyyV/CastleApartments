@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute">
+      <change afterPath="$PROJECT_DIR$/static/image/defult_cover_icon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/seller_profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/seller_profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/seller_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/seller_profile.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,7 +69,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "TEST",
+    "git-widget-placeholder": "eyrun__profile",
     "ignore.virus.scanning.warn.message": "true",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -76,6 +81,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\eyrun\Documents\verklegt2\CastleApartments\static\image" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="CastleApartments" type="Python.DjangoServer" factoryName="Django server">
       <module name="CastleApartments" />
