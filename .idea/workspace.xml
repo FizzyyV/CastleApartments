@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="cleaning">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="reworked account models.py&#10;made Profile class to replace buyer&#10;made seller class not connected to User, only for display&#10;reworked account views.py and urls.py&#10;updated property models.py to fit new account models.py&#10;but now log in page is ugly :( and cant see sign up button...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CastleApartments/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CastleApartments/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CastleApartments/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CastleApartments/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/forms/profile_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms/profile_form.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/property/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/registration/login_pretty.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/login_pretty.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -368,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747334804140</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="reworked account models.py&#10;made Profile class to replace buyer&#10;made seller class not connected to User, only for display&#10;reworked account views.py and urls.py&#10;updated property models.py to fit new account models.py&#10;but now log in page is ugly :( and cant see sign up button...">
+      <option name="closed" value="true" />
+      <created>1747361408844</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747361408844</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added user to settings.py and added information to the modles.py folder in the user and migrated to create a sql" />
     <MESSAGE value="address and property class&#10;property class needs sellerId as foreign key" />
     <MESSAGE value="made migrations&#10;address and property class&#10;property class needs sellerId as foreign key" />
     <MESSAGE value="conected property to user by giving seller an address using the address class in property" />
@@ -438,6 +436,7 @@
     <MESSAGE value="cleaning property views.py" />
     <MESSAGE value="new database" />
     <MESSAGE value="cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaning" />
+    <MESSAGE value="reworked account models.py&#10;made Profile class to replace buyer&#10;made seller class not connected to User, only for display&#10;reworked account views.py and urls.py&#10;updated property models.py to fit new account models.py&#10;but now log in page is ugly :( and cant see sign up button..." />
+    <option name="LAST_COMMIT_MESSAGE" value="reworked account models.py&#10;made Profile class to replace buyer&#10;made seller class not connected to User, only for display&#10;reworked account views.py and urls.py&#10;updated property models.py to fit new account models.py&#10;but now log in page is ugly :( and cant see sign up button..." />
   </component>
 </project>
