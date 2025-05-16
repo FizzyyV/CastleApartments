@@ -14,7 +14,11 @@ urlpatterns = [
     path('auth-test/', views.auth_test, name='auth-test'),
 
 
-    path('session-debug/', views.session_debug, name='session-debug'),
+    # path('session-debug/', views.session_debug, name='session-debug'),
+
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
+    path('agencies/', views.agencies, name='agencies'),
 
     #path('<int:property_id>/finalize_offer', views.finalize_purchase_offer, name='property-finalize-offer'),
 ]

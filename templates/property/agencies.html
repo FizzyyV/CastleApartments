@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Partner Agencies - CastleApartments</title>
+    <link rel="stylesheet" href="{% static 'CSS/header_base.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/agencies.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/footer.css' %}">
+</head>
+<body>
+    <header>
+        <a href="{% url 'property-index' %}" class="site-title-link">
+            <div>CastleApartments</div>
+        </a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}" class="profile-link">
+                <img src="{% static 'image/profile_icon.png' %}"
+                     alt="Profile Icon"
+                     class="profile-icon">
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-link">
+                <button class="login-button">Log In</button>
+            </a>
+        {% endif %}
+    </header>
+
+    <main class="agencies-container">
+        <h1>Our Trusted Partners</h1>
+
+        <div class="agency-grid">
+            <div class="agency-card">
+                <div class="agency-info">
+                    <h2>Nordic Homes</h2>
+                    <p class="specialization">Modern Scandinavian Architecture</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +354 588-1122</p>
+                        <p><i class="fas fa-envelope"></i> info@nordichomes.is</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Reykjavík, Iceland</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-card">
+                <div class="agency-info">
+                    <h2>Arctic Properties</h2>
+                    <p class="specialization">Luxury Real Estate Experts</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +354 588-3344</p>
+                        <p><i class="fas fa-envelope"></i> contact@arcticprop.is</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Akureyri, Iceland</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="agency-card">
+                <div class="agency-info">
+                    <h2>Fjord Living</h2>
+                    <p class="specialization">Coastal & Rural Properties</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +354 588-5566</p>
+                        <p><i class="fas fa-envelope"></i> hello@fjordliving.is</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Ísafjörður, Iceland</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="partnership-info">
+            <h2>Become a Partner Agency</h2>
+            <p>We're always looking to collaborate with quality-focused real estate agencies.
+               Contact our partnership team to learn about collaboration opportunities.</p>
+            <a href="{% url 'contact' %}" class="partnership-button">Contact Partnership Team</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CastleApartments</h3>
+                <p>Real estate street 101, 101 Reykjavík</p>
+                <p>Work hours: Mon-Fri 09:00-16:00</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <nav class="footer-links">
+                    <a href="{% url 'property-index' %}">Home</a>
+                    <a href="{% url 'about' %}">About</a>
+                    <a href="{% url 'contact' %}">Contact us</a>
+                    <a href="{% url 'agencies' %}">Agencies</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 CastleApartments. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
