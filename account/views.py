@@ -11,7 +11,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('custom_login')
+            return redirect('login')
     else:
         return render(request, 'registration/signup.html',{
             'form': UserCreationForm()

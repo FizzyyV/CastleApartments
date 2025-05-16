@@ -10,6 +10,6 @@ class ProfileForm(ModelForm):
         model = Profile
         exclude = ['user', 'id']
         widgets = {
-            'profile_image' :forms.ImageField(),
+            'profile_image' :forms.ClearableFileInput(),
         }
 
