@@ -207,29 +207,41 @@ def signup(request):
         form = CustomUserCreationForm()
 
     return render(request, 'account/signup.html', {'form': form})
+#
+# def profile(request):
+#     try:
+#         account_profile = Profile.objects.get(user=request.user)
+#     except Profile.DoesNotExist:
+#         # Create one if it doesn’t exist, or redirect to a profile creation form
+#         account_profile = Profile.objects.create(user=request.user,profile_image='')  # adjust default image logic as needed
+#     #account_profile = Profile.objects.get(user=request.user).first()
+#     if request.method == "POST":
+#         form = ProfileForm(request.POST, instance=account_profile)
+#         if form.is_valid():
+#             instance = form.save(commit=False)
+#             instance.user = request.user
+#             instance.save()
+#             return redirect('profile')
+#     else:
+#         form = ProfileForm(instance=account_profile)
+#
+#     return render(request, 'account/profile.html', {
+#         'form': ProfileForm(instance=account_profile),
+#     })
+
+
 
 def profile(request):
-    try:
-        account_profile = Profile.objects.get(user=request.user)
-    except Profile.DoesNotExist:
-        # Create one if it doesn’t exist, or redirect to a profile creation form
-        account_profile = Profile.objects.create(user=request.user,profile_image='')  # adjust default image logic as needed
-    #account_profile = Profile.objects.get(user=request.user).first()
+    account_profile = Profile.objects.filter(user=request.user).first()
+
     if request.method == "POST":
-        form = ProfileForm(request.POST, instance=account_profile)
+        form = ProfileForm(request.POST, instance=request.user.profile)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
             return redirect('profile')
-    else:
-        form = ProfileForm(instance=account_profile)
-
     return render(request, 'account/profile.html', {
-        'form': ProfileForm(instance=account_profile),
-    })
-
-
-
-
+            'form':ProfileForm(instance=account_profile),
+        })
 

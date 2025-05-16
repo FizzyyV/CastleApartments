@@ -15,17 +15,46 @@
         <a href="{% url 'property-index' %}" class="site-title-link">
             <div>CastleApartments</div>
         </a>
+
+{#        {% if user.is_authenticated %}#}
+{#            <a href="{% url 'profile' %}" class="profile-link">#}
+{#                <img src="{% static 'image/profile_icon.png' %}"#}
+{##}
+{##}
+{#                     alt="Profile Icon"#}
+{#                     class="profile-icon">#}
+{#            </a>#}
+{#            {% else %}#}
+{#            <a href="{% url 'login' %}" class="login-link">#}
+{#                <button class="login-button">Log In</button>#}
+{#            </a>#}
+{#        {% endif %}#}
         {% if user.is_authenticated %}
+
+
             <a href="{% url 'profile' %}" class="profile-link">
-                <img src="{% static 'image/profile_icon.png' %}"
-                     alt="Profile Icon"
-                     class="profile-icon">
+                {% if "http" in user.profile.profile_image|stringformat:"s" %}
+                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image }}')"></div>
+                {% elif user.profile.profile_image %}
+                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>
+                {% else %}
+                    <div class="avatar" style="background-image: url('{% static "image/profile_icon.png" %}')"></div>
+                {% endif %}
             </a>
+{#            <a href="{% url 'profile' %}" class="profile-link">#}
+{#                {% if user.profile.profile_image %}#}
+{#                    <div class="avatar" style="background-image: url('{{ user.profile.profile_image.url }}')"></div>#}
+{#                {% else %}#}
+{#                    <div class="avatar" style="background-image: url('{% static 'image/profile_icon.png' %}')"></div>#}
+{#                {% endif %}#}
+{#            </a>#}
         {% else %}
             <a href="{% url 'login' %}" class="login-link">
                 <button class="login-button">Log In</button>
             </a>
         {% endif %}
+
+
     </header>
 
     <main class="property-detail-container">

@@ -230,3 +230,14 @@
         justify-content: center;
     }
 }
+
+
+    .avatar{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: solid .5px darkgray;
+        background-size: cover;
+        background-position:center;
+        background-repeat: no-repeat;
+    }
