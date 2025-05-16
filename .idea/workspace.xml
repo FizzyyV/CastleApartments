@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="changed built to default to n/a when it is 'None'">
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/property/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/property/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/CSS/property_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/CSS/property_detail.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/property/property_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/property_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -305,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747416041338</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="create PropertyImages class instead of propImages attribute">
+      <option name="closed" value="true" />
+      <created>1747421221845</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747421221845</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,17 +403,7 @@
     <MESSAGE value="added confirmation step to finalizeoffer" />
     <MESSAGE value="added footer to some pages" />
     <MESSAGE value="missing seller object fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="missing seller object fix" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="jinja2-line">
-          <url>file://$PROJECT_DIR$/templates/property/property_detail.html</url>
-          <line>58</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="create PropertyImages class instead of propImages attribute" />
+    <option name="LAST_COMMIT_MESSAGE" value="create PropertyImages class instead of propImages attribute" />
   </component>
 </project>
