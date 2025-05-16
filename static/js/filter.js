@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
                    <div class="property-item">
                    <a href="${property.id}" class="property-link">
                         <div class="property-image-container">
+                        <div class="property-image" style="background-image: url(${ property.propThumbnail})"></div>
                         </div>
                         <div class="property-info">
                             <h3>${property.propertyName} ${property.house_number}</h3>

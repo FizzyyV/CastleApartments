@@ -7,7 +7,7 @@ from property.models import PurchaseOffer
 from .forms import submit_offer_form
 from .forms.finalize_offer_form import FinalizeOfferForm
 from .forms.submit_offer_form import SubmitOfferForm
-from .models import Property, Address, PurchaseOffer, FinalizedOffer
+from .models import Property, Address, PurchaseOffer, FinalizedOffer, PropertyImages
 
 
 from django.contrib.sessions.models import Session
@@ -203,6 +203,7 @@ def index(request):
                 'house_number': Address.objects.get(id=x.propAddress_id).house_number,
                 'city': Address.objects.get(id=x.propAddress_id).city,
                 'postal_code': Address.objects.get(id=x.propAddress_id).postal_code,
+                'propThumbnail': str(x.propThumbnail)
             } for x in Property.objects.filter(propertyName__icontains=request.GET['street_filter'],
                                                propertyType__icontains=request.GET['type_filter'],
                                                propListingPrice__lte=high,
