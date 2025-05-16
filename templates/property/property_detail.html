@@ -37,10 +37,16 @@
             <div class="property-meta">
                 <div class="seller-info">
                     <strong>Seller:</strong>
-                    <a href="{% url 'sellerprofile' property.sellerId.id %}">
-                        {{ property.sellerId.user.username }}
-                    </a>
+                        <div class="seller-thumbnail">
+                            {% if property.sellerId.logo %}
+                            <img src="{{ property.sellerId.logo.url }}" alt="Seller logo" class="seller-logo">
+                            {% endif %}
+                            <a href="{% url 'sellerprofile' property.sellerId.id %}">
+                                {{ property.sellerId.user.username }}
+                            </a>
+                        </div>
                 </div>
+
 
 {#                <div class="agent">John Smithy</div>#}
                 <div class="type-size">
@@ -50,6 +56,10 @@
                 <div class="listing-info">
                     <span>Listing Date: {{ property.propListingDate }}</span>
                 </div>
+                <div class="price">
+                    <strong>Listing Price:</strong> {{ property.propListingPrice }} ISK
+                </div>
+
                 <div class="availability-status">
                     {% if property.propIsSold %}
                         <span class="sold-badge">SOLD</span>

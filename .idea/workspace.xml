@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="create PropertyImages class instead of propImages attribute" />
+    <list default="true" id="f89775fc-0760-48a5-be63-8468ffdae002" name="Changes" comment="square meters" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -325,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747426735934</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="square meters">
+      <option name="closed" value="true" />
+      <created>1747428177711</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1747428177711</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,6 +424,7 @@
     <MESSAGE value="missing seller object fix" />
     <MESSAGE value="create PropertyImages class instead of propImages attribute" />
     <MESSAGE value="postal code field add" />
-    <option name="LAST_COMMIT_MESSAGE" value="postal code field add" />
+    <MESSAGE value="square meters" />
+    <option name="LAST_COMMIT_MESSAGE" value="square meters" />
   </component>
 </project>
