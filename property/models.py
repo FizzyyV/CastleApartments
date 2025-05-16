@@ -38,6 +38,18 @@ class Property(models.Model):
     def __str__(self):
         return f"{self.propertyName}"
 
+    def check_and_update_sold_status(self):
+        has_accepted_offer = PurchaseOffer.objects.filter(
+            propertyId = self,
+            offerStatus='Accepted'
+        ).exists()
+        if has_accepted_offer and not self.propIsSold:
+            self.propIsSold = True
+            self.save()
+        elif not has_accepted_offer and self.propIsSold:
+            self.propIsSold = False
+            self.save()
+
 class PropertyImages(models.Model):
     """store multiple images for detail page"""
     property = models.ForeignKey(Property, on_delete=models.CASCADE, related_name="images")
